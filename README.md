@@ -1,4 +1,8 @@
-# MySQL/MariaDB
+# SQL Database
+
+>[理论知识](./Theory.md)
+
+<!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
 
 ## 下载
 
@@ -6,6 +10,8 @@
 - [MariaDB](https://downloads.mariadb.org/mariadb/)
 - [Sqliteman](http://sqliteman.yarpen.cz/)
 - [NavicatPremium](https://www.navicat.com/en/download/navicat-premium)
+
+<!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
 
 ## 安装
 
@@ -18,14 +24,18 @@ REM 添加环境变量 MYSQL_HOME
 SET MYSQL_HOME=D:\ProgramFiles\MariaDB\mariadb-10.1.38-winx64\
 SET PATH=%MYSQL_HOME%\bin;%PATH%
 CD /D "%MYSQL_HOME%"
+
 REM 创建配置文件
 COPY /-Y ".\my-small.ini" ".\my.ini"
+
 REM 初始化用户名为mysql、密码为空。
 mysqld --initialize-insecure --user=mysql
-REM （管理员）删除服务
+
+REM （管理员）删除旧服务
 sc delete mariadb>nul
 REM （管理员）安装服务
 mysqld --install mariadb
+
 REM 启动服务
 net start mariadb
 ```
@@ -46,6 +56,8 @@ mysql -u用户名 -p[密码]
 # 登录管理
 mysql -u用户名 -p[密码]
 ```
+
+<!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
 
 ## 备份及恢复
 
