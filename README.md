@@ -69,6 +69,7 @@ SELECT user,host FROM mysql.user;
 
 # 创建用户
 CREATE USER 'username'@'host' IDENTIFIED BY 'password';
+CREATE USER 'username'@'%' IDENTIFIED BY 'password';
 
 # 修改指定用户密码
 SET PASSWORD FOR 'username'@'host' = PASSWORD('new_password');
