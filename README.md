@@ -9,7 +9,8 @@
 - [MySQL](https://dev.mysql.com/downloads/mysql/)
 - [MariaDB](https://downloads.mariadb.org/mariadb/)
 - [Sqliteman](http://sqliteman.yarpen.cz/)
-- [NavicatPremium](https://www.navicat.com/en/download/navicat-premium)
+- [HeidiSQL](https://www.heidisql.com/download.php)
+- [NavicatPremium](./packages/Navicat_Premium_11.2.7.7z)
 
 <!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
 
