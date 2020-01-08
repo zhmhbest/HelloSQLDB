@@ -203,13 +203,14 @@ SHOW CREATE DATABASE 库名;
 
 ```SQL
 # 创建新数据库
-CREATE DATABASE 库名 CHARACTER SET utf8 COLLATE utf8_general_ci;
+# CREATE DATABASE 库名 CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE 库名 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 # 删除数据库
 DROP DATABASE 库名;
 
 # 修改数据库设置（主要是编码）
-ALTER DATABASE 库名 CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER DATABASE 库名 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 # 选择数据库
 USE 库名;
