@@ -20,25 +20,94 @@
 
 >[mariadb-10.1.38-winx64.zip](https://downloads.mariadb.org/mariadb/10.1.38/)
 
+#### *install.bat*
+
 ```batch
-REM 添加环境变量 MYSQL_HOME
-SET MYSQL_HOME=D:\ProgramFiles\MariaDB\mariadb-10.1.38-winx64\
-SET PATH=%MYSQL_HOME%\bin;%PATH%
-CD /D "%MYSQL_HOME%"
-
+@SET DB_LOCAL_HOME=D:\ProgramFiles\MariaDB\mariadb-10.1.38-winx64
+@SET DB_SERVICE_NAME=mariadb
+@REM ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+@ECHO OFF
+REM 检查环境
+IF NOT EXIST "%DB_LOCAL_HOME%\bin\mysqld.exe" (
+    ECHO DB_LOCAL_HOME is not a database installation directory.
+    PAUSE>NUL
+    EXIT
+)
+REM 配置环境变量
+SET PATH=%DB_LOCAL_HOME%\bin;%PATH%
+CD /D "%DB_LOCAL_HOME%"
 REM 创建配置文件
-COPY /-Y ".\my-small.ini" ".\my.ini"
+IF NOT EXIST .\my.ini (
+    ECHO [client]>.\my.ini
+    ECHO port=3306>>.\my.ini
+    ECHO socket=/tmp/mysql.sock>>.\my.ini
+    ECHO default-character-set=utf8mb4>>.\my.ini
+    @REM ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    ECHO [mysqld]>>.\my.ini
+    ECHO port=3306>>.\my.ini
+    ECHO socket=/tmp/mysql.sock>>.\my.ini
+    ECHO #basedir=>>.\my.ini
+    ECHO #datadir=>>.\my.ini
+    ECHO character_set_server=utf8mb4>>.\my.ini
+    ECHO character_set_client=utf8mb4>>.\my.ini
 
-REM 初始化用户名为mysql、密码为空。
-mysqld --initialize-insecure --user=mysql
+    ECHO skip-external-locking>>.\my.ini
+    ECHO key_buffer_size         = 16M>>.\my.ini
+    ECHO max_allowed_packet      = 1M>>.\my.ini
+    ECHO table_open_cache        = 64>>.\my.ini
+    ECHO sort_buffer_size        = 512K>>.\my.ini
+    ECHO net_buffer_length       = 8K>>.\my.ini
+    ECHO read_buffer_size        = 256K>>.\my.ini
+    ECHO read_rnd_buffer_size    = 512K>>.\my.ini
+    ECHO myisam_sort_buffer_size = 8M>>.\my.ini
 
+    ECHO log-bin=mysql-bin>>.\my.ini
+    ECHO binlog_format=mixed>>.\my.ini
+    ECHO server-id=1 >>.\my.ini
+    @REM ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    ECHO [mysqldump]>>.\my.ini
+    ECHO character_set_client=utf8mb4>>.\my.ini
+    ECHO quick>>.\my.ini
+    ECHO max_allowed_packet=16M>>.\my.ini
+    @REM ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    ECHO [mysql]>>.\my.ini
+    ECHO default-character-set=utf8mb4>>.\my.ini
+    ECHO no-auto-rehash>>.\my.ini
+    ECHO #safe-updates>>.\my.ini
+    @REM ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    ECHO [myisamchk]>>.\my.ini
+    ECHO key_buffer_size  = 20M>>.\my.ini
+    ECHO sort_buffer_size = 20M>>.\my.ini
+    ECHO read_buffer      = 2M>>.\my.ini
+    ECHO write_buffer     = 2M>>.\my.ini
+    @REM ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    ECHO [mysqlhotcopy]>>.\my.ini
+    ECHO interactive-timeout>>.\my.ini
+)
 REM （管理员）删除旧服务
 sc delete mariadb>nul
 REM （管理员）安装服务
-mysqld --install mariadb
-
-REM 启动服务
+mysqld --install %DB_SERVICE_NAME% --defaults-file="%CD%\my.ini"
+REM （管理员）启动服务
 net start mariadb
+REM 登录用户
+mysql -uroot
+@REM ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+ECHO Everything is OK.
+PAUSE>NUL
+```
+
+#### *uninstall.bat*
+
+```batch
+@SET DB_SERVICE_NAME=mariadb
+@REM ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+@ECHO OFF
+net stop %DB_SERVICE_NAME%
+sc delete %DB_SERVICE_NAME%
+@REM ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+ECHO Everything is OK.
+PAUSE>NUL
 ```
 
 ### CentOS
@@ -52,7 +121,7 @@ sudo firewall-cmd --reload;
 mysql_secure_installation
 
 # 初始化帐号
-mysql -u用户名 -p[密码]
+mysqladmin -u用户名 -p[密码]
 
 # 登录管理
 mysql -u用户名 -p[密码]
@@ -78,7 +147,7 @@ mysql>source 备份文件.sql;
 
 ```SQL
 # 查看用户
-SELECT user,host FROM mysql.user;
+SELECT `User`,`Host`,`Password` FROM mysql.user;
 
 # 创建用户
 CREATE USER 'username'@'host' IDENTIFIED BY 'password';
@@ -144,6 +213,15 @@ ALTER DATABASE 库名 CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 # 选择数据库
 USE 库名;
+```
+
+### 创建数据库及其管理员
+
+```SQL
+CREATE DATABASE `flaskdb` CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE USER 'flask'@'localhost' IDENTIFIED BY '1234';
+REVOKE ALL ON *.* FROM 'flask'@'localhost';
+GRANT ALL PRIVILEGES ON flaskdb.* TO 'flask'@'localhost';
 ```
 
 <!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
