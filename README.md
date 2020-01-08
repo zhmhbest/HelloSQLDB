@@ -85,11 +85,11 @@ IF NOT EXIST .\my.ini (
     ECHO interactive-timeout>>.\my.ini
 )
 REM （管理员）删除旧服务
-sc delete mariadb>nul
+sc delete %DB_SERVICE_NAME%>nul
 REM （管理员）安装服务
 mysqld --install %DB_SERVICE_NAME% --defaults-file="%CD%\my.ini"
 REM （管理员）启动服务
-net start mariadb
+net start %DB_SERVICE_NAME%
 REM 登录用户
 mysql -uroot
 @REM ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
