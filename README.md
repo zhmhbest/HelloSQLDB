@@ -173,7 +173,8 @@ SHOW GRANTS FOR 'username'@'host';
 GRANT 权限,... ON 库.表 TO 'username'@'host';
 
 # 授予用户一个数据库所有权限
-GRANT ALL PRIVILEGES ON 库.* TO 'username'@'host';
+# GRANT 允许该用户继续创建并将权限给予子用户
+GRANT ALL PRIVILEGES ON 库.* TO 'username'@'host' [WITH GRANT OPTION];
 
 # 撤销用户具体权限
 REVOKE 权限,... ON 库.表 FROM 'username'@'host';
@@ -222,7 +223,7 @@ USE 库名;
 CREATE DATABASE `flaskdb` CHARACTER SET utf8 COLLATE utf8_general_ci;
 CREATE USER 'flask'@'localhost' IDENTIFIED BY '1234';
 REVOKE ALL ON *.* FROM 'flask'@'localhost';
-GRANT ALL PRIVILEGES ON flaskdb.* TO 'flask'@'localhost';
+GRANT ALL PRIVILEGES ON flaskdb.* TO 'flask'@'localhost' WITH GRANT OPTION;
 ```
 
 <!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
