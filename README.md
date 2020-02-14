@@ -287,7 +287,7 @@ ALTER TABLE `表名` DROP 字段;
 
 ```SQL
 # 创建视图（视图使用起来和表一样）
-CREATE VIEW 视图名称 AS SELECT FROM `表名` [WHERE 条件];
+CREATE VIEW 视图名称 [(字段, ...)] AS SELECT FROM `表名` [WHERE 条件];
 
 # 创建索引
 CREATE INDEX 索引名称 ON `表名` (字段, ...);
@@ -405,13 +405,23 @@ SELECT 字段 FROM `表名1`
 UNION ALL
 SELECT 字段 FROM `表名2`;
 # 以上代码将保留重复的行
+```
 
+### 连接查询
+
+![](images/join.png)
+
+``` SQL
 # 连接查询（JOIN）
 SELECT * FROM `表名1` ['别名1']
 { INNER JOIN | LEFT JOIN | RIGHT JOIN | FULL OUTER JOIN }
 `表名2` ['别名2'] ON 连接条件
 [WHERE 选择条件];
+```
 
+### 分组查询
+
+``` SQL
 # 分组查询（GROUP BY、HAVING）
 SELECT * FROM `表名` WHERE 条件 GROUP BY 字段 HAVING 聚合函数;
 # 根据一个或多个列对结果集进行分组
