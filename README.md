@@ -1,4 +1,4 @@
-# [SQL Database](https://zhmhbest.github.io/HelloSQLDB/)
+# [SQL Database](https://zhmhbest.github.io/HelloSQLDB/README)
 
 >[理论知识](./chapter/Theory)
 
