@@ -1,6 +1,6 @@
-# SQL Database
+# [SQL Database](https://zhmhbest.github.io/HelloSQLDB/)
 
->[理论知识](./Theory.md)
+>[理论知识](./chapter/Theory.md)
 
 <!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
 
