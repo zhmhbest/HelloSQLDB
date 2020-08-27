@@ -257,10 +257,37 @@ SELECT * FROM `R` RIGHT OUTER JOIN `S` ON R.B=S.B;
 ### 分组查询
 
 ``` SQL
-# 分组查询（GROUP BY、HAVING）
-SELECT * FROM `表名` WHERE 条件 GROUP BY 字段 HAVING 聚合函数;
-# 根据一个或多个列对结果集进行分组
+SELECT {字段 | 聚合函数},... FROM `表名` [WHERE 条件] GROUP BY 字段 [HAVING 聚合函数];
 ```
+
+**Order**
+
+@import "./data/Order.csv"
+
+#### Count
+
+```SQL
+# 将相同user_id的数据归为一组，统计每组有几条含有字段id的元组。
+SELECT user_name AS 用户, COUNT(id) AS 下单数量 FROM `Order` GROUP BY user_id;
+```
+
+@import "./data/Order_Count1.csv"
+
+```SQL
+# WHERE  用于筛选出用于分组的数据
+SELECT user_name AS 用户, COUNT(id) AS 下单数量 FROM `Order` WHERE Order.year=2018 GROUP BY user_id;
+```
+
+@import "./data/Order_Count2.csv"
+
+```SQL
+# HAVING 用于在分组后继续筛选数据
+SELECT user_name AS 用户, COUNT(id) AS 下单数量 FROM `Order` GROUP BY user_id HAVING COUNT(id)>2;
+```
+
+@import "./data/Order_Count3.csv"
+
+
 
 <!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
 

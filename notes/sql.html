@@ -294,7 +294,11 @@ pre[data-line] .line-highlight[data-end]:after {
 <li><a href="#%E5%AE%8C%E5%85%A8%E5%A4%96%E8%BF%9E%E6%8E%A5">&#x5B8C;&#x5168;&#x5916;&#x8FDE;&#x63A5;</a></li>
 </ul>
 </li>
-<li><a href="#%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2">&#x5206;&#x7EC4;&#x67E5;&#x8BE2;</a></li>
+<li><a href="#%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2">&#x5206;&#x7EC4;&#x67E5;&#x8BE2;</a>
+<ul>
+<li><a href="#count">Count</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#%E4%BA%8B%E5%8A%A1">&#x4E8B;&#x52A1;</a>
@@ -724,10 +728,155 @@ pre[data-line] .line-highlight[data-end]:after {
 </table>
 <h3 class="mume-header" id="%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2">&#x5206;&#x7EC4;&#x67E5;&#x8BE2;</h3>
 
-<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment"># &#x5206;&#x7EC4;&#x67E5;&#x8BE2;&#xFF08;GROUP BY&#x3001;HAVING&#xFF09;</span>
-<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>&#x8868;&#x540D;<span class="token punctuation">`</span> <span class="token keyword">WHERE</span> &#x6761;&#x4EF6; <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> &#x5B57;&#x6BB5; <span class="token keyword">HAVING</span> &#x805A;&#x5408;&#x51FD;&#x6570;<span class="token punctuation">;</span>
-<span class="token comment"># &#x6839;&#x636E;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5217;&#x5BF9;&#x7ED3;&#x679C;&#x96C6;&#x8FDB;&#x884C;&#x5206;&#x7EC4;</span>
-</pre><h2 class="mume-header" id="%E4%BA%8B%E5%8A%A1">&#x4E8B;&#x52A1;</h2>
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> {&#x5B57;&#x6BB5; <span class="token operator">|</span> &#x805A;&#x5408;&#x51FD;&#x6570;}<span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>&#x8868;&#x540D;<span class="token punctuation">`</span> <span class="token punctuation">[</span><span class="token keyword">WHERE</span> &#x6761;&#x4EF6;<span class="token punctuation">]</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> &#x5B57;&#x6BB5; <span class="token punctuation">[</span><span class="token keyword">HAVING</span> &#x805A;&#x5408;&#x51FD;&#x6570;<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</pre><p><strong>Order</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>user_id</th>
+<th>user_name</th>
+<th>price</th>
+<th>year</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1001</td>
+<td>&#x5468;&#x6770;&#x4F26;</td>
+<td>11.11</td>
+<td>2017</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1001</td>
+<td>&#x5468;&#x6770;&#x4F26;</td>
+<td>22.22</td>
+<td>2018</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1001</td>
+<td>&#x5468;&#x6770;&#x4F26;</td>
+<td>88.88</td>
+<td>2018</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1002</td>
+<td>&#x5218;&#x5FB7;&#x534E;</td>
+<td>33.33</td>
+<td>2018</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1002</td>
+<td>&#x5218;&#x5FB7;&#x534E;</td>
+<td>12.22</td>
+<td>2018</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1002</td>
+<td>&#x5218;&#x5FB7;&#x534E;</td>
+<td>16.66</td>
+<td>2018</td>
+</tr>
+<tr>
+<td>7</td>
+<td>1002</td>
+<td>&#x5218;&#x5FB7;&#x534E;</td>
+<td>44.44</td>
+<td>2019</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1003</td>
+<td>&#x5F20;&#x5B66;&#x53CB;</td>
+<td>55.55</td>
+<td>2018</td>
+</tr>
+<tr>
+<td>9</td>
+<td>1003</td>
+<td>&#x5F20;&#x5B66;&#x53CB;</td>
+<td>66.66</td>
+<td>2019</td>
+</tr>
+</tbody>
+</table>
+<h4 class="mume-header" id="count">Count</h4>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment"># &#x5C06;&#x76F8;&#x540C;user_id&#x7684;&#x6570;&#x636E;&#x5F52;&#x4E3A;&#x4E00;&#x7EC4;&#xFF0C;&#x7EDF;&#x8BA1;&#x6BCF;&#x7EC4;&#x6709;&#x51E0;&#x6761;&#x542B;&#x6709;&#x5B57;&#x6BB5;id&#x7684;&#x5143;&#x7EC4;&#x3002;</span>
+<span class="token keyword">SELECT</span> user_name <span class="token keyword">AS</span> &#x7528;&#x6237;<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">AS</span> &#x4E0B;&#x5355;&#x6570;&#x91CF; <span class="token keyword">FROM</span> <span class="token punctuation">`</span><span class="token keyword">Order</span><span class="token punctuation">`</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id<span class="token punctuation">;</span>
+</pre><table>
+<thead>
+<tr>
+<th>&#x7528;&#x6237;</th>
+<th>&#x4E0B;&#x5355;&#x6570;&#x91CF;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x5468;&#x6770;&#x4F26;</td>
+<td>3</td>
+</tr>
+<tr>
+<td>&#x5218;&#x5FB7;&#x534E;</td>
+<td>4</td>
+</tr>
+<tr>
+<td>&#x5F20;&#x5B66;&#x53CB;</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment"># WHERE  &#x7528;&#x4E8E;&#x7B5B;&#x9009;&#x51FA;&#x7528;&#x4E8E;&#x5206;&#x7EC4;&#x7684;&#x6570;&#x636E;</span>
+<span class="token keyword">SELECT</span> user_name <span class="token keyword">AS</span> &#x7528;&#x6237;<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">AS</span> &#x4E0B;&#x5355;&#x6570;&#x91CF; <span class="token keyword">FROM</span> <span class="token punctuation">`</span><span class="token keyword">Order</span><span class="token punctuation">`</span> <span class="token keyword">WHERE</span> <span class="token keyword">Order</span><span class="token punctuation">.</span><span class="token keyword">year</span><span class="token operator">=</span><span class="token number">2018</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id<span class="token punctuation">;</span>
+</pre><table>
+<thead>
+<tr>
+<th>&#x7528;&#x6237;</th>
+<th>&#x4E0B;&#x5355;&#x6570;&#x91CF;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x5468;&#x6770;&#x4F26;</td>
+<td>2</td>
+</tr>
+<tr>
+<td>&#x5218;&#x5FB7;&#x534E;</td>
+<td>3</td>
+</tr>
+<tr>
+<td>&#x5F20;&#x5B66;&#x53CB;</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment"># HAVING &#x7528;&#x4E8E;&#x5728;&#x5206;&#x7EC4;&#x540E;&#x7EE7;&#x7EED;&#x7B5B;&#x9009;&#x6570;&#x636E;</span>
+<span class="token keyword">SELECT</span> user_name <span class="token keyword">AS</span> &#x7528;&#x6237;<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">AS</span> &#x4E0B;&#x5355;&#x6570;&#x91CF; <span class="token keyword">FROM</span> <span class="token punctuation">`</span><span class="token keyword">Order</span><span class="token punctuation">`</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id <span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token operator">&gt;</span><span class="token number">2</span><span class="token punctuation">;</span>
+</pre><table>
+<thead>
+<tr>
+<th>&#x7528;&#x6237;</th>
+<th>&#x4E0B;&#x5355;&#x6570;&#x91CF;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x5468;&#x6770;&#x4F26;</td>
+<td>3</td>
+</tr>
+<tr>
+<td>&#x5218;&#x5FB7;&#x534E;</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<h2 class="mume-header" id="%E4%BA%8B%E5%8A%A1">&#x4E8B;&#x52A1;</h2>
 
 <h3 class="mume-header" id="%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB">&#x9694;&#x79BB;&#x7EA7;&#x522B;</h3>
 
