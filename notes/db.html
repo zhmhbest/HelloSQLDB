@@ -281,6 +281,19 @@ pre[data-line] .line-highlight[data-end]:after {
 </ul>
 </li>
 <li><a href="#%E5%A4%87%E4%BB%BD">&#x5907;&#x4EFD;</a></li>
+<li><a href="#%E7%94%A8%E6%88%B7%E5%8F%8A%E5%85%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86">&#x7528;&#x6237;&#x53CA;&#x5176;&#x6743;&#x9650;&#x7BA1;&#x7406;</a>
+<ul>
+<li><a href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86">&#x7528;&#x6237;&#x7BA1;&#x7406;</a></li>
+<li><a href="#%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86">&#x7528;&#x6237;&#x6743;&#x9650;&#x7BA1;&#x7406;</a></li>
+</ul>
+</li>
+<li><a href="#%E5%BA%93%E7%AE%A1%E7%90%86">&#x5E93;&#x7BA1;&#x7406;</a>
+<ul>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BA%93">&#x67E5;&#x770B;&#x5E93;</a></li>
+<li><a href="#%E5%A2%9E%E5%88%A0%E6%94%B9">&#x589E;&#x5220;&#x6539;</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%8A%E5%85%B6%E7%AE%A1%E7%90%86%E5%91%98">&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x53CA;&#x5176;&#x7BA1;&#x7406;&#x5458;</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -332,6 +345,98 @@ mysqldump -u<span class="token variable">${&#x7528;&#x6237;&#x540D;}</span> -p <
 
 <span class="token comment"># &#x6062;&#x590D;&#xFF08;&#x767B;&#x5F55;&#x540E;&#xFF09;</span>
 mysql<span class="token operator">&gt;</span>source <span class="token variable">${&#x5907;&#x4EFD;&#x6587;&#x4EF6;&#x5730;&#x5740;}</span>.sql<span class="token punctuation">;</span>
+</pre><h2 class="mume-header" id="%E7%94%A8%E6%88%B7%E5%8F%8A%E5%85%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86">&#x7528;&#x6237;&#x53CA;&#x5176;&#x6743;&#x9650;&#x7BA1;&#x7406;</h2>
+
+<h3 class="mume-header" id="%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86">&#x7528;&#x6237;&#x7BA1;&#x7406;</h3>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment"># &#x67E5;&#x770B;&#x7528;&#x6237;&#xFF08;&#x7BA1;&#x7406;&#x5458;&#xFF09;</span>
+<span class="token comment"># SELECT * FROM mysql.user;</span>
+<span class="token keyword">SELECT</span> <span class="token keyword">User</span><span class="token punctuation">,</span>Host<span class="token punctuation">,</span>Password <span class="token keyword">FROM</span> mysql<span class="token punctuation">.</span><span class="token keyword">user</span><span class="token punctuation">;</span>
+
+<span class="token comment"># &#x521B;&#x5EFA;&#x7528;&#x6237;</span>
+<span class="token comment"># %: &#x4EFB;&#x610F;&#x5730;&#x5740;&#x7684;&#x8FDC;&#x7A0B;&#x4E3B;&#x673A;</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">USER</span> <span class="token string">&apos;username&apos;</span><span class="token variable">@&apos;localhost&apos;</span> IDENTIFIED <span class="token keyword">BY</span> <span class="token string">&apos;password&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">USER</span> <span class="token string">&apos;username&apos;</span><span class="token variable">@&apos;addr&apos;</span> IDENTIFIED <span class="token keyword">BY</span> <span class="token string">&apos;password&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">USER</span> <span class="token string">&apos;username&apos;</span><span class="token variable">@&apos;%&apos;</span> IDENTIFIED <span class="token keyword">BY</span> <span class="token string">&apos;password&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">USER</span> <span class="token string">&apos;username&apos;</span><span class="token variable">@&apos;192.168.1.%&apos;</span> IDENTIFIED <span class="token keyword">BY</span> <span class="token string">&apos;password&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> mysql<span class="token punctuation">.</span><span class="token keyword">user</span> <span class="token punctuation">(</span><span class="token keyword">User</span><span class="token punctuation">,</span>Host<span class="token punctuation">,</span>Password<span class="token punctuation">)</span> <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token string">&apos;username&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;host&apos;</span><span class="token punctuation">,</span>PASSWORD<span class="token punctuation">(</span><span class="token string">&apos;password&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment"># &#x4FEE;&#x6539;&#x6307;&#x5B9A;&#x7528;&#x6237;&#x5BC6;&#x7801;</span>
+<span class="token keyword">SET</span> PASSWORD <span class="token keyword">FOR</span> <span class="token string">&apos;username&apos;</span><span class="token variable">@&apos;host&apos;</span> <span class="token operator">=</span> PASSWORD<span class="token punctuation">(</span><span class="token string">&apos;new_password&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment"># &#x4FEE;&#x6539;&#x5F53;&#x524D;&#x7528;&#x6237;&#x5BC6;&#x7801;</span>
+<span class="token keyword">SET</span> PASSWORD <span class="token operator">=</span> PASSWORD<span class="token punctuation">(</span><span class="token string">&apos;new_password&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment"># &#x5220;&#x9664;&#x7528;&#x6237;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">USER</span> <span class="token string">&apos;username&apos;</span><span class="token variable">@&apos;host&apos;</span><span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86">&#x7528;&#x6237;&#x6743;&#x9650;&#x7BA1;&#x7406;</h3>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment"># &#x67E5;&#x770B;&#x5F53;&#x524D;&#x7528;&#x6237;&#x6743;&#x9650;</span>
+<span class="token keyword">SHOW</span> GRANTS<span class="token punctuation">;</span>
+
+<span class="token comment"># &#x67E5;&#x770B;&#x7528;&#x6307;&#x5B9A;&#x6237;&#x6743;&#x9650;</span>
+<span class="token keyword">SHOW</span> GRANTS <span class="token keyword">FOR</span> <span class="token string">&apos;username&apos;</span><span class="token variable">@&apos;host&apos;</span><span class="token punctuation">;</span>
+
+<span class="token comment"># &#x6388;&#x4E88;&#x7528;&#x6237;&#x5177;&#x4F53;&#x6743;&#x9650;</span>
+<span class="token keyword">GRANT</span> &#x6743;&#x9650;<span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">ON</span> &#x5E93;<span class="token punctuation">.</span>&#x8868; <span class="token keyword">TO</span> <span class="token string">&apos;username&apos;</span><span class="token variable">@&apos;host&apos;</span><span class="token punctuation">;</span>
+<span class="token comment"># &#x6743;&#x9650;&#xFF08;&#x589E;&#x3001;&#x5220;&#x3001;&#x6539;&#x3001;&#x67E5;&#xFF09;= INSERT, DELETE, UPDATE, SELECT</span>
+<span class="token comment"># &#x6743;&#x9650;&#xFF08;&#x8868;&#x7ED3;&#x6784;&#xFF09;= CREATE, ALTER, DROP</span>
+<span class="token comment"># &#x6743;&#x9650;&#xFF08;&#x5916;&#x952E;&#x3001;&#x7D22;&#x5F15;&#xFF09;= REFERENCES, INDEX</span>
+<span class="token comment"># &#x6743;&#x9650;&#xFF08;&#x89C6;&#x56FE;&#xFF09;= CREATE VIEW, SHOW VIEW</span>
+<span class="token comment"># &#x6743;&#x9650;&#xFF08;&#x4E34;&#x65F6;&#x8868;&#xFF09;= CREATE TEMPORARY TABLES</span>
+<span class="token comment"># &#x6743;&#x9650;&#xFF08;&#x5B58;&#x50A8;&#x8FC7;&#x7A0B;&#x3001;&#x51FD;&#x6570;&#xFF09;= CREATE ROUTINE, ALTER ROUTINE, EXECUTE</span>
+
+<span class="token comment"># &#x6388;&#x4E88;&#x7528;&#x6237;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x6240;&#x6709;&#x6743;&#x9650;</span>
+<span class="token comment"># WITH GRANT OPTION: &#x7528;&#x6237;&#x53EF;&#x4EE5;&#x5C06;&#x81EA;&#x5DF1;&#x62E5;&#x6709;&#x7684;&#x6743;&#x9650;&#x6388;&#x6743;&#x7ED9;&#x522B;&#x4EBA;</span>
+<span class="token keyword">GRANT</span> <span class="token keyword">ALL</span> <span class="token keyword">PRIVILEGES</span> <span class="token keyword">ON</span> &#x5E93;<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">&apos;username&apos;</span><span class="token variable">@&apos;host&apos;</span> <span class="token punctuation">[</span><span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment"># &#x64A4;&#x9500;&#x7528;&#x6237;&#x5177;&#x4F53;&#x6743;&#x9650;</span>
+<span class="token keyword">REVOKE</span> &#x6743;&#x9650;<span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">ON</span> &#x5E93;<span class="token punctuation">.</span>&#x8868; <span class="token keyword">FROM</span> <span class="token string">&apos;username&apos;</span><span class="token variable">@&apos;host&apos;</span><span class="token punctuation">;</span>
+
+<span class="token comment"># &#x64A4;&#x9500;&#x7528;&#x6237;&#x6240;&#x6709;&#x6743;&#x9650;</span>
+<span class="token keyword">REVOKE</span> <span class="token keyword">ALL</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token string">&apos;username&apos;</span><span class="token variable">@&apos;host&apos;</span><span class="token punctuation">;</span>
+
+<span class="token comment"># &#x8FDC;&#x7A0B;root&#x7528;&#x6237;&#xFF08;&#x7BA1;&#x7406;&#x5458;&#xFF09;</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">USER</span> <span class="token string">&apos;root&apos;</span><span class="token variable">@&apos;%&apos;</span> IDENTIFIED <span class="token keyword">BY</span> <span class="token string">&apos;root&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">GRANT</span> <span class="token keyword">ALL</span> <span class="token keyword">PRIVILEGES</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">&apos;root&apos;</span><span class="token variable">@&apos;%&apos;</span> <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span><span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> <span class="token keyword">USER</span><span class="token punctuation">,</span> HOST <span class="token keyword">FROM</span> <span class="token punctuation">`</span>mysql<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span><span class="token keyword">user</span><span class="token punctuation">`</span><span class="token punctuation">;</span>
+</pre><h2 class="mume-header" id="%E5%BA%93%E7%AE%A1%E7%90%86">&#x5E93;&#x7BA1;&#x7406;</h2>
+
+<h3 class="mume-header" id="%E6%9F%A5%E7%9C%8B%E5%BA%93">&#x67E5;&#x770B;&#x5E93;</h3>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment"># &#x67E5;&#x770B;&#x6570;&#x636E;&#x5E93;&#x7F16;&#x7801;</span>
+<span class="token keyword">SHOW</span> VARIABLES <span class="token operator">LIKE</span> <span class="token string">&apos;character_%&apos;</span><span class="token punctuation">;</span>
+
+<span class="token comment"># &#x663E;&#x793A;&#x6240;&#x6709;&#x6570;&#x636E;&#x5E93;</span>
+<span class="token keyword">SHOW</span> <span class="token keyword">DATABASES</span><span class="token punctuation">;</span>
+
+<span class="token comment"># &#x663E;&#x793A;&#x6570;&#x636E;&#x5E93;&#x6784;&#x9020;</span>
+<span class="token keyword">SHOW</span> <span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> <span class="token punctuation">`</span>&#x5E93;&#x540D;<span class="token punctuation">`</span><span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="%E5%A2%9E%E5%88%A0%E6%94%B9">&#x589E;&#x5220;&#x6539;</h3>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment"># &#x521B;&#x5EFA;&#x65B0;&#x6570;&#x636E;&#x5E93;</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> &#x5E93;&#x540D; <span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> utf8 <span class="token keyword">COLLATE</span> utf8_general_ci<span class="token punctuation">;</span>
+<span class="token comment"># utf8: &#x6700;&#x5927;&#x5B57;&#x7B26;&#x957F;&#x5EA6;&#x4E3A;3&#x5B57;&#x8282;&#xFF0C;&#x9047;&#x5230;4&#x5B57;&#x8282;&#x7684;&#x5BBD;&#x5B57;&#x7B26;&#x4F1A;&#x63D2;&#x5165;&#x5F02;&#x5E38;</span>
+<span class="token comment"># utf8mb4: utf8&#x7684;&#x8D85;&#x96C6;&#xFF0C;&#x7528;&#x6765;&#x517C;&#x5BB9;&#x56DB;&#x5B57;&#x8282;&#x7684;unicode</span>
+<span class="token comment"># utf8_general_ci: &#x67E5;&#x8BE2;&#x901F;&#x5EA6;&#x5FEB;</span>
+<span class="token comment"># utf8_unicode_ci: &#x67E5;&#x8BE2;&#x51C6;&#x786E;</span>
+
+<span class="token comment"># &#x5220;&#x9664;&#x6570;&#x636E;&#x5E93;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">DATABASE</span> &#x5E93;&#x540D;<span class="token punctuation">;</span>
+
+<span class="token comment"># &#x4FEE;&#x6539;&#x6570;&#x636E;&#x5E93;&#x8BBE;&#x7F6E;&#xFF08;&#x4E3B;&#x8981;&#x662F;&#x7F16;&#x7801;&#xFF09;</span>
+<span class="token keyword">ALTER</span> <span class="token keyword">DATABASE</span> &#x5E93;&#x540D; <span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> utf8mb4 <span class="token keyword">COLLATE</span> utf8mb4_general_ci<span class="token punctuation">;</span>
+
+<span class="token comment"># &#x9009;&#x62E9;&#x6570;&#x636E;&#x5E93;</span>
+<span class="token keyword">USE</span> &#x5E93;&#x540D;<span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%8A%E5%85%B6%E7%AE%A1%E7%90%86%E5%91%98">&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x53CA;&#x5176;&#x7BA1;&#x7406;&#x5458;</h3>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> <span class="token punctuation">`</span>db_name<span class="token punctuation">`</span> <span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> utf8 <span class="token keyword">COLLATE</span> utf8_general_ci<span class="token punctuation">;</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">USER</span> <span class="token string">&apos;user&apos;</span><span class="token variable">@&apos;%&apos;</span> IDENTIFIED <span class="token keyword">BY</span> <span class="token string">&apos;1234&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">REVOKE</span> <span class="token keyword">ALL</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token string">&apos;user&apos;</span><span class="token variable">@&apos;%&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">GRANT</span> <span class="token keyword">ALL</span> <span class="token keyword">PRIVILEGES</span> <span class="token keyword">ON</span> <span class="token punctuation">`</span>db_name<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">&apos;user&apos;</span><span class="token variable">@&apos;%&apos;</span> <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span><span class="token punctuation">;</span>
+<span class="token comment"># DROP DATABASE `db_name`;</span>
+<span class="token comment"># DROP USER &apos;user&apos;@&apos;%&apos;;</span>
 </pre>
       </div>
       
