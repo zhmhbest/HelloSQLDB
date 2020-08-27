@@ -286,7 +286,14 @@ pre[data-line] .line-highlight[data-end]:after {
 <ul>
 <li><a href="#%E7%AE%80%E5%8D%95%E6%9F%A5%E6%89%BE">&#x7B80;&#x5355;&#x67E5;&#x627E;</a></li>
 <li><a href="#%E9%AB%98%E7%BA%A7%E6%9F%A5%E6%89%BE">&#x9AD8;&#x7EA7;&#x67E5;&#x627E;</a></li>
-<li><a href="#%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2">&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;</a></li>
+<li><a href="#%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2">&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;</a>
+<ul>
+<li><a href="#%E5%86%85%E8%BF%9E%E6%8E%A5">&#x5185;&#x8FDE;&#x63A5;</a></li>
+<li><a href="#%E5%B7%A6%E5%A4%96%E8%BF%9E%E6%8E%A5">&#x5DE6;&#x5916;&#x8FDE;&#x63A5;</a></li>
+<li><a href="#%E5%8F%B3%E5%A4%96%E8%BF%9E%E6%8E%A5">&#x53F3;&#x5916;&#x8FDE;&#x63A5;</a></li>
+<li><a href="#%E5%AE%8C%E5%85%A8%E5%A4%96%E8%BF%9E%E6%8E%A5">&#x5B8C;&#x5168;&#x5916;&#x8FDE;&#x63A5;</a></li>
+</ul>
+</li>
 <li><a href="#%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2">&#x5206;&#x7EC4;&#x67E5;&#x8BE2;</a></li>
 </ul>
 </li>
@@ -438,12 +445,284 @@ pre[data-line] .line-highlight[data-end]:after {
 <span class="token comment"># &#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x5C06;&#x4FDD;&#x7559;&#x91CD;&#x590D;&#x7684;&#x884C;</span>
 </pre><h3 class="mume-header" id="%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2">&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;</h3>
 
-<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment"># &#x8FDE;&#x63A5;&#x67E5;&#x8BE2;&#xFF08;JOIN&#xFF09;</span>
-<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>&#x8868;&#x540D;<span class="token number">1</span><span class="token punctuation">`</span> <span class="token punctuation">[</span><span class="token string">&apos;&#x522B;&#x540D;1&apos;</span><span class="token punctuation">]</span>
-{ <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> <span class="token operator">|</span> <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token operator">|</span> <span class="token keyword">RIGHT</span> <span class="token keyword">JOIN</span> <span class="token operator">|</span> <span class="token keyword">FULL</span> <span class="token keyword">OUTER</span> <span class="token keyword">JOIN</span> }
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>&#x8868;&#x540D;<span class="token number">1</span><span class="token punctuation">`</span> <span class="token punctuation">[</span><span class="token string">&apos;&#x522B;&#x540D;1&apos;</span><span class="token punctuation">]</span>
+{ <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> <span class="token operator">|</span> <span class="token keyword">LEFT</span> <span class="token keyword">OUTER</span> <span class="token keyword">JOIN</span> <span class="token operator">|</span> <span class="token keyword">RIGHT</span> <span class="token keyword">OUTER</span> <span class="token keyword">JOIN</span> <span class="token operator">|</span> <span class="token keyword">FULL</span> <span class="token keyword">OUTER</span> <span class="token keyword">JOIN</span> }
 <span class="token punctuation">`</span>&#x8868;&#x540D;<span class="token number">2</span><span class="token punctuation">`</span> <span class="token punctuation">[</span><span class="token string">&apos;&#x522B;&#x540D;2&apos;</span><span class="token punctuation">]</span> <span class="token keyword">ON</span> &#x8FDE;&#x63A5;&#x6761;&#x4EF6;
 <span class="token punctuation">[</span><span class="token keyword">WHERE</span> &#x9009;&#x62E9;&#x6761;&#x4EF6;<span class="token punctuation">]</span><span class="token punctuation">;</span>
-</pre><h3 class="mume-header" id="%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2">&#x5206;&#x7EC4;&#x67E5;&#x8BE2;</h3>
+<span class="token comment"># Mysql&#x4E0D;&#x652F;&#x6301; FULL OUTER JOIN</span>
+</pre><p><strong>R</strong></p>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a1</td>
+<td>b1</td>
+<td>5</td>
+</tr>
+<tr>
+<td>a1</td>
+<td>b2</td>
+<td>6</td>
+</tr>
+<tr>
+<td>a2</td>
+<td>b3</td>
+<td>8</td>
+</tr>
+<tr>
+<td>a2</td>
+<td>b4</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+<p><strong>S</strong></p>
+<table>
+<thead>
+<tr>
+<th>B</th>
+<th>E</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>b1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>b2</td>
+<td>7</td>
+</tr>
+<tr>
+<td>b3</td>
+<td>10</td>
+</tr>
+<tr>
+<td>b3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>b5</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h4 class="mume-header" id="%E5%86%85%E8%BF%9E%E6%8E%A5">&#x5185;&#x8FDE;&#x63A5;</h4>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>R<span class="token punctuation">`</span> <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> <span class="token punctuation">`</span>S<span class="token punctuation">`</span> <span class="token keyword">ON</span> R<span class="token punctuation">.</span>B<span class="token operator">=</span>S<span class="token punctuation">.</span>B<span class="token punctuation">;</span>
+<span class="token comment"># SELECT * FROM `R` JOIN `S` ON R.B=S.B;</span>
+</pre><table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>B1</th>
+<th>E</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a1</td>
+<td>b1</td>
+<td>5</td>
+<td>b1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>a1</td>
+<td>b2</td>
+<td>6</td>
+<td>b2</td>
+<td>7</td>
+</tr>
+<tr>
+<td>a2</td>
+<td>b3</td>
+<td>8</td>
+<td>b3</td>
+<td>10</td>
+</tr>
+<tr>
+<td>a2</td>
+<td>b3</td>
+<td>8</td>
+<td>b3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h4 class="mume-header" id="%E5%B7%A6%E5%A4%96%E8%BF%9E%E6%8E%A5">&#x5DE6;&#x5916;&#x8FDE;&#x63A5;</h4>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>R<span class="token punctuation">`</span> <span class="token keyword">LEFT</span> <span class="token keyword">OUTER</span> <span class="token keyword">JOIN</span> <span class="token punctuation">`</span>S<span class="token punctuation">`</span> <span class="token keyword">ON</span> R<span class="token punctuation">.</span>B<span class="token operator">=</span>S<span class="token punctuation">.</span>B<span class="token punctuation">;</span>
+<span class="token comment"># SELECT * FROM `R` LEFT JOIN `S` ON R.B=S.B;</span>
+</pre><table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>B1</th>
+<th>E</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a1</td>
+<td>b1</td>
+<td>5</td>
+<td>b1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>a1</td>
+<td>b2</td>
+<td>6</td>
+<td>b2</td>
+<td>7</td>
+</tr>
+<tr>
+<td>a2</td>
+<td>b3</td>
+<td>8</td>
+<td>b3</td>
+<td>10</td>
+</tr>
+<tr>
+<td>a2</td>
+<td>b3</td>
+<td>8</td>
+<td>b3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>a2</td>
+<td>b4</td>
+<td>12</td>
+<td>null</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4 class="mume-header" id="%E5%8F%B3%E5%A4%96%E8%BF%9E%E6%8E%A5">&#x53F3;&#x5916;&#x8FDE;&#x63A5;</h4>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>R<span class="token punctuation">`</span> <span class="token keyword">RIGHT</span> <span class="token keyword">OUTER</span> <span class="token keyword">JOIN</span> <span class="token punctuation">`</span>S<span class="token punctuation">`</span> <span class="token keyword">ON</span> R<span class="token punctuation">.</span>B<span class="token operator">=</span>S<span class="token punctuation">.</span>B<span class="token punctuation">;</span>
+<span class="token comment"># SELECT * FROM `R` RIGHT JOIN `S` ON R.B=S.B;</span>
+</pre><table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>B1</th>
+<th>E</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a1</td>
+<td>b1</td>
+<td>5</td>
+<td>b1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>a1</td>
+<td>b2</td>
+<td>6</td>
+<td>b2</td>
+<td>7</td>
+</tr>
+<tr>
+<td>a2</td>
+<td>b3</td>
+<td>8</td>
+<td>b3</td>
+<td>10</td>
+</tr>
+<tr>
+<td>a2</td>
+<td>b3</td>
+<td>8</td>
+<td>b3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>null</td>
+<td>null</td>
+<td>null</td>
+<td>b5</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h4 class="mume-header" id="%E5%AE%8C%E5%85%A8%E5%A4%96%E8%BF%9E%E6%8E%A5">&#x5B8C;&#x5168;&#x5916;&#x8FDE;&#x63A5;</h4>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>R<span class="token punctuation">`</span> <span class="token keyword">LEFT</span> <span class="token keyword">OUTER</span> <span class="token keyword">JOIN</span> <span class="token punctuation">`</span>S<span class="token punctuation">`</span> <span class="token keyword">ON</span> R<span class="token punctuation">.</span>B<span class="token operator">=</span>S<span class="token punctuation">.</span>B
+<span class="token keyword">UNION</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>R<span class="token punctuation">`</span> <span class="token keyword">RIGHT</span> <span class="token keyword">OUTER</span> <span class="token keyword">JOIN</span> <span class="token punctuation">`</span>S<span class="token punctuation">`</span> <span class="token keyword">ON</span> R<span class="token punctuation">.</span>B<span class="token operator">=</span>S<span class="token punctuation">.</span>B<span class="token punctuation">;</span>
+</pre><table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>B1</th>
+<th>E</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a1</td>
+<td>b1</td>
+<td>5</td>
+<td>b1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>a1</td>
+<td>b2</td>
+<td>6</td>
+<td>b2</td>
+<td>7</td>
+</tr>
+<tr>
+<td>a2</td>
+<td>b3</td>
+<td>8</td>
+<td>b3</td>
+<td>10</td>
+</tr>
+<tr>
+<td>a2</td>
+<td>b3</td>
+<td>8</td>
+<td>b3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>a2</td>
+<td>b4</td>
+<td>12</td>
+<td>null</td>
+<td>null</td>
+</tr>
+<tr>
+<td>null</td>
+<td>null</td>
+<td>null</td>
+<td>b5</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 class="mume-header" id="%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2">&#x5206;&#x7EC4;&#x67E5;&#x8BE2;</h3>
 
 <pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment"># &#x5206;&#x7EC4;&#x67E5;&#x8BE2;&#xFF08;GROUP BY&#x3001;HAVING&#xFF09;</span>
 <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>&#x8868;&#x540D;<span class="token punctuation">`</span> <span class="token keyword">WHERE</span> &#x6761;&#x4EF6; <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> &#x5B57;&#x6BB5; <span class="token keyword">HAVING</span> &#x805A;&#x5408;&#x51FD;&#x6570;<span class="token punctuation">;</span>
