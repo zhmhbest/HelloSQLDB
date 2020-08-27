@@ -271,23 +271,50 @@ SELECT {字段 | 聚合函数},... FROM `表名` [WHERE 条件] GROUP BY 字段 
 SELECT user_name AS 用户, COUNT(id) AS 下单数量 FROM `Order` GROUP BY user_id;
 ```
 
-@import "./data/Order_Count1.csv"
+@import "./data/Order_Count.csv"
+
+#### Order By
 
 ```SQL
-# WHERE  用于筛选出用于分组的数据
+SELECT user_name AS 用户, COUNT(id) AS 下单数量 FROM `Order` GROUP BY user_id ORDER BY COUNT(id) DESC;
+```
+
+@import "./data/Order_Count_OrderBy.csv"
+
+#### Where
+
+`WHERE`用于筛选出用于分组的数据。
+
+```SQL
 SELECT user_name AS 用户, COUNT(id) AS 下单数量 FROM `Order` WHERE Order.year=2018 GROUP BY user_id;
 ```
 
-@import "./data/Order_Count2.csv"
+@import "./data/Order_Count_Where.csv"
+
+#### Having
+
+`HAVING`用于在分组后继续筛选数据。
 
 ```SQL
-# HAVING 用于在分组后继续筛选数据
 SELECT user_name AS 用户, COUNT(id) AS 下单数量 FROM `Order` GROUP BY user_id HAVING COUNT(id)>2;
 ```
 
-@import "./data/Order_Count3.csv"
+@import "./data/Order_Count_Having.csv"
 
+#### 小结
 
+```SQL
+SELECT
+    user_name AS 用户,
+    COUNT(id) AS 消费次数,
+    MAX(price) AS 最大消费,
+    MIN(price) AS 最低消费,
+    SUM(price) AS 总消费,
+    AVG(price) AS 平均消费
+FROM `Order` GROUP BY user_id;
+```
+
+@import "./data/Order_Summary.csv"
 
 <!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
 
