@@ -159,10 +159,11 @@ FROM
 #### 简单筛选
 
 ```SQL
-# > < = <= >=
+# > < = != <= >=
 SELECT * FROM `表` WHERE 字段=值;
 SELECT * FROM `表` WHERE 字段=(SELECT MIN(字段) FROM `表`);
 SELECT * FROM `表` WHERE 字段=(SELECT MAX(字段) FROM `表`);
+SELECT * FROM `表` WHERE 字段>(SELECT AVG(字段) FROM `表`);
 ```
 
 #### 多值筛选
