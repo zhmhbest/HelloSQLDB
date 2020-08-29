@@ -134,36 +134,50 @@ TRUNCATE TABLE `表名`;
 
 ## 查找
 
-### 简单查找
-
 ```SQL
 # 显示所有字段
-SELECT * FROM 表名 [WHERE 条件];
+SELECT
+[DISTINCT] 字段 [AS '别名'], ...
+FROM `表1`, ...
+[WHERE 条件]
+[ORDER BY 排序参考的字段1 [ASC | DESC], ...]
+[LIMIT 数量 | ROWNUM<=数量]
+;
 
-# 显示具体字段
-SELECT 字段 AS '别名'[, 字段2 AS '别名2', ...] FROM 表名 [WHERE 条件];
-SELECT 字段    '别名'[, 字段2 AS '别名2', ...] FROM 表名 [WHERE 条件];
-
-# 结果排序
+# DISTINCT: 去除重复值
 # ASC : 顺序，自上至下升序（默认）
 # DESC: 逆序，自上至下降序
-SELECT * FROM 表名 ORDER BY 字段1 [ASC|DESC] [, 字段2 [ASC|DESC]];
-# 当字段1的值一样时，就会根据字段2排序。
-
-# 去除结果重复值（DISTINCT）
-SELECT DISTINCT 字段 FROM `表名`;
-
-# 规定要返回的记录的数目
-SELECT 字段 FROM `表名` LIMIT 数量;   # MySQL
-SELECT 字段 FROM `表名` ROWNUM<=数量; # Oracle
+# MySQL : LIMIT 数量
+# Oracle: ROWNUM<=数量
 ```
 
-### 高级查找
+### 条件筛选
+
+#### 简单筛选
 
 ```SQL
-# 连续查询
-SELECT * FROM `表名` WHERE 字段1 IN (SELECT 字段1 FROM `表名` WHERE 条件);
+SELECT * FROM `表名` WHERE 字段=值;
+```
 
+#### 多值筛选
+
+```SQL
+SELECT * FROM `表名` WHERE 字段 IN (值1,值2, ...);
+SELECT * FROM `表名` WHERE 字段=值1 OR 字段=值2 OR ...;
+SELECT * FROM `表名` WHERE 字段 IN (SELECT 字段 FROM `表名`);
+```
+
+#### 值间筛选
+
+```SQL
+SELECT * FROM `表名` WHERE 字段 BETWEEN 值1 AND 值2;
+SELECT * FROM `表名` WHERE 字段>=值1 AND 字段<=值2;
+# 其中值可以是：15、'A'、'2016-05-10'，这种数据。
+```
+
+#### 模糊筛选
+
+```SQL
 # 字符串模糊查找
 # %     : 最少0个的任意多个字符
 # _     : 1个任意字符
@@ -172,37 +186,28 @@ SELECT * FROM `表名` WHERE 字段1 IN (SELECT 字段1 FROM `表名` WHERE 条�
 # [!abc]: 同[^abc]
 SELECT * FROM `表名` WHERE 字段 LIKE '%oo%';
 # 选出字段中包含'oo'（两侧或中间均可）的行
+```
 
-# 多值查询（IN）
-SELECT * FROM `表名` WHERE 字段 IN (值1,值2, ...);
-# 以上代码相当于如下代码
-SELECT * FROM `表名` WHERE 字段=值1 OR 字段=值2 OR ...;
+### 联合查询
 
-# 值间查询（BETWEEN）
-SELECT * FROM `表名` WHERE 字段 BETWEEN 值1 AND 值2;
-# 以上代码相当于如下代码
-# 其中值可以是：15、'A'、'2016-05-10'，这种数据。
-SELECT * FROM `表名` WHERE 字段>=值1 AND 字段<=值2;
+合并两个或多个SELECT语句的结果集，每个结果集必须拥有相同数量的列、列数据类型、列顺序。
 
-# 联合查询（UNION）
-# 合并两个或多个SELECT语句的结果集
-# 每个结果集必须拥有相同数量的列、列数据类型、列顺序。
-SELECT 字段 FROM `表名1`
+```SQL
+SELECT 字段, ... FROM `表1`
 UNION
-SELECT 字段 FROM `表名2`;
+SELECT 字段, ... FROM `表2`;
 # 以上代码将自动去除重复的行
 
-# 联合查询（UNION ALL）
-SELECT 字段 FROM `表名1`
+SELECT 字段, ... FROM `表1`
 UNION ALL
-SELECT 字段 FROM `表名2`;
+SELECT 字段, ... FROM `表2`;
 # 以上代码将保留重复的行
 ```
 
 ### 连接查询
 
 ``` SQL
-SELECT * FROM `表名1` ['别名1']
+SELECT * FROM `表名1` [AS '别名1']
 { INNER JOIN | LEFT OUTER JOIN | RIGHT OUTER JOIN | FULL OUTER JOIN }
 `表名2` ['别名2'] ON 连接条件
 [WHERE 选择条件];
