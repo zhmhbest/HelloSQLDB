@@ -169,9 +169,9 @@ SELECT * FROM `表` WHERE 字段>(SELECT AVG(字段) FROM `表`);
 #### 多值筛选
 
 ```SQL
-SELECT * FROM `表` WHERE 字段 IN (值1,值2, ...);
+SELECT * FROM `表` WHERE 字段 [NOT] IN (值1,值2, ...);
 SELECT * FROM `表` WHERE 字段=值1 OR 字段=值2 OR ...;
-SELECT * FROM `表` WHERE 字段 IN (SELECT 字段 FROM `表`);
+SELECT * FROM `表` WHERE 字段 [NOT] IN (SELECT 字段 FROM `表`);
 ```
 
 #### 值间筛选
@@ -328,6 +328,100 @@ FROM `Order` GROUP BY user_id;
 ```
 
 @import "./data/Order_Summary.csv"
+
+### 应用
+
+**Student**
+
+@import "./data/Student.csv"
+
+**Teacher**
+
+@import "./data/Teacher.csv"
+
+**Course**
+
+@import "./data/Course.csv"
+
+**SC**
+
+@import "./data/SC.csv"
+
+#### 查询不同课程的任课老师
+
+```SQL
+SELECT Course.Cname AS '课程', Teacher.Tname AS '任课老师' FROM
+`Course`, `Teacher` WHERE Course.Tid=Teacher.Tid;
+```
+
+#### 查询年龄最小的学生
+
+```SQL
+SELECT * FROM `Student` ORDER BY Sbirth LIMIT 1;
+# Or
+SELECT * FROM `Student` WHERE Sbirth=(SELECT MIN(Sbirth) FROM `Student`);
+```
+
+#### 查询平均成绩大于等于60分的同学及其成绩
+
+```SQL
+SELECT Student.Sname AS 姓名, avg.avg AS 平均分  FROM
+`Student`,
+(SELECT Sid, AVG(score) AS avg FROM `SC` GROUP BY Sid HAVING AVG(score)>60) AS avg
+WHERE Student.Sid IN (
+    SELECT Sid FROM `SC` GROUP BY Sid HAVING AVG(score)>60
+) AND Student.Sid=avg.Sid;
+# Or
+SELECT A.Sname,B.avg FROM (
+    SELECT * FROM `Student` WHERE Student.Sid IN (
+        SELECT Sid FROM `SC` GROUP BY Sid HAVING AVG(score)>60
+    )
+) AS A INNER JOIN (
+    SELECT Sid, AVG(score) AS avg FROM `SC` GROUP BY Sid HAVING AVG(score)>60
+) AS B ON A.Sid=B.Sid;
+
+```
+
+#### 查询同时拥有三门课程成绩的学生
+
+```SQL
+SELECT * FROM `Student` WHERE Student.Sid IN (
+SELECT A.Sid FROM
+    (SELECT * FROM `SC` WHERE Cid=(SELECT Cid FROM `Course` WHERE Cname='语文')) AS A,
+    (SELECT * FROM `SC` WHERE Cid=(SELECT Cid FROM `Course` WHERE Cname='数学')) AS B,
+    (SELECT * FROM `SC` WHERE Cid=(SELECT Cid FROM `Course` WHERE Cname='英语')) AS C
+WHERE A.Sid=B.Sid AND A.Sid=C.Sid);
+```
+
+#### 查询没有学全三门课程的学生
+
+```SQL
+SELECT * FROM `Student` WHERE Student.Sid NOT IN (
+SELECT A.Sid FROM
+    (SELECT * FROM `SC` WHERE Cid=(SELECT Cid FROM `Course` WHERE Cname='语文')) AS A,
+    (SELECT * FROM `SC` WHERE Cid=(SELECT Cid FROM `Course` WHERE Cname='数学')) AS B,
+    (SELECT * FROM `SC` WHERE Cid=(SELECT Cid FROM `Course` WHERE Cname='英语')) AS C
+WHERE A.Sid=B.Sid AND A.Sid=C.Sid);
+```
+
+#### 查询数学比英语高的学生
+
+```SQL
+SELECT * FROM `Student` WHERE Student.Sid IN (
+SELECT A.Sid FROM
+    (SELECT * FROM `SC` WHERE Cid=(SELECT Cid FROM `Course` WHERE Cname='数学')) AS A,
+    (SELECT * FROM `SC` WHERE Cid=(SELECT Cid FROM `Course` WHERE Cname='英语')) AS B
+WHERE A.Sid=B.Sid and A.score > B.score);
+```
+
+#### 查询每位同学的课程信息（课程数、总成绩）
+
+```SQL
+SELECT SS.Sname AS 姓名, ST.ClassNum AS 课程数, ST.ScoreSum AS 总分数 FROM (
+    (SELECT * FROM `Student`) AS SS,
+    (SELECT Sid, Count(*) AS ClassNum, SUM(score) AS ScoreSum FROM `SC` GROUP BY Sid) AS ST
+) WHERE SS.Sid=ST.sid;
+```
 
 <!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
 
