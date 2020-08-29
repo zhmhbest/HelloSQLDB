@@ -137,8 +137,11 @@ TRUNCATE TABLE `表名`;
 ```SQL
 # 显示所有字段
 SELECT
-[DISTINCT] 字段 [AS '别名'], ...
-FROM `表1`, ...
+    [DISTINCT] 字段 [AS '别名']
+    , ...
+FROM
+    {`表1` | (SELECT ...) AS '结果别名'}
+    , ...
 [WHERE 条件]
 [ORDER BY 排序参考的字段1 [ASC | DESC], ...]
 [LIMIT 数量 | ROWNUM<=数量]
@@ -156,22 +159,25 @@ FROM `表1`, ...
 #### 简单筛选
 
 ```SQL
-SELECT * FROM `表名` WHERE 字段=值;
+# > < = <= >=
+SELECT * FROM `表` WHERE 字段=值;
+SELECT * FROM `表` WHERE 字段=(SELECT MIN(字段) FROM `表`);
+SELECT * FROM `表` WHERE 字段=(SELECT MAX(字段) FROM `表`);
 ```
 
 #### 多值筛选
 
 ```SQL
-SELECT * FROM `表名` WHERE 字段 IN (值1,值2, ...);
-SELECT * FROM `表名` WHERE 字段=值1 OR 字段=值2 OR ...;
-SELECT * FROM `表名` WHERE 字段 IN (SELECT 字段 FROM `表名`);
+SELECT * FROM `表` WHERE 字段 IN (值1,值2, ...);
+SELECT * FROM `表` WHERE 字段=值1 OR 字段=值2 OR ...;
+SELECT * FROM `表` WHERE 字段 IN (SELECT 字段 FROM `表`);
 ```
 
 #### 值间筛选
 
 ```SQL
-SELECT * FROM `表名` WHERE 字段 BETWEEN 值1 AND 值2;
-SELECT * FROM `表名` WHERE 字段>=值1 AND 字段<=值2;
+SELECT * FROM `表` WHERE 字段 BETWEEN 值1 AND 值2;
+SELECT * FROM `表` WHERE 字段>=值1 AND 字段<=值2;
 # 其中值可以是：15、'A'、'2016-05-10'，这种数据。
 ```
 
@@ -184,7 +190,7 @@ SELECT * FROM `表名` WHERE 字段>=值1 AND 字段<=值2;
 # [abc] : 匹配a、b、c中的任意一个字符
 # [^abc]: 匹配只要不是a、b、c中一个的任意字符
 # [!abc]: 同[^abc]
-SELECT * FROM `表名` WHERE 字段 LIKE '%oo%';
+SELECT * FROM `表` WHERE 字段 LIKE '%oo%';
 # 选出字段中包含'oo'（两侧或中间均可）的行
 ```
 
@@ -207,9 +213,9 @@ SELECT 字段, ... FROM `表2`;
 ### 连接查询
 
 ``` SQL
-SELECT * FROM `表名1` [AS '别名1']
+SELECT * FROM `表1` [AS '别名1']
 { INNER JOIN | LEFT OUTER JOIN | RIGHT OUTER JOIN | FULL OUTER JOIN }
-`表名2` ['别名2'] ON 连接条件
+`表2` ['别名2'] ON 连接条件
 [WHERE 选择条件];
 # Mysql不支持 FULL OUTER JOIN
 ```
@@ -227,6 +233,7 @@ SELECT * FROM `表名1` [AS '别名1']
 ``` SQL
 SELECT * FROM `R` INNER JOIN `S` ON R.B=S.B;
 # SELECT * FROM `R` JOIN `S` ON R.B=S.B;
+# SELECT * FROM `R`,`S` WHERE R.B=S.B
 ```
 
 @import "./data/INNER_JOIN.csv"
@@ -262,7 +269,7 @@ SELECT * FROM `R` RIGHT OUTER JOIN `S` ON R.B=S.B;
 ### 分组查询
 
 ``` SQL
-SELECT {字段 | 聚合函数},... FROM `表名` [WHERE 条件] GROUP BY 字段 [HAVING 聚合函数];
+SELECT {字段 | 聚合函数},... FROM `表` [WHERE 条件] GROUP BY 字段 [HAVING 聚合函数];
 ```
 
 **Order**
