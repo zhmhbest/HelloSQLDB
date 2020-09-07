@@ -37,6 +37,7 @@ CREATE TABLE `表1`(SELECT * FROM `表2`);
 
 # 重命名表
 RENAME TABLE `旧表名` TO `新表名`;
+ALTER TABLE `旧表名` RENAME TO `新表名`;
 
 # 删除表
 DROP TABLE `表名`;
@@ -123,7 +124,7 @@ UPDATE `表名` SET `字段`=参数,... WHERE 条件;
 ### 删除
 
 ```SQL
-# 删除一行数据
+# 删除行数据
 DELETE FROM `表名` WHERE 条件;
 
 # 清空表内所有数据
