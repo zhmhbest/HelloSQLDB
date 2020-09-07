@@ -161,6 +161,8 @@ FROM
 
 ```SQL
 # > < = != <= >=
+# IS NULL
+# IS NOT NULL
 SELECT * FROM `表` WHERE 字段=值;
 SELECT * FROM `表` WHERE 字段=(SELECT MIN(字段) FROM `表`);
 SELECT * FROM `表` WHERE 字段=(SELECT MAX(字段) FROM `表`);
