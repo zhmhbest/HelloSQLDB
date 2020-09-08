@@ -268,119 +268,231 @@ pre[data-line] .line-highlight[data-end]:after {
 <ul>
 <li><a href="#sql-programmingindexhtml">SQL Programming</a>
 <ul>
-<li><a href="#%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B">&#x5B58;&#x50A8;&#x8FC7;&#x7A0B;</a></li>
+<li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95">&#x81EA;&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;</a>
+<ul>
+<li><a href="#%E5%87%BD%E6%95%B0">&#x51FD;&#x6570;</a>
+<ul>
+<li><a href="#%E4%BE%8B">&#x4F8B;</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B">&#x5B58;&#x50A8;&#x8FC7;&#x7A0B;</a>
+<ul>
+<li><a href="#%E4%BE%8B-1">&#x4F8B;</a></li>
+</ul>
+</li>
 <li><a href="#%E8%A7%A6%E5%8F%91%E5%99%A8">&#x89E6;&#x53D1;&#x5668;</a></li>
 <li><a href="#%E5%AE%9A%E6%97%B6%E5%99%A8">&#x5B9A;&#x65F6;&#x5668;</a></li>
+</ul>
+</li>
 <li><a href="#%E5%86%85%E5%AE%B9%E7%BC%96%E7%A8%8B">&#x5185;&#x5BB9;&#x7F16;&#x7A0B;</a>
 <ul>
 <li><a href="#%E5%8F%98%E9%87%8F">&#x53D8;&#x91CF;</a></li>
-<li><a href="#%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5if">&#x6761;&#x4EF6;&#x8BED;&#x53E5;&#xFF08;IF&#xFF09;</a></li>
-<li><a href="#%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5case">&#x6761;&#x4EF6;&#x8BED;&#x53E5;&#xFF08;CASE&#xFF09;</a></li>
+<li><a href="#%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5">&#x6761;&#x4EF6;&#x8BED;&#x53E5;</a></li>
 <li><a href="#%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5">&#x5FAA;&#x73AF;&#x8BED;&#x53E5;</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h2 class="mume-header" id="%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B">&#x5B58;&#x50A8;&#x8FC7;&#x7A0B;</h2>
+<h2 class="mume-header" id="%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95">&#x81EA;&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;</h2>
+
+<h3 class="mume-header" id="%E5%87%BD%E6%95%B0">&#x51FD;&#x6570;</h3>
 
 <pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment"># &#x521B;&#x5EFA;</span>
 <span class="token keyword">DELIMITER</span> <span class="token comment">//</span>
-<span class="token keyword">CREATE</span>
-    { <span class="token keyword">FUNCTION</span>  &#x51FD;&#x6570;&#x540D;<span class="token punctuation">(</span>&#x5B57;&#x6BB5; &#x7C7B;&#x578B;<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> <span class="token keyword">RETURN</span> &#x8FD4;&#x56DE;&#x503C;&#x7C7B;&#x578B;     } <span class="token operator">|</span>
-    { <span class="token keyword">PROCEDURE</span> &#x8FC7;&#x7A0B;&#x540D;<span class="token punctuation">(</span>{ <span class="token operator">IN</span> <span class="token operator">|</span> <span class="token keyword">OUT</span> <span class="token operator">|</span> <span class="token keyword">INOUT</span> } &#x5B57;&#x6BB5; &#x7C7B;&#x578B;<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> }
+<span class="token keyword">CREATE</span> <span class="token keyword">FUNCTION</span>  &#x51FD;&#x6570;&#x540D;<span class="token punctuation">(</span>&#x5B57;&#x6BB5; &#x7C7B;&#x578B;<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> <span class="token keyword">RETURNS</span> &#x8FD4;&#x56DE;&#x503C;&#x7C7B;&#x578B;
 <span class="token keyword">BEGIN</span>
-    <span class="token comment">-- &#x51FD;&#x6570;&#x5185;&#x5BB9; | &#x5B58;&#x50A8;&#x8FC7;&#x7A0B;&#x5185;&#x5BB9;</span>
-    <span class="token comment">-- &#x6B64;&#x90E8;&#x5206;&#x8BE6;&#x89C1;&#x5185;&#x5BB9;&#x7F16;&#x7A0B;</span>
-    <span class="token keyword">RETURN</span> &#x503C;<span class="token punctuation">;</span> <span class="token comment">--&#x4EC5;&#x51FD;&#x6570;&#x53EF;&#x4F7F;&#x7528;&#x672C;&#x65B9;&#x6CD5;&#x3002;</span>
+    <span class="token comment">-- &#x51FD;&#x6570;&#x5185;&#x5BB9;</span>
+    <span class="token keyword">RETURN</span> &#x503C;<span class="token punctuation">;</span>
+<span class="token keyword">END</span> <span class="token comment">//</span>
+<span class="token keyword">DELIMITER</span> <span class="token punctuation">;</span>
+
+<span class="token comment"># &#x8C03;&#x7528;</span>
+<span class="token keyword">SELECT</span> <span class="token punctuation">`</span>&#x51FD;&#x6570;&#x540D;<span class="token punctuation">`</span><span class="token punctuation">(</span>&#x53C2;&#x6570;<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+
+<span class="token comment"># &#x9500;&#x6BC1;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">FUNCTION</span> <span class="token punctuation">[</span><span class="token keyword">IF</span> <span class="token keyword">EXISTS</span><span class="token punctuation">]</span> &#x51FD;&#x6570;&#x540D;<span class="token punctuation">;</span>
+</pre><h4 class="mume-header" id="%E4%BE%8B">&#x4F8B;</h4>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">DELIMITER</span> <span class="token comment">//</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">FUNCTION</span> <span class="token punctuation">`</span>add2<span class="token punctuation">`</span><span class="token punctuation">(</span><span class="token punctuation">`</span>a<span class="token punctuation">`</span> <span class="token keyword">INT</span><span class="token punctuation">,</span> <span class="token punctuation">`</span>b<span class="token punctuation">`</span> <span class="token keyword">INT</span><span class="token punctuation">)</span> <span class="token keyword">RETURNS</span> <span class="token keyword">INT</span>
+<span class="token keyword">BEGIN</span>
+    <span class="token keyword">RETURN</span> <span class="token punctuation">`</span>a<span class="token punctuation">`</span><span class="token operator">+</span><span class="token punctuation">`</span>b<span class="token punctuation">`</span><span class="token punctuation">;</span>
+<span class="token keyword">END</span> <span class="token comment">//</span>
+<span class="token keyword">DELIMITER</span> <span class="token punctuation">;</span>
+
+<span class="token keyword">SELECT</span> <span class="token punctuation">`</span>add2<span class="token punctuation">`</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;Result&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">FUNCTION</span> <span class="token punctuation">`</span>add2<span class="token punctuation">`</span><span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B">&#x5B58;&#x50A8;&#x8FC7;&#x7A0B;</h3>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment"># &#x521B;&#x5EFA;</span>
+<span class="token keyword">DELIMITER</span> <span class="token comment">//</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">PROCEDURE</span> &#x8FC7;&#x7A0B;&#x540D;<span class="token punctuation">(</span>{ <span class="token operator">IN</span> <span class="token operator">|</span> <span class="token keyword">OUT</span> <span class="token operator">|</span> <span class="token keyword">INOUT</span> } &#x5B57;&#x6BB5; &#x7C7B;&#x578B;<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+<span class="token keyword">BEGIN</span>
+    <span class="token comment">-- &#x5B58;&#x50A8;&#x8FC7;&#x7A0B;&#x5185;&#x5BB9;</span>
     <span class="token comment">-- &#x5B58;&#x50A8;&#x8FC7;&#x7A0B;&#x901A;&#x8FC7;&#x5BF9;OUT&#x7C7B;&#x578B;&#x5B57;&#x6BB5;&#x8D4B;&#x503C;&#x8FD4;&#x56DE;&#x5185;&#x5BB9;&#x3002;</span>
 <span class="token keyword">END</span> <span class="token comment">//</span>
 <span class="token keyword">DELIMITER</span> <span class="token punctuation">;</span>
 
 <span class="token comment"># &#x8C03;&#x7528;</span>
-<span class="token keyword">SELECT</span> <span class="token punctuation">`</span>&#x51FD;&#x6570;&#x540D;<span class="token punctuation">`</span><span class="token punctuation">(</span>&#x53C2;&#x6570;<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>        <span class="token comment">#&#x8C03;&#x7528;&#x51FD;&#x6570;</span>
-<span class="token keyword">CALL</span>   <span class="token punctuation">`</span>&#x8FC7;&#x7A0B;&#x540D;<span class="token punctuation">`</span><span class="token punctuation">(</span>&#x53C2;&#x6570;<span class="token punctuation">,</span>@&#x53D8;&#x91CF;&#x540D;<span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> <span class="token comment">#&#x8C03;&#x7528;&#x5B58;&#x50A8;&#x8FC7;&#x7A0B;</span>
+<span class="token keyword">CALL</span>   <span class="token punctuation">`</span>&#x8FC7;&#x7A0B;&#x540D;<span class="token punctuation">`</span><span class="token punctuation">(</span>&#x53C2;&#x6570;<span class="token punctuation">,</span>@&#x53D8;&#x91CF;&#x540D;<span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
 
 <span class="token comment"># &#x9500;&#x6BC1;</span>
-<span class="token comment"># &#x5B58;&#x50A8;&#x8FC7;&#x7A0B;&#x53CA;&#x51FD;&#x6570;&#x4E00;&#x65E6;&#x521B;&#x5EFA;&#x5C06;&#x4F1A;&#x4E00;&#x76F4;&#x4FDD;&#x5B58;&#x5728;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#xFF0C;&#x9664;&#x975E;&#x624B;&#x52A8;&#x9500;&#x6BC1;&#x3002;</span>
-<span class="token keyword">DROP</span> <span class="token keyword">FUNCTION</span>  &#x51FD;&#x6570;&#x540D;<span class="token punctuation">;</span> <span class="token comment">#&#x5220;&#x9664;&#x51FD;&#x6570;</span>
-<span class="token keyword">DROP</span> <span class="token keyword">PROCEDURE</span> &#x8FC7;&#x7A0B;&#x540D;<span class="token punctuation">;</span> <span class="token comment">#&#x5220;&#x9664;&#x5B58;&#x50A8;&#x8FC7;&#x7A0B;</span>
-</pre><h2 class="mume-header" id="%E8%A7%A6%E5%8F%91%E5%99%A8">&#x89E6;&#x53D1;&#x5668;</h2>
+<span class="token keyword">DROP</span> <span class="token keyword">PROCEDURE</span> <span class="token punctuation">[</span><span class="token keyword">IF</span> <span class="token keyword">EXISTS</span><span class="token punctuation">]</span> &#x8FC7;&#x7A0B;&#x540D;<span class="token punctuation">;</span>
+</pre><h4 class="mume-header" id="%E4%BE%8B-1">&#x4F8B;</h4>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">DELIMITER</span> <span class="token comment">//</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">PROCEDURE</span> <span class="token punctuation">`</span>add2<span class="token punctuation">`</span><span class="token punctuation">(</span><span class="token operator">IN</span> <span class="token punctuation">`</span>a<span class="token punctuation">`</span> <span class="token keyword">INT</span><span class="token punctuation">,</span> <span class="token operator">IN</span> <span class="token punctuation">`</span>b<span class="token punctuation">`</span> <span class="token keyword">INT</span><span class="token punctuation">,</span> <span class="token keyword">OUT</span> <span class="token punctuation">`</span>c<span class="token punctuation">`</span> <span class="token keyword">INT</span><span class="token punctuation">)</span>
+<span class="token keyword">BEGIN</span>
+    <span class="token keyword">SET</span> <span class="token punctuation">`</span>c<span class="token punctuation">`</span> <span class="token operator">=</span> <span class="token punctuation">`</span>a<span class="token punctuation">`</span><span class="token operator">+</span><span class="token punctuation">`</span>b<span class="token punctuation">`</span><span class="token punctuation">;</span>
+<span class="token keyword">END</span> <span class="token comment">//</span>
+<span class="token keyword">DELIMITER</span> <span class="token punctuation">;</span>
+
+<span class="token keyword">SET</span> <span class="token variable">@result</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">CALL</span> <span class="token punctuation">`</span>add2<span class="token punctuation">`</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token variable">@result</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> <span class="token variable">@result</span> <span class="token keyword">AS</span> <span class="token string">&apos;Result&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">PROCEDURE</span> <span class="token punctuation">`</span>add2<span class="token punctuation">`</span><span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="%E8%A7%A6%E5%8F%91%E5%99%A8">&#x89E6;&#x53D1;&#x5668;</h3>
 
 <pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment"># &#x67E5;&#x770B;</span>
 <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span>  INFORMATION_SCHEMA<span class="token punctuation">.</span>TRIGGERS<span class="token punctuation">;</span>
 <span class="token keyword">SHOW</span> TRIGGERS<span class="token punctuation">;</span>
-<span class="token keyword">SHOW</span> <span class="token keyword">CREATE</span> <span class="token keyword">TRIGGER</span><span class="token punctuation">;</span>
 
 <span class="token comment"># &#x521B;&#x5EFA;</span>
 <span class="token keyword">DELIMITER</span> <span class="token comment">//</span>
-<span class="token keyword">CREATE</span> <span class="token keyword">TRIGGER</span> &#x89E6;&#x53D1;&#x5668;&#x540D; {BEFORE <span class="token operator">|</span> <span class="token keyword">AFTER</span>} {<span class="token keyword">INSERT</span> <span class="token operator">|</span> <span class="token keyword">DELETE</span> <span class="token operator">|</span> <span class="token keyword">UPDATE</span>} <span class="token keyword">ON</span> <span class="token punctuation">`</span>&#x8868;&#x540D;<span class="token punctuation">`</span> <span class="token keyword">FOR EACH ROW</span> <span class="token keyword">BEGIN</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TRIGGER</span> &#x89E6;&#x53D1;&#x5668;&#x540D;
+    {BEFORE <span class="token operator">|</span> <span class="token keyword">AFTER</span>} {<span class="token keyword">INSERT</span> <span class="token operator">|</span> <span class="token keyword">DELETE</span> <span class="token operator">|</span> <span class="token keyword">UPDATE</span>} <span class="token keyword">ON</span> <span class="token punctuation">`</span>&#x8868;&#x540D;<span class="token punctuation">`</span> <span class="token keyword">FOR EACH ROW</span>
+<span class="token keyword">BEGIN</span>
     <span class="token comment">-- &#x7A0B;&#x5E8F;&#x4F53;</span>
 <span class="token keyword">END</span> <span class="token comment">//</span>
 <span class="token keyword">DELIMITER</span> <span class="token punctuation">;</span>
 
-<span class="token comment"># &#x5220;&#x9664;</span>
+<span class="token comment"># &#x9500;&#x6BC1;</span>
 <span class="token keyword">DROP</span> <span class="token keyword">TRIGGER</span> &#x89E6;&#x53D1;&#x5668;&#x540D;<span class="token punctuation">;</span>
-</pre><h2 class="mume-header" id="%E5%AE%9A%E6%97%B6%E5%99%A8">&#x5B9A;&#x65F6;&#x5668;</h2>
+</pre><h3 class="mume-header" id="%E5%AE%9A%E6%97%B6%E5%99%A8">&#x5B9A;&#x65F6;&#x5668;</h3>
 
 <pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment"># &#x521B;&#x5EFA;</span>
-<span class="token keyword">CREATE</span> EVENT <span class="token keyword">IF</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span> &#x4E8B;&#x4EF6;&#x540D;&#x79F0;
-<span class="token keyword">ON</span> SCHEDULE EVERY <span class="token number">1</span> <span class="token keyword">SECOND</span>
-<span class="token keyword">ON</span> COMPLETION PRESERVE
-<span class="token keyword">ENABLE</span> <span class="token keyword">DO</span> <span class="token keyword">CALL</span> &#x5B58;&#x50A8;&#x8FC7;&#x7A0B;<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">CREATE</span> EVENT <span class="token punctuation">[</span><span class="token keyword">IF</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span><span class="token punctuation">]</span> &#x4E8B;&#x4EF6;&#x540D;&#x79F0;
+<span class="token keyword">ON</span> SCHEDULE
+    EVERY <span class="token number">1</span> <span class="token keyword">SECOND</span>
+<span class="token punctuation">[</span><span class="token keyword">ON</span> COMPLETION <span class="token punctuation">[</span><span class="token operator">NOT</span><span class="token punctuation">]</span> PRESERVE<span class="token punctuation">]</span>
+<span class="token keyword">ENABLE</span>
+<span class="token keyword">DO</span> &#x8BED;&#x53E5;<span class="token punctuation">;</span>
 
 <span class="token comment"># &#x542F;&#x7528;/&#x505C;&#x6B62;</span>
-<span class="token keyword">ALTER</span> EVENT &#x4E8B;&#x4EF6;&#x540D;&#x79F0; <span class="token keyword">ON</span>  COMPLETION PRESERVE {<span class="token keyword">ENABLE</span> <span class="token operator">|</span> <span class="token keyword">DISABLE</span>}<span class="token punctuation">;</span>
+<span class="token keyword">ALTER</span> EVENT &#x4E8B;&#x4EF6;&#x540D;&#x79F0; <span class="token keyword">ON</span> COMPLETION PRESERVE {<span class="token keyword">ENABLE</span> <span class="token operator">|</span> <span class="token keyword">DISABLE</span>}<span class="token punctuation">;</span>
 </pre><h2 class="mume-header" id="%E5%86%85%E5%AE%B9%E7%BC%96%E7%A8%8B">&#x5185;&#x5BB9;&#x7F16;&#x7A0B;</h2>
 
-<h3 class="mume-header" id="%E5%8F%98%E9%87%8F">&#x53D8;&#x91CF;</h3>
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">DELIMITER</span> <span class="token comment">//</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">PROCEDURE</span> <span class="token punctuation">`</span>main<span class="token punctuation">`</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">BEGIN</span>
+    <span class="token comment">-- &#x5728;&#x6B64;&#x7F16;&#x5199;&#x6D4B;&#x8BD5;&#x5185;&#x5BB9;</span>
+<span class="token keyword">END</span> <span class="token comment">//</span>
+<span class="token keyword">DELIMITER</span> <span class="token punctuation">;</span>
+<span class="token keyword">CALL</span> <span class="token punctuation">`</span>main<span class="token punctuation">`</span><span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">PROCEDURE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>main<span class="token punctuation">`</span><span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="%E5%8F%98%E9%87%8F">&#x53D8;&#x91CF;</h3>
 
-<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment"># &#x58F0;&#x660E;</span>
-<span class="token keyword">DECLARE</span> &#x53D8;&#x91CF;&#x540D; &#x53D8;&#x91CF;&#x7C7B;&#x578B; <span class="token punctuation">[</span><span class="token keyword">DEFAULT</span> &#x503C;<span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-<span class="token comment"># &#x8D4B;&#x503C;</span>
-<span class="token keyword">SET</span> <span class="token variable">@hello</span><span class="token operator">=</span><span class="token string">&apos;Hello&apos;</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment">-- &#x58F0;&#x660E;&#x4F1A;&#x8BDD;&#x53D8;&#x91CF;</span>
+<span class="token keyword">SET</span> <span class="token variable">@hello</span><span class="token operator">=</span><span class="token string">&apos;Hello world!&apos;</span><span class="token punctuation">;</span>
 <span class="token keyword">SELECT</span> <span class="token variable">@hello</span><span class="token punctuation">;</span>
-</pre><h3 class="mume-header" id="%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5if">&#x6761;&#x4EF6;&#x8BED;&#x53E5;&#xFF08;IF&#xFF09;</h3>
 
-<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">IF</span> &#x6761;&#x4EF6; <span class="token keyword">THEN</span>
-    <span class="token comment">-- &#x8BED;&#x53E5;1;</span>
-<span class="token keyword">ELSE</span>
-    <span class="token comment">-- &#x8BED;&#x53E5;2;</span>
-<span class="token keyword">END</span> <span class="token keyword">IF</span> <span class="token punctuation">;</span>
-</pre><h3 class="mume-header" id="%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5case">&#x6761;&#x4EF6;&#x8BED;&#x53E5;&#xFF08;CASE&#xFF09;</h3>
+<span class="token keyword">DELIMITER</span> <span class="token comment">//</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">PROCEDURE</span> <span class="token punctuation">`</span>main<span class="token punctuation">`</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">BEGIN</span>
 
-<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">CASE</span> &#x53D8;&#x91CF;
-    <span class="token keyword">WHEN</span> &#x503C;<span class="token number">1</span> <span class="token keyword">THEN</span>
-        <span class="token comment">-- &#x8BED;&#x53E5;1;</span>
-    <span class="token keyword">WHEN</span> &#x503C;<span class="token number">2</span> <span class="token keyword">THEN</span>
-        <span class="token comment">-- &#x8BED;&#x53E5;2;</span>
+    <span class="token comment">-- &#x58F0;&#x660E;&#x8FC7;&#x7A0B;&#x53D8;&#x91CF;&#xFF08;&#x4EC5;&#x80FD;&#x5728;&#x5B58;&#x50A8;&#x8FC7;&#x7A0B;&#x6216;&#x51FD;&#x6570;&#x4E2D;&#x4F7F;&#x7528;&#xFF09;</span>
+    <span class="token keyword">DECLARE</span> <span class="token punctuation">`</span>pi<span class="token punctuation">`</span> <span class="token keyword">float</span> <span class="token keyword">DEFAULT</span> <span class="token number">3.14</span><span class="token punctuation">;</span>
+    <span class="token keyword">DECLARE</span> <span class="token punctuation">`</span>i<span class="token punctuation">`</span> <span class="token keyword">int</span><span class="token punctuation">;</span> <span class="token comment"># &#x9ED8;&#x8BA4;&#x521D;&#x59CB;&#x5316;&#x4E3A;null</span>
+    <span class="token keyword">SELECT</span> <span class="token punctuation">`</span>pi<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token punctuation">`</span>i<span class="token punctuation">`</span><span class="token punctuation">;</span>
+
+    <span class="token comment">-- &#x4FEE;&#x6539;&#x53D8;&#x91CF;</span>
+    <span class="token keyword">SET</span> <span class="token punctuation">`</span>i<span class="token punctuation">`</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">SELECT</span> <span class="token punctuation">`</span>i<span class="token punctuation">`</span><span class="token punctuation">;</span>
+
+<span class="token keyword">END</span> <span class="token comment">//</span>
+<span class="token keyword">DELIMITER</span> <span class="token punctuation">;</span>
+<span class="token keyword">CALL</span> <span class="token punctuation">`</span>main<span class="token punctuation">`</span><span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">PROCEDURE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>main<span class="token punctuation">`</span><span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5">&#x6761;&#x4EF6;&#x8BED;&#x53E5;</h3>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">DELIMITER</span> <span class="token comment">//</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">PROCEDURE</span> <span class="token punctuation">`</span>main<span class="token punctuation">`</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">BEGIN</span>
+    <span class="token keyword">DECLARE</span> <span class="token punctuation">`</span>a<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token punctuation">`</span>b<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token punctuation">`</span>c<span class="token punctuation">`</span> <span class="token keyword">int</span><span class="token punctuation">;</span>
+    <span class="token keyword">DECLARE</span> <span class="token punctuation">`</span>d<span class="token punctuation">`</span> <span class="token keyword">int</span> <span class="token keyword">DEFAULT</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">SELECT</span> <span class="token punctuation">`</span>a<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token punctuation">`</span>b<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token punctuation">`</span>c<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token punctuation">`</span>d<span class="token punctuation">`</span><span class="token punctuation">;</span>
+
+    <span class="token comment">-- IFNULL()</span>
+    <span class="token keyword">SET</span> <span class="token punctuation">`</span>a<span class="token punctuation">`</span><span class="token operator">=</span><span class="token punctuation">`</span>IFNULL<span class="token punctuation">`</span><span class="token punctuation">(</span><span class="token punctuation">`</span>a<span class="token punctuation">`</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment"># &#x82E5;&#x4E3A;NULL&#x8FD4;&#x56DE;0&#xFF0C;&#x53CD;&#x5219;&#x8FD4;&#x56DE;&#x539F;&#x503C;</span>
+
+    <span class="token comment">-- IF()</span>
+    <span class="token keyword">SET</span> <span class="token punctuation">`</span>b<span class="token punctuation">`</span><span class="token operator">=</span><span class="token keyword">IF</span><span class="token punctuation">(</span><span class="token punctuation">`</span>b<span class="token punctuation">`</span> <span class="token operator">IS</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment"># &#x82E5;&#x4E3A;NULL&#x8FD4;&#x56DE;0&#xFF0C;&#x53CD;&#x5219;&#x8FD4;&#x56DE;1</span>
+
+    <span class="token comment">-- IF ... ELSE ..</span>
+    <span class="token keyword">IF</span> <span class="token punctuation">`</span>c<span class="token punctuation">`</span> <span class="token operator">IS</span> <span class="token boolean">NULL</span> <span class="token keyword">THEN</span>             <span class="token comment"># &#x82E5;&#x4E3A;NULL&#x8FD4;&#x56DE;0&#xFF0C;&#x53CD;&#x5219;&#x8FD4;&#x56DE;1</span>
+        <span class="token keyword">SET</span> <span class="token punctuation">`</span>c<span class="token punctuation">`</span><span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token keyword">ELSE</span>
-        <span class="token comment">-- &#x8BED;&#x53E5;3;</span>
-<span class="token keyword">END</span> <span class="token keyword">CASE</span> <span class="token punctuation">;</span>
+        <span class="token keyword">SET</span> <span class="token punctuation">`</span>c<span class="token punctuation">`</span><span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">END</span> <span class="token keyword">IF</span><span class="token punctuation">;</span>
+
+    <span class="token comment">-- CASE WHEN</span>
+    <span class="token keyword">CASE</span> <span class="token punctuation">`</span>d<span class="token punctuation">`</span>
+        <span class="token keyword">WHEN</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token keyword">THEN</span>
+            <span class="token keyword">SET</span> <span class="token punctuation">`</span>d<span class="token punctuation">`</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">ELSE</span>
+            <span class="token keyword">SET</span> <span class="token punctuation">`</span>d<span class="token punctuation">`</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">END</span> <span class="token keyword">CASE</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">SELECT</span> <span class="token punctuation">`</span>a<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token punctuation">`</span>b<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token punctuation">`</span>c<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token punctuation">`</span>d<span class="token punctuation">`</span><span class="token punctuation">;</span>
+<span class="token keyword">END</span> <span class="token comment">//</span>
+<span class="token keyword">DELIMITER</span> <span class="token punctuation">;</span>
+<span class="token keyword">CALL</span> <span class="token punctuation">`</span>main<span class="token punctuation">`</span><span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">PROCEDURE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>main<span class="token punctuation">`</span><span class="token punctuation">;</span>
 </pre><h3 class="mume-header" id="%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5">&#x5FAA;&#x73AF;&#x8BED;&#x53E5;</h3>
 
-<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment"># WHILE</span>
-<span class="token keyword">DECLARE</span> i <span class="token keyword">INT</span> <span class="token keyword">DEFAULT</span> <span class="token number">5</span><span class="token punctuation">;</span>
-<span class="token keyword">WHILE</span> i<span class="token operator">&gt;</span><span class="token number">0</span> <span class="token keyword">DO</span>
-    <span class="token keyword">SET</span> i<span class="token operator">=</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token keyword">END</span> <span class="token keyword">WHILE</span><span class="token punctuation">;</span>
-
-<span class="token comment"># REPEAT</span>
-<span class="token keyword">DECLARE</span> i <span class="token keyword">INT</span> <span class="token keyword">DEFAULT</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token keyword">REPEAT</span>
-    <span class="token keyword">SET</span> i<span class="token operator">=</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
-UNTIL i<span class="token operator">&gt;=</span><span class="token number">5</span>
-<span class="token keyword">END</span> <span class="token keyword">REPEAT</span><span class="token punctuation">;</span>
-
-<span class="token comment"># LOOP</span>
-<span class="token keyword">DECLARE</span> i <span class="token keyword">INT</span> <span class="token keyword">DEFAULT</span> <span class="token number">0</span><span class="token punctuation">;</span>
-LOOP_LABLE:<span class="token keyword">LOOP</span>
-    <span class="token keyword">SET</span> i<span class="token operator">=</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">IF</span> i<span class="token operator">&gt;=</span><span class="token number">5</span> <span class="token keyword">THEN</span>
-        <span class="token keyword">LEAVE</span> LOOP_LABLE<span class="token punctuation">;</span>
-    <span class="token keyword">END</span> <span class="token keyword">IF</span><span class="token punctuation">;</span>
-<span class="token keyword">END</span> <span class="token keyword">LOOP</span><span class="token punctuation">;</span>
+<p><strong>WHILE</strong></p>
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">DELIMITER</span> <span class="token comment">//</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">PROCEDURE</span> <span class="token punctuation">`</span>main<span class="token punctuation">`</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">BEGIN</span>
+    <span class="token keyword">DECLARE</span> <span class="token punctuation">`</span>i<span class="token punctuation">`</span> <span class="token keyword">INT</span> <span class="token keyword">DEFAULT</span> <span class="token number">3</span><span class="token punctuation">;</span>
+    <span class="token keyword">WHILE</span> <span class="token punctuation">`</span>i<span class="token punctuation">`</span><span class="token operator">&gt;</span><span class="token number">0</span> <span class="token keyword">DO</span>
+        <span class="token keyword">SET</span> <span class="token punctuation">`</span>i<span class="token punctuation">`</span><span class="token operator">=</span><span class="token punctuation">`</span>i<span class="token punctuation">`</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">SELECT</span> <span class="token punctuation">`</span>i<span class="token punctuation">`</span><span class="token punctuation">;</span>
+    <span class="token keyword">END</span> <span class="token keyword">WHILE</span><span class="token punctuation">;</span>
+<span class="token keyword">END</span> <span class="token comment">//</span>
+<span class="token keyword">DELIMITER</span> <span class="token punctuation">;</span>
+<span class="token keyword">CALL</span> <span class="token punctuation">`</span>main<span class="token punctuation">`</span><span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">PROCEDURE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>main<span class="token punctuation">`</span><span class="token punctuation">;</span>
+</pre><p><strong>REPEAT</strong></p>
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">DELIMITER</span> <span class="token comment">//</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">PROCEDURE</span> <span class="token punctuation">`</span>main<span class="token punctuation">`</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">BEGIN</span>
+    <span class="token keyword">DECLARE</span> <span class="token punctuation">`</span>i<span class="token punctuation">`</span> <span class="token keyword">INT</span> <span class="token keyword">DEFAULT</span> <span class="token number">3</span><span class="token punctuation">;</span>
+    <span class="token keyword">REPEAT</span>
+        <span class="token keyword">SET</span> <span class="token punctuation">`</span>i<span class="token punctuation">`</span><span class="token operator">=</span><span class="token punctuation">`</span>i<span class="token punctuation">`</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">SELECT</span> <span class="token punctuation">`</span>i<span class="token punctuation">`</span><span class="token punctuation">;</span>
+    UNTIL <span class="token punctuation">`</span>i<span class="token punctuation">`</span><span class="token operator">=</span><span class="token number">0</span> <span class="token keyword">END</span> <span class="token keyword">REPEAT</span><span class="token punctuation">;</span>
+<span class="token keyword">END</span> <span class="token comment">//</span>
+<span class="token keyword">DELIMITER</span> <span class="token punctuation">;</span>
+<span class="token keyword">CALL</span> <span class="token punctuation">`</span>main<span class="token punctuation">`</span><span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">PROCEDURE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>main<span class="token punctuation">`</span><span class="token punctuation">;</span>
+</pre><p><strong>LOOP</strong></p>
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">DELIMITER</span> <span class="token comment">//</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">PROCEDURE</span> <span class="token punctuation">`</span>main<span class="token punctuation">`</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">BEGIN</span>
+    <span class="token keyword">DECLARE</span> <span class="token punctuation">`</span>i<span class="token punctuation">`</span> <span class="token keyword">INT</span> <span class="token keyword">DEFAULT</span> <span class="token number">3</span><span class="token punctuation">;</span>
+    LOOP_LABLE:<span class="token keyword">LOOP</span>
+        <span class="token keyword">SET</span> <span class="token punctuation">`</span>i<span class="token punctuation">`</span><span class="token operator">=</span><span class="token punctuation">`</span>i<span class="token punctuation">`</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">SELECT</span> <span class="token punctuation">`</span>i<span class="token punctuation">`</span><span class="token punctuation">;</span>
+        <span class="token keyword">IF</span> <span class="token punctuation">`</span>i<span class="token punctuation">`</span><span class="token operator">=</span><span class="token number">0</span> <span class="token keyword">THEN</span>
+            <span class="token keyword">LEAVE</span> LOOP_LABLE<span class="token punctuation">;</span>
+        <span class="token keyword">END</span> <span class="token keyword">IF</span><span class="token punctuation">;</span>
+    <span class="token keyword">END</span> <span class="token keyword">LOOP</span><span class="token punctuation">;</span>
+<span class="token keyword">END</span> <span class="token comment">//</span>
+<span class="token keyword">DELIMITER</span> <span class="token punctuation">;</span>
+<span class="token keyword">CALL</span> <span class="token punctuation">`</span>main<span class="token punctuation">`</span><span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">PROCEDURE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>main<span class="token punctuation">`</span><span class="token punctuation">;</span>
 </pre>
       </div>
       
