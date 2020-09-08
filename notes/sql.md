@@ -138,21 +138,19 @@ TRUNCATE TABLE `表名`;
 ```SQL
 # 显示所有字段
 SELECT
-    [DISTINCT] 字段 [AS '别名']
-    , ...
+    [DISTINCT]
+    字段 [AS '别名'], ...
 FROM
     {`表1` | (SELECT ...) AS '结果别名'}
     , ...
 [WHERE 条件]
 [ORDER BY 排序参考的字段1 [ASC | DESC], ...]
-[LIMIT 数量 [OFFSET 偏移量] | LIMIT 偏移量,数量]
+[LIMIT 返回行数 [OFFSET 偏移量] | LIMIT 偏移量,返回行数]
 ;
 
-# DISTINCT: 去除该字段内的重复值
+# DISTINCT: 去除重复
 # ASC : 顺序，自上至下升序（默认）
 # DESC: 逆序，自上至下降序
-# MySQL : LIMIT 数量
-# Oracle: ROWNUM<=数量
 ```
 
 ### 条件筛选
@@ -160,9 +158,10 @@ FROM
 #### 简单筛选
 
 ```SQL
+SELECT * FROM `表` WHERE 字段 IS NULL;
+SELECT * FROM `表` WHERE 字段 IS NOT NULL;
+
 # > < = != <= >=
-# IS NULL
-# IS NOT NULL
 SELECT * FROM `表` WHERE 字段=值;
 SELECT * FROM `表` WHERE 字段=(SELECT MIN(字段) FROM `表`);
 SELECT * FROM `表` WHERE 字段=(SELECT MAX(字段) FROM `表`);
@@ -172,9 +171,14 @@ SELECT * FROM `表` WHERE 字段>(SELECT AVG(字段) FROM `表`);
 #### 多值筛选
 
 ```SQL
-SELECT * FROM `表` WHERE 字段 [NOT] IN (值1,值2, ...);
+SELECT * FROM `表` WHERE 字段 IN (值1,值2, ...);
+SELECT * FROM `表` WHERE 字段 NOT IN (值1,值2, ...);
+
 SELECT * FROM `表` WHERE 字段=值1 OR 字段=值2 OR ...;
-SELECT * FROM `表` WHERE 字段 [NOT] IN (SELECT 字段 FROM `表`);
+SELECT * FROM `表` WHERE 字段!=值1 AND 字段!=值2 AND ...;
+
+SELECT * FROM `表` WHERE 字段 IN (SELECT ...);
+SELECT * FROM `表` WHERE 字段 NOT IN (SELECT ...);
 ```
 
 #### 值间筛选
@@ -182,13 +186,12 @@ SELECT * FROM `表` WHERE 字段 [NOT] IN (SELECT 字段 FROM `表`);
 ```SQL
 SELECT * FROM `表` WHERE 字段 BETWEEN 值1 AND 值2;
 SELECT * FROM `表` WHERE 字段>=值1 AND 字段<=值2;
-# 其中值可以是：15、'A'、'2016-05-10'，这种数据。
+# 其中值可以是：数字、字母、日期、时间等数据。
 ```
 
-#### 模糊筛选
+#### 字符串模糊筛选
 
 ```SQL
-# 字符串模糊查找
 # %     : 最少0个的任意多个字符
 # _     : 1个任意字符
 # [abc] : 匹配a、b、c中的任意一个字符
@@ -200,7 +203,7 @@ SELECT * FROM `表` WHERE 字段 LIKE '%oo%';
 
 ### 联合查询
 
-合并两个或多个SELECT语句的结果集，每个结果集必须拥有相同数量的列、列数据类型、列顺序。
+合并两个或多个SELECT语句的结果集，每个结果集必须拥有**相同数量的列、列数据类型、列顺序**。
 
 ```SQL
 SELECT 字段, ... FROM `表1`
@@ -331,6 +334,38 @@ FROM `Order` GROUP BY user_id;
 ```
 
 @import "./data/Order_Summary.csv"
+
+### Empty和Null
+
+**Empty**
+
+```SQL
+SELECT id FROM `Order` WHERE id=-1;
+```
+
+```txt
+MariaDB [test_sql]> SELECT id FROM `Order` WHERE id=-1;
+Empty set (0.00 sec)
+```
+
+**Null**
+
+```SQL
+SELECT IFNULL((SELECT id FROM `Order` WHERE id=-1), NULL) AS id;
+# SELECT (SELECT id FROM `Order` WHERE id=-1) AS id;
+```
+
+```txt
+MariaDB [test_sql]> SELECT IFNULL((SELECT id FROM `Order` WHERE id=-1), NULL) AS id;
++------+
+| id   |
++------+
+| NULL |
++------+
+1 row in set (0.00 sec)
+```
+
+如果使用Navicat Premium等软件可能导致忽视此问题的存在。
 
 <!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
 
