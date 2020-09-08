@@ -39,8 +39,6 @@
 
 ### [查找](sql.html#查找)
 
-### [应用](sql.html#应用)
-
 ### [事务](sql.html#事务)
 
 ## [SQL Programming](programming.html)
