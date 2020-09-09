@@ -160,13 +160,13 @@ BEGIN
     SELECT `a`,`b`,`c`,`d`;
 
     -- IFNULL()
-    SET `a`=`IFNULL`(`a`, 0);       # 若为NULL返回0，反则返回原值
+    SET `a`=`IFNULL`(`a`, 0);       # 若为NULL返回0，否则返回原值
 
     -- IF()
-    SET `b`=IF(`b` IS NULL, 0, 1);  # 若为NULL返回0，反则返回1
+    SET `b`=IF(`b` IS NULL, 0, 1);  # 若为NULL返回0，否则返回1
 
     -- IF ... ELSE ..
-    IF `c` IS NULL THEN             # 若为NULL返回0，反则返回1
+    IF `c` IS NULL THEN             # 若为NULL返回0，否则返回1
         SET `c`= 0;
     ELSE
         SET `c`= 1;
