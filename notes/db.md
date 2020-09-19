@@ -75,6 +75,7 @@ INSERT INTO mysql.user (User,Host,Password) VALUES('username','host',PASSWORD('p
 
 # 修改指定用户密码
 SET PASSWORD FOR 'username'@'host' = PASSWORD('new_password');
+ALTER USER 'username'@'host' IDENTIFIED BY 'new_password';
 
 # 修改当前用户密码
 SET PASSWORD = PASSWORD('new_password');

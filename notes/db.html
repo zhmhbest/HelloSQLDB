@@ -363,6 +363,7 @@ mysql<span class="token operator">&gt;</span>source <span class="token variable"
 
 <span class="token comment"># &#x4FEE;&#x6539;&#x6307;&#x5B9A;&#x7528;&#x6237;&#x5BC6;&#x7801;</span>
 <span class="token keyword">SET</span> PASSWORD <span class="token keyword">FOR</span> <span class="token string">&apos;username&apos;</span><span class="token variable">@&apos;host&apos;</span> <span class="token operator">=</span> PASSWORD<span class="token punctuation">(</span><span class="token string">&apos;new_password&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">ALTER</span> <span class="token keyword">USER</span> <span class="token string">&apos;username&apos;</span><span class="token variable">@&apos;host&apos;</span> IDENTIFIED <span class="token keyword">BY</span> <span class="token string">&apos;new_password&apos;</span><span class="token punctuation">;</span>
 
 <span class="token comment"># &#x4FEE;&#x6539;&#x5F53;&#x524D;&#x7528;&#x6237;&#x5BC6;&#x7801;</span>
 <span class="token keyword">SET</span> PASSWORD <span class="token operator">=</span> PASSWORD<span class="token punctuation">(</span><span class="token string">&apos;new_password&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
