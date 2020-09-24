@@ -367,6 +367,151 @@ MariaDB [test_sql]> SELECT IFNULL((SELECT id FROM `Order` WHERE id=-1), NULL) AS
 
 如果使用Navicat Premium等软件可能导致忽视此问题的存在。
 
+### 应用
+
+**SC**
+
+```SQL
+DROP TABLE IF EXISTS `SC`;
+CREATE TABLE `SC` (
+    `name`    varchar(8)  DEFAULT NULL,
+    `course`  varchar(8)  DEFAULT NULL,
+    `score`   int(8)      DEFAULT 0
+);
+INSERT INTO `SC` VALUES ('张三', '语文', '75');
+INSERT INTO `SC` VALUES ('张三', '数学', '80');
+INSERT INTO `SC` VALUES ('李四', '语文', '80');
+INSERT INTO `SC` VALUES ('李四', '数学', '81');
+INSERT INTO `SC` VALUES ('李四', '英语', '79');
+INSERT INTO `SC` VALUES ('王五', '语文', '67');
+INSERT INTO `SC` VALUES ('王五', '化学', '92');
+```
+
+#### 统计各科分数大于80分的人数和人数占比
+
+```SQL
+SELECT
+    `course` AS '课程',
+    COUNT(IF(`score`>78,TRUE,NULL)) AS '满足人数',
+    COUNT(`score`) AS '总人数',
+    COUNT(IF(`score`>78,TRUE,NULL)) / COUNT(`score`) AS '占比'
+FROM
+    `SC`
+GROUP BY
+    `course`
+;
+```
+
+@import "data/SC_STATISTICS.csv"
+
+#### 按平均成绩进行排名，并添加一列显示名次
+
+- ***Step1*：显示平均成绩**
+
+```SQL
+DROP VIEW IF EXISTS `SC_AVG`;
+CREATE VIEW `SC_AVG` AS (
+    SELECT
+        `name`,
+        AVG(`score`) AS 'score'
+    FROM
+        `SC`
+    GROUP BY
+        `name`
+);
+SELECT * FROM `SC_AVG`;
+```
+
+@import "data/SC_RANK_STEP1.csv"
+
+- ***Step2*：连接并表**
+
+```SQL
+DROP VIEW IF EXISTS `SC_JOIN`;
+CREATE VIEW `SC_JOIN` AS (
+    SELECT
+        A.`name`  AS 'nameA',
+        A.`score` AS 'scoreA',
+        B.`name`  AS 'nameB',
+        B.`score` AS 'scoreB'
+    FROM
+        `SC_AVG` AS A,
+        `SC_AVG` AS B
+    WHERE
+        A.score <= B.score
+);
+SELECT * FROM `SC_JOIN`;
+```
+
+@import "data/SC_RANK_STEP2.csv"
+
+- ***Step3*：统计排名**
+
+```SQL
+SELECT
+    `nameA` AS '姓名',
+    `scoreA` AS '平均分',
+    COUNT(DISTINCT(`scoreB`)) AS '排名'
+FROM
+    `SC_JOIN`
+GROUP BY
+    `nameA`
+ORDER BY
+    `scoreA` DESC
+;
+
+DROP VIEW IF EXISTS `SC_AVG`;
+DROP VIEW IF EXISTS `SC_JOIN`;
+```
+
+@import "data/SC_RANK_STEP3.csv"
+
+- ***Step4*：小结**
+
+```SQL
+SELECT
+    `nameA` AS '姓名',
+    `scoreA` AS '平均分',
+    COUNT(DISTINCT(`scoreB`)) AS '排名'
+FROM (
+    SELECT
+        A.`name`  AS 'nameA',
+        A.`score` AS 'scoreA',
+        B.`name`  AS 'nameB',
+        B.`score` AS 'scoreB'
+    FROM
+        (
+            SELECT
+                `name`,
+                AVG(`score`) AS 'score'
+            FROM
+                `SC`
+            GROUP BY
+                `name`
+        ) AS A,
+        (
+            SELECT
+                `name`,
+                AVG(`score`) AS 'score'
+            FROM
+                `SC`
+            GROUP BY
+                `name`
+        ) AS B
+    WHERE
+        A.score <= B.score
+)
+AS
+    SC_JOIN
+GROUP BY
+    `nameA`
+ORDER BY
+    `scoreA` DESC
+;
+```
+
+@import "data/SC_RANK_STEP3.csv"
+
 <!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
 
 ## 事务
