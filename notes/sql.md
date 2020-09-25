@@ -61,14 +61,25 @@ ALTER TABLE `表名` DROP 字段;
 
 <!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
 
-<!--
-## 索引与视图
+## 视图
 
-### 索引
+```SQL
+# 创建视图
+CREATE VIEW 视图名称 AS (
+    SELECT ...
+);
+
+# 删除视图
+DROP VIEW [IF EXISTS] 视图名称;
+```
+
+<!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
+
+## 索引
 
 ```SQL
 # 创建索引
-CREATE INDEX 索引名称 ON `表名` (字段, ...);
+CREATE [UNIQUE] INDEX 索引名称 ON `表名`(字段, ...);
 
 # 查看索引
 SHOW INDEX FROM `表名`;
@@ -76,17 +87,6 @@ SHOW INDEX FROM `表名`;
 # 删除索引
 DROP INDEX [索引名称] ON `表名`;
 ```
-
-### 视图
-
-```SQL
-# 创建视图
-CREATE VIEW 视图名称 AS SELECT [字段, ...] FROM `表名`, ... [WHERE 条件];
-
-# 删除视图
-DROP VIEW [IF EXISTS] 视图名称;
-```
- -->
 
 <!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
 
