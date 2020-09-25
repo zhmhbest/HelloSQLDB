@@ -493,6 +493,25 @@ pre[data-line] .line-highlight[data-end]:after {
 <span class="token keyword">DELIMITER</span> <span class="token punctuation">;</span>
 <span class="token keyword">CALL</span> <span class="token punctuation">`</span>main<span class="token punctuation">`</span><span class="token punctuation">;</span>
 <span class="token keyword">DROP</span> <span class="token keyword">PROCEDURE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>main<span class="token punctuation">`</span><span class="token punctuation">;</span>
+</pre><p><strong>&#x6E38;&#x6807;&#x8BFB;&#x53D6;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;</strong></p>
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">DELIMITER</span> <span class="token comment">//</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">PROCEDURE</span> <span class="token punctuation">`</span>main<span class="token punctuation">`</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">BEGIN</span>
+    <span class="token keyword">DECLARE</span> <span class="token punctuation">`</span><span class="token keyword">dump</span><span class="token punctuation">`</span> <span class="token keyword">CHAR</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">DECLARE</span> <span class="token punctuation">`</span>done<span class="token punctuation">`</span> <span class="token keyword">INT</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">FALSE</span><span class="token punctuation">;</span>
+    <span class="token keyword">DECLARE</span> <span class="token punctuation">`</span>cur<span class="token punctuation">`</span> <span class="token keyword">CURSOR</span> <span class="token keyword">FOR</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span><span class="token punctuation">(</span><span class="token punctuation">`</span>course<span class="token punctuation">`</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">DECLARE</span> <span class="token keyword">CONTINUE</span> <span class="token keyword">HANDLER</span> <span class="token keyword">FOR</span> <span class="token operator">NOT</span> FOUND <span class="token keyword">SET</span> <span class="token punctuation">`</span>done<span class="token punctuation">`</span> <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">;</span>
+    <span class="token keyword">OPEN</span> <span class="token punctuation">`</span>cur<span class="token punctuation">`</span><span class="token punctuation">;</span>
+    LOOP_LABLE: <span class="token keyword">LOOP</span>
+        <span class="token keyword">FETCH</span> <span class="token punctuation">`</span>cur<span class="token punctuation">`</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span><span class="token keyword">dump</span><span class="token punctuation">`</span><span class="token punctuation">;</span>
+        <span class="token keyword">IF</span> <span class="token punctuation">`</span>done<span class="token punctuation">`</span> <span class="token keyword">THEN</span> <span class="token keyword">LEAVE</span> LOOP_LABLE<span class="token punctuation">;</span> <span class="token keyword">END</span> <span class="token keyword">IF</span><span class="token punctuation">;</span>
+        <span class="token keyword">SELECT</span> <span class="token punctuation">`</span><span class="token keyword">dump</span><span class="token punctuation">`</span><span class="token punctuation">;</span>  <span class="token comment"># &#x8BFB;&#x53D6;&#x6BCF;&#x8F6E;&#x6570;&#x636E;</span>
+    <span class="token keyword">END</span> <span class="token keyword">LOOP</span><span class="token punctuation">;</span>
+    <span class="token keyword">CLOSE</span> <span class="token punctuation">`</span>cur<span class="token punctuation">`</span><span class="token punctuation">;</span>
+<span class="token keyword">END</span> <span class="token comment">//</span>
+<span class="token keyword">DELIMITER</span> <span class="token punctuation">;</span>
+<span class="token keyword">CALL</span> <span class="token punctuation">`</span>main<span class="token punctuation">`</span><span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">PROCEDURE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>main<span class="token punctuation">`</span><span class="token punctuation">;</span>
 </pre>
       </div>
       

@@ -242,3 +242,26 @@ DELIMITER ;
 CALL `main`;
 DROP PROCEDURE IF EXISTS `main`;
 ```
+
+**游标读取查询结果**
+
+```SQL
+DELIMITER //
+CREATE PROCEDURE `main`()
+BEGIN
+    DECLARE `dump` CHAR(32);
+    DECLARE `done` INT DEFAULT FALSE;
+    DECLARE `cur` CURSOR FOR (SELECT DISTINCT(`course`) FROM `SC`);
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET `done` = TRUE;
+    OPEN `cur`;
+    LOOP_LABLE: LOOP
+        FETCH `cur` INTO `dump`;
+        IF `done` THEN LEAVE LOOP_LABLE; END IF;
+        SELECT `dump`;  # 读取每轮数据
+    END LOOP;
+    CLOSE `cur`;
+END //
+DELIMITER ;
+CALL `main`;
+DROP PROCEDURE IF EXISTS `main`;
+```
