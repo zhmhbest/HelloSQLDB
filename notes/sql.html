@@ -1133,7 +1133,7 @@ Empty set (0.00 sec)
     <span class="token punctuation">`</span>course<span class="token punctuation">`</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x8BFE;&#x7A0B;&apos;</span><span class="token punctuation">,</span>
     <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">IF</span><span class="token punctuation">(</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token operator">&gt;</span><span class="token number">85</span><span class="token punctuation">,</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token boolean">NULL</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x6EE1;&#x8DB3;&#x4EBA;&#x6570;&apos;</span><span class="token punctuation">,</span>
     <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x603B;&#x4EBA;&#x6570;&apos;</span><span class="token punctuation">,</span>
-    <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">IF</span><span class="token punctuation">(</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token operator">&gt;</span><span class="token number">85</span><span class="token punctuation">,</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token boolean">NULL</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x5360;&#x6BD4;&apos;</span>
+    CONCAT<span class="token punctuation">(</span><span class="token function">ROUND</span><span class="token punctuation">(</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">IF</span><span class="token punctuation">(</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token operator">&gt;</span><span class="token number">85</span><span class="token punctuation">,</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token boolean">NULL</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">&apos;%&apos;</span><span class="token punctuation">)</span>  <span class="token keyword">AS</span> <span class="token string">&apos;&#x5360;&#x6BD4;&apos;</span>
 <span class="token keyword">FROM</span>
     <span class="token punctuation">`</span>SC<span class="token punctuation">`</span>
 <span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
@@ -1153,55 +1153,55 @@ Empty set (0.00 sec)
 <td>&#x5316;&#x5B66;</td>
 <td>1</td>
 <td>4</td>
-<td>0.2500</td>
+<td>25.00%</td>
 </tr>
 <tr>
 <td>&#x5386;&#x53F2;</td>
 <td>1</td>
 <td>4</td>
-<td>0.2500</td>
+<td>25.00%</td>
 </tr>
 <tr>
 <td>&#x5730;&#x7406;</td>
 <td>1</td>
 <td>4</td>
-<td>0.2500</td>
+<td>25.00%</td>
 </tr>
 <tr>
 <td>&#x5916;&#x8BED;</td>
 <td>1</td>
 <td>4</td>
-<td>0.2500</td>
+<td>25.00%</td>
 </tr>
 <tr>
 <td>&#x653F;&#x6CBB;</td>
 <td>0</td>
 <td>4</td>
-<td>0.0000</td>
+<td>0.00%</td>
 </tr>
 <tr>
 <td>&#x6570;&#x5B66;</td>
 <td>2</td>
 <td>4</td>
-<td>0.5000</td>
+<td>50.00%</td>
 </tr>
 <tr>
 <td>&#x7269;&#x7406;</td>
 <td>1</td>
 <td>4</td>
-<td>0.2500</td>
+<td>25.00%</td>
 </tr>
 <tr>
 <td>&#x751F;&#x7269;</td>
 <td>1</td>
 <td>4</td>
-<td>0.2500</td>
+<td>25.00%</td>
 </tr>
 <tr>
 <td>&#x8BED;&#x6587;</td>
 <td>1</td>
 <td>4</td>
-<td>0.2500</td>
+<td>25.00%</td>
 </tr>
 </tbody>
 </table>

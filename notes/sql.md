@@ -405,7 +405,7 @@ SELECT
     `course` AS '课程',
     COUNT(IF(`score`>85, TRUE, NULL)) AS '满足人数',
     COUNT(`score`) AS '总人数',
-    COUNT(IF(`score`>85, TRUE, NULL)) / COUNT(`score`) AS '占比'
+    CONCAT(ROUND(COUNT(IF(`score`>85, TRUE, NULL)) / COUNT(`score`) * 100, 2), '%')  AS '占比'
 FROM
     `SC`
 GROUP BY
