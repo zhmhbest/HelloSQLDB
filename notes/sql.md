@@ -371,30 +371,41 @@ MariaDB [test_sql]> SELECT IFNULL((SELECT id FROM `Order` WHERE id=-1), NULL) AS
 
 **SC**
 
+@import "data/SC.sql"
+
+#### 格式化学生成绩
+
 ```SQL
-DROP TABLE IF EXISTS `SC`;
-CREATE TABLE `SC` (
-    `name`    varchar(8)  DEFAULT NULL,
-    `course`  varchar(8)  DEFAULT NULL,
-    `score`   int(8)      DEFAULT 0
-);
-INSERT INTO `SC` VALUES ('张三', '语文', '75');
-INSERT INTO `SC` VALUES ('张三', '数学', '80');
-INSERT INTO `SC` VALUES ('李四', '语文', '80');
-INSERT INTO `SC` VALUES ('李四', '数学', '81');
-INSERT INTO `SC` VALUES ('李四', '英语', '79');
-INSERT INTO `SC` VALUES ('王五', '语文', '67');
-INSERT INTO `SC` VALUES ('王五', '化学', '92');
+SELECT
+    `name` AS '姓名',
+    MAX(IF(`course` = '政治', ROUND(`score`, 2), NULL)) AS '政治',
+    MAX(IF(`course` = '历史', ROUND(`score`, 2), NULL)) AS '历史',
+    MAX(IF(`course` = '地理', ROUND(`score`, 2), NULL)) AS '地理',
+    MAX(IF(`course` = '生物', ROUND(`score`, 2), NULL)) AS '生物',
+    MAX(IF(`course` = '语文', ROUND(`score`, 2), NULL)) AS '语文',
+    MAX(IF(`course` = '数学', ROUND(`score`, 2), NULL)) AS '数学',
+    MAX(IF(`course` = '外语', ROUND(`score`, 2), NULL)) AS '外语',
+    MAX(IF(`course` = '物理', ROUND(`score`, 2), NULL)) AS '物理',
+    MAX(IF(`course` = '化学', ROUND(`score`, 2), NULL)) AS '化学'
+FROM
+    `SC`
+GROUP BY
+    `name`
+;
 ```
 
-#### 统计各科分数大于80分的人数和人数占比
+@import "data/SC_FORMAT.csv"
+
+#### 统计各科分数大于85分的人数和人数占比
+
+>使用`SC`表
 
 ```SQL
 SELECT
     `course` AS '课程',
-    COUNT(IF(`score`>78,TRUE,NULL)) AS '满足人数',
+    COUNT(IF(`score`>85, TRUE, NULL)) AS '满足人数',
     COUNT(`score`) AS '总人数',
-    COUNT(IF(`score`>78,TRUE,NULL)) / COUNT(`score`) AS '占比'
+    COUNT(IF(`score`>85, TRUE, NULL)) / COUNT(`score`) AS '占比'
 FROM
     `SC`
 GROUP BY
@@ -402,9 +413,28 @@ GROUP BY
 ;
 ```
 
-@import "data/SC_STATISTICS.csv"
+@import "data/SC_STATISTICS1.csv"
+
+#### 统计各分段的人数
+
+```SQL
+SELECT
+    `course` AS '课程',
+    SUM(CASE WHEN `score` BETWEEN 85 AND 100 THEN 1 ELSE 0 END) AS '优秀人数',
+    SUM(CASE WHEN `score` BETWEEN 60 AND 84 THEN 1 ELSE 0 END) AS '及格人数',
+    SUM(CASE WHEN `score`<60 THEN 1 ELSE 0 END) AS '不及格人数'
+FROM
+    `SC`
+GROUP BY
+    `course`
+;
+```
+
+@import "data/SC_STATISTICS2.csv"
 
 #### 按平均成绩进行排名，并添加一列显示名次
+
+>使用`SC`表
 
 - ***Step1*：显示平均成绩**
 
@@ -413,7 +443,7 @@ DROP VIEW IF EXISTS `SC_AVG`;
 CREATE VIEW `SC_AVG` AS (
     SELECT
         `name`,
-        AVG(`score`) AS 'score'
+        ROUND(AVG(`score`), 2) AS 'score'
     FROM
         `SC`
     GROUP BY
@@ -484,8 +514,6 @@ ORDER BY
     `A`.`score` DESC
 ;
 ```
-
-@import "data/SC_RANK_STEP3.csv"
 
 - **补充：Python生成排名模板**
 
