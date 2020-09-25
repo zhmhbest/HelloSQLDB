@@ -430,15 +430,15 @@ SELECT * FROM `SC_AVG`;
 DROP VIEW IF EXISTS `SC_JOIN`;
 CREATE VIEW `SC_JOIN` AS (
     SELECT
-        A.`name`  AS 'nameA',
-        A.`score` AS 'scoreA',
-        B.`name`  AS 'nameB',
-        B.`score` AS 'scoreB'
+        `A`.`name`  AS 'nameA',
+        `A`.`score` AS 'scoreA',
+        `B`.`name`  AS 'nameB',
+        `B`.`score` AS 'scoreB'
     FROM
-        `SC_AVG` AS A,
-        `SC_AVG` AS B
+        `SC_AVG` AS `A`,
+        `SC_AVG` AS `B`
     WHERE
-        A.score <= B.score
+        `A`.`score` <= `B`.`score`
 );
 SELECT * FROM `SC_JOIN`;
 ```
@@ -470,47 +470,89 @@ DROP VIEW IF EXISTS `SC_JOIN`;
 
 ```SQL
 SELECT
-    `nameA` AS '姓名',
-    `scoreA` AS '平均分',
-    COUNT(DISTINCT(`scoreB`)) AS '排名'
-FROM (
-    SELECT
-        A.`name`  AS 'nameA',
-        A.`score` AS 'scoreA',
-        B.`name`  AS 'nameB',
-        B.`score` AS 'scoreB'
-    FROM
-        (
-            SELECT
-                `name`,
-                AVG(`score`) AS 'score'
-            FROM
-                `SC`
-            GROUP BY
-                `name`
-        ) AS A,
-        (
-            SELECT
-                `name`,
-                AVG(`score`) AS 'score'
-            FROM
-                `SC`
-            GROUP BY
-                `name`
-        ) AS B
-    WHERE
-        A.score <= B.score
-)
-AS
-    SC_JOIN
+    `A`.`name` AS '姓名',
+    `A`.`score` AS '平均分',
+    COUNT(DISTINCT(`B`.`score`)) AS '排名'
+FROM
+    ( SELECT `name`, AVG(`score`) AS 'score' FROM `SC` GROUP BY `name` ) AS `A`,
+    ( SELECT `name`, AVG(`score`) AS 'score' FROM `SC` GROUP BY `name` ) AS `B`
+WHERE
+    `A`.`score` <= `B`.`score`
 GROUP BY
-    `nameA`
+    `A`.`name`
 ORDER BY
-    `scoreA` DESC
+    `A`.`score` DESC
 ;
 ```
 
 @import "data/SC_RANK_STEP3.csv"
+
+- **补充：Python生成排名模板**
+
+```py
+def get_sql_rank(
+        to_be_sorted_view: str,
+        to_be_sorted_field: str,
+        to_be_classified_field: str,
+        to_be_sorted_name='得分',
+        to_be_classified_name='类别',
+        rank_name='排名',
+        part_name_l='A',
+        part_name_r='B',
+        how_to_order='DESC'
+):
+    """
+    生成排序模板
+    :param to_be_sorted_view: 待排序视图
+    :param to_be_sorted_field: 待排序字段
+    :param to_be_classified_field: 待分类字段
+    :param to_be_sorted_name:
+    :param to_be_classified_name:
+    :param rank_name:
+    :param part_name_l: 左表临时名
+    :param part_name_r: 右表临时名
+    :param how_to_order: DESC:第一名在最前 | ASC:第一名在最后
+    :return: sql
+    """
+    to_be_sorted_view = to_be_sorted_view.strip()
+    if '(' == to_be_sorted_view[0] and ')' == to_be_sorted_view[-1]:
+        to_be_sorted_view = ' '.join([line.strip() for line in to_be_sorted_view.split('\n')])
+    else:
+        to_be_sorted_view = f"`{to_be_sorted_view}`"
+
+    sql_template = f"""
+    SELECT
+        `{part_name_l}`.`{to_be_classified_field}` AS {to_be_classified_name},
+        `{part_name_l}`.`{to_be_sorted_field}` AS {to_be_sorted_name},
+        COUNT(DISTINCT(`{part_name_r}`.`{to_be_sorted_field}`)) AS {rank_name}
+    FROM
+        {to_be_sorted_view} AS `{part_name_l}`,
+        {to_be_sorted_view} AS `{part_name_r}`
+    WHERE
+        `{part_name_l}`.`{to_be_sorted_field}` <= `{part_name_r}`.`{to_be_sorted_field}`
+    GROUP BY
+        `{part_name_l}`.`{to_be_classified_field}`
+    ORDER BY
+        `{part_name_l}`.`{to_be_sorted_field}` {how_to_order}
+    ;
+    """
+    return sql_template
+
+
+if __name__ == '__main__':
+    sql = get_sql_rank('''
+    (
+        SELECT
+            `name`,
+            AVG(`score`) AS 'score'
+        FROM
+            `SC`
+        GROUP BY
+            `name`
+    )
+    ''', 'score', 'name')
+    print(sql)
+```
 
 <!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
 
