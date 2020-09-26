@@ -33,13 +33,13 @@
 
 ### [用户及其权限管理](db.html#用户及其权限管理)
 
-## [SQL](sql.html)
+### [表管理](db.html#表管理)
 
-### [表管理](sql.html#表管理)
+### [视图](db.html#视图)
 
-### [视图](sql.html#视图)
+### [索引](db.html#索引)
 
-### [索引](sql.html#索引)
+## [SQL Common](sql.html)
 
 ### [数据增删改](sql.html#数据增删改)
 

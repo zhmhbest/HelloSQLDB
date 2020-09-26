@@ -301,3 +301,102 @@ GRANT ALL PRIVILEGES ON `db_name`.* TO 'user'@'%' WITH GRANT OPTION;
 # DROP DATABASE IF EXISTS `db_name`;
 # DROP USER IF EXISTS 'user'@'%';
 ```
+
+<!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
+
+## 表管理
+
+### 查看表
+
+```SQL
+# 查看表字段信息
+DESC [TABLE] `表名`;
+DESCRIBE [TABLE] `表名`;
+
+# 查看表结构
+SHOW CREATE TABLE `表名`;
+SHOW CREATE TABLE `表名` \G;  # 命令行中
+
+# 查看已有表
+SHOW TABLES;
+```
+
+### 表操作
+
+#### 创建表
+
+```SQL
+# 创建新表
+CREATE TABLE 表名 (
+    字段1 类型1 [约束1] [COMMENT '注解1'],
+    字段2 类型2 [约束2] [COMMENT '注解2'],
+    ...
+    [ , PRIMARY KEY(字段) ]
+    [ , ADD FOREIGN KEY (字段) REFERENCES `表名`(字段) ]
+);
+# 约束 = NOT NULL | UNIQUE | CHECK (条件) | DEFAULT 值 | AUTO_INCREMENT[=起始值]
+# 添加主键: PRIMARY KEY (字段)
+# 添加外键: ADD FOREIGN KEY (字段) REFERENCES `表名`(字段)
+
+# 根据已存在的表创建表
+CREATE TABLE `表1` (SELECT * FROM `表2`);
+```
+
+#### 修改表
+
+```SQL
+# 重命名表
+RENAME TABLE `旧表名` TO `新表名`;
+ALTER TABLE `旧表名` RENAME TO `新表名`;
+
+# 添加字段
+ALTER TABLE `表名` ADD 新字段名 类型;
+ALTER TABLE `表名` ADD (字段 类型 [约束] [FIRST | AFTER 已存在字段名] [COMMENT '注解'], ...);
+
+# 修改字段名和类型
+ALTER TABLE `表名` CHANGE 旧字段名 新字段名 新类型;
+
+# 修改字段类型
+ALTER TABLE `表名` MODIFY 字段名 新类型;
+
+# 删除字段
+ALTER TABLE `表名` DROP 字段名;
+
+# 删除外键约束
+ALTER TABLE `表名` DROP FOREIGN KEY 外键约束名;
+```
+
+#### 删除表
+
+```SQL
+DROP TABLE `表名`;
+```
+
+<!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
+
+## 视图
+
+```SQL
+# 创建视图
+CREATE VIEW 视图名称 AS (
+    SELECT ...
+);
+
+# 删除视图
+DROP VIEW [IF EXISTS] 视图名称;
+```
+
+<!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
+
+## 索引
+
+```SQL
+# 创建索引
+CREATE [UNIQUE] INDEX 索引名称 ON `表名`(字段, ...);
+
+# 查看索引
+SHOW INDEX FROM `表名`;
+
+# 删除索引
+DROP INDEX [索引名称] ON `表名`;
+```

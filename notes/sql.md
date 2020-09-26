@@ -1,92 +1,9 @@
 <link rel="stylesheet" href="https://zhmhbest.gitee.io/hellomathematics/style/index.css">
 <script src="https://zhmhbest.gitee.io/hellomathematics/style/index.js"></script>
 
-# [SQL](./index.html)
+# [SQL Common](./index.html)
 
 [TOC]
-
-## 表管理
-
-### 查看表
-
-```SQL
-# 查看表结构
-SHOW CREATE TABLE 表名;
-
-# 查看表信息
-DESC TABLE 表名;
-```
-
-### 表操作
-
-```SQL
-# 创建新表
-CREATE TABLE 表名 (
-    字段1 类型1 [约束1] [COMMENT '注解1'],
-    字段2 类型2 [约束2] [COMMENT '注解2'],
-    ...
-    [ , PRIMARY KEY(字段) ]
-    [ , ADD FOREIGN KEY (字段) REFERENCES `表名`(字段) ]
-);
-# 约束 = NOT NULL | UNIQUE | CHECK (条件) | DEFAULT 值 | AUTO_INCREMENT[=起始值]
-# 添加主键: PRIMARY KEY (字段)
-# 添加外键: ADD FOREIGN KEY (字段) REFERENCES `表名`(字段)
-
-# 根据已存在的表创建表
-CREATE TABLE `表1`(SELECT * FROM `表2`);
-
-# 重命名表
-RENAME TABLE `旧表名` TO `新表名`;
-ALTER TABLE `旧表名` RENAME TO `新表名`;
-
-# 删除表
-DROP TABLE `表名`;
-```
-
-### 字段操作
-
-```SQL
-# 添加字段
-ALTER TABLE `表名` ADD (字段 类型 [约束] [COMMENT '注解'], ...);
-
-# 修改字段名和类型
-ALTER TABLE `表名` CHANGE COLUMN 旧字段 新字段 新类型;
-
-# 修改字段类型
-ALTER TABLE `表名` MODIFY 字段 新类型;
-
-# 删除字段
-ALTER TABLE `表名` DROP 字段;
-```
-
-<!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
-
-## 视图
-
-```SQL
-# 创建视图
-CREATE VIEW 视图名称 AS (
-    SELECT ...
-);
-
-# 删除视图
-DROP VIEW [IF EXISTS] 视图名称;
-```
-
-<!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
-
-## 索引
-
-```SQL
-# 创建索引
-CREATE [UNIQUE] INDEX 索引名称 ON `表名`(字段, ...);
-
-# 查看索引
-SHOW INDEX FROM `表名`;
-
-# 删除索引
-DROP INDEX [索引名称] ON `表名`;
-```
 
 <!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
 
