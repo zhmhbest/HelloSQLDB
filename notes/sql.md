@@ -78,11 +78,22 @@ FROM
 SELECT * FROM `表` WHERE 字段 IS NULL;
 SELECT * FROM `表` WHERE 字段 IS NOT NULL;
 
+# 子查询: 满足条件
 # > < = != <= >=
 SELECT * FROM `表` WHERE 字段=值;
 SELECT * FROM `表` WHERE 字段=(SELECT MIN(字段) FROM `表`);
 SELECT * FROM `表` WHERE 字段=(SELECT MAX(字段) FROM `表`);
 SELECT * FROM `表` WHERE 字段>(SELECT AVG(字段) FROM `表`);
+
+# 子查询: 满足一个即可
+SELECT * FROM `表` WHERE 字段 > ANY (SELECT 字段 FROM `表`)
+SELECT * FROM `表` WHERE 字段 > SOME (SELECT 字段 FROM `表`)
+
+# 子查询: 需要全部满足
+SELECT * FROM `表` WHERE 字段 > ALL (SELECT 字段 FROM `表`)
+
+# 子查询: 查询结果存在
+SELECT * FROM `表` WHERE EXISTS (SELECT 字段 FROM `表` WHERE 条件)
 ```
 
 #### 多值筛选
