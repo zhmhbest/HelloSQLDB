@@ -35,10 +35,6 @@
 
 ### [表管理](db.html#表管理)
 
-### [视图](db.html#视图)
-
-### [索引](db.html#索引)
-
 ## [SQL Common](sql.html)
 
 ### [数据增删改](sql.html#数据增删改)

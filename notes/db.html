@@ -326,10 +326,10 @@ pre[data-line] .line-highlight[data-end]:after {
 <li><a href="#%E5%88%A0%E9%99%A4%E8%A1%A8">&#x5220;&#x9664;&#x8868;</a></li>
 </ul>
 </li>
+<li><a href="#%E7%B4%A2%E5%BC%95">&#x7D22;&#x5F15;</a></li>
+<li><a href="#%E8%A7%86%E5%9B%BE">&#x89C6;&#x56FE;</a></li>
 </ul>
 </li>
-<li><a href="#%E8%A7%86%E5%9B%BE">&#x89C6;&#x56FE;</a></li>
-<li><a href="#%E7%B4%A2%E5%BC%95">&#x7D22;&#x5F15;</a></li>
 </ul>
 </li>
 </ul>
@@ -580,11 +580,10 @@ mysql<span class="token operator">&gt;</span>source <span class="token variable"
     &#x5B57;&#x6BB5;<span class="token number">2</span> &#x7C7B;&#x578B;<span class="token number">2</span> <span class="token punctuation">[</span>&#x7EA6;&#x675F;<span class="token number">2</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token keyword">COMMENT</span> <span class="token string">&apos;&#x6CE8;&#x89E3;2&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
     <span class="token punctuation">[</span> <span class="token punctuation">,</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">(</span>&#x5B57;&#x6BB5;<span class="token punctuation">)</span> <span class="token punctuation">]</span>
-    <span class="token punctuation">[</span> <span class="token punctuation">,</span> <span class="token keyword">ADD</span> <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>&#x5B57;&#x6BB5;<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> <span class="token punctuation">`</span>&#x8868;&#x540D;<span class="token punctuation">`</span><span class="token punctuation">(</span>&#x5B57;&#x6BB5;<span class="token punctuation">)</span> <span class="token punctuation">]</span>
+    <span class="token punctuation">[</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token keyword">CONSTRAINT</span> &#x5916;&#x952E;&#x7EA6;&#x675F;&#x540D;<span class="token punctuation">]</span> <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>&#x5B57;&#x6BB5;<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> <span class="token punctuation">`</span>&#x8868;&#x540D;<span class="token punctuation">`</span><span class="token punctuation">(</span>&#x5B57;&#x6BB5;<span class="token punctuation">)</span> <span class="token punctuation">]</span>
+    <span class="token punctuation">[</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token keyword">UNIQUE</span><span class="token punctuation">]</span> <span class="token keyword">INDEX</span> &#x7D22;&#x5F15;&#x540D;<span class="token punctuation">(</span>&#x5B57;&#x6BB5;<span class="token punctuation">)</span> <span class="token punctuation">]</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment"># &#x7EA6;&#x675F; = NOT NULL | UNIQUE | CHECK (&#x6761;&#x4EF6;) | DEFAULT &#x503C; | AUTO_INCREMENT[=&#x8D77;&#x59CB;&#x503C;]</span>
-<span class="token comment"># &#x6DFB;&#x52A0;&#x4E3B;&#x952E;: PRIMARY KEY (&#x5B57;&#x6BB5;)</span>
-<span class="token comment"># &#x6DFB;&#x52A0;&#x5916;&#x952E;: ADD FOREIGN KEY (&#x5B57;&#x6BB5;) REFERENCES `&#x8868;&#x540D;`(&#x5B57;&#x6BB5;)</span>
 
 <span class="token comment"># &#x6839;&#x636E;&#x5DF2;&#x5B58;&#x5728;&#x7684;&#x8868;&#x521B;&#x5EFA;&#x8868;</span>
 <span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>&#x8868;<span class="token number">1</span><span class="token punctuation">`</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>&#x8868;<span class="token number">2</span><span class="token punctuation">`</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -612,25 +611,28 @@ mysql<span class="token operator">&gt;</span>source <span class="token variable"
 </pre><h4 class="mume-header" id="%E5%88%A0%E9%99%A4%E8%A1%A8">&#x5220;&#x9664;&#x8868;</h4>
 
 <pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>&#x8868;&#x540D;<span class="token punctuation">`</span><span class="token punctuation">;</span>
-</pre><h2 class="mume-header" id="%E8%A7%86%E5%9B%BE">&#x89C6;&#x56FE;</h2>
+</pre><h3 class="mume-header" id="%E7%B4%A2%E5%BC%95">&#x7D22;&#x5F15;</h3>
 
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment"># &#x521B;&#x5EFA;&#x7D22;&#x5F15;</span>
+<span class="token keyword">CREATE</span> <span class="token punctuation">[</span><span class="token keyword">UNIQUE</span><span class="token punctuation">]</span> <span class="token keyword">INDEX</span> &#x7D22;&#x5F15;&#x540D;&#x79F0; <span class="token keyword">ON</span> <span class="token punctuation">`</span>&#x8868;&#x540D;<span class="token punctuation">`</span><span class="token punctuation">(</span>&#x5B57;&#x6BB5;<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>&#x8868;&#x540D;<span class="token punctuation">`</span> <span class="token keyword">ADD</span> <span class="token punctuation">[</span><span class="token keyword">UNIQUE</span><span class="token punctuation">]</span> <span class="token keyword">INDEX</span> &#x7D22;&#x5F15;&#x540D;&#x79F0;<span class="token punctuation">(</span>&#x5B57;&#x6BB5;<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment"># &#x67E5;&#x770B;&#x7D22;&#x5F15;</span>
+<span class="token keyword">SHOW</span> <span class="token keyword">INDEX</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>&#x8868;&#x540D;<span class="token punctuation">`</span><span class="token punctuation">;</span>
+
+<span class="token comment"># &#x5220;&#x9664;&#x7D22;&#x5F15;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">INDEX</span> &#x7D22;&#x5F15;&#x540D;&#x79F0; <span class="token keyword">ON</span> <span class="token punctuation">`</span>&#x8868;&#x540D;<span class="token punctuation">`</span><span class="token punctuation">;</span>
+<span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>&#x8868;&#x540D;<span class="token punctuation">`</span> <span class="token keyword">DROP</span> <span class="token keyword">INDEX</span> &#x7D22;&#x5F15;&#x540D;&#x79F0;<span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="%E8%A7%86%E5%9B%BE">&#x89C6;&#x56FE;</h3>
+
+<p>&#x64CD;&#x4F5C;&#x89C6;&#x56FE;&#x5C31;&#x50CF;&#x64CD;&#x4F5C;&#x8868;&#x4E00;&#x6837;&#x3002;</p>
 <pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment"># &#x521B;&#x5EFA;&#x89C6;&#x56FE;</span>
 <span class="token keyword">CREATE</span> <span class="token keyword">VIEW</span> &#x89C6;&#x56FE;&#x540D;&#x79F0; <span class="token keyword">AS</span> <span class="token punctuation">(</span>
     <span class="token keyword">SELECT</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment"># &#x5220;&#x9664;&#x89C6;&#x56FE;</span>
-<span class="token keyword">DROP</span> <span class="token keyword">VIEW</span> <span class="token punctuation">[</span><span class="token keyword">IF</span> <span class="token keyword">EXISTS</span><span class="token punctuation">]</span> &#x89C6;&#x56FE;&#x540D;&#x79F0;<span class="token punctuation">;</span>
-</pre><h2 class="mume-header" id="%E7%B4%A2%E5%BC%95">&#x7D22;&#x5F15;</h2>
-
-<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment"># &#x521B;&#x5EFA;&#x7D22;&#x5F15;</span>
-<span class="token keyword">CREATE</span> <span class="token punctuation">[</span><span class="token keyword">UNIQUE</span><span class="token punctuation">]</span> <span class="token keyword">INDEX</span> &#x7D22;&#x5F15;&#x540D;&#x79F0; <span class="token keyword">ON</span> <span class="token punctuation">`</span>&#x8868;&#x540D;<span class="token punctuation">`</span><span class="token punctuation">(</span>&#x5B57;&#x6BB5;<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment"># &#x67E5;&#x770B;&#x7D22;&#x5F15;</span>
-<span class="token keyword">SHOW</span> <span class="token keyword">INDEX</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>&#x8868;&#x540D;<span class="token punctuation">`</span><span class="token punctuation">;</span>
-
-<span class="token comment"># &#x5220;&#x9664;&#x7D22;&#x5F15;</span>
-<span class="token keyword">DROP</span> <span class="token keyword">INDEX</span> <span class="token punctuation">[</span>&#x7D22;&#x5F15;&#x540D;&#x79F0;<span class="token punctuation">]</span> <span class="token keyword">ON</span> <span class="token punctuation">`</span>&#x8868;&#x540D;<span class="token punctuation">`</span><span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">VIEW</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> &#x89C6;&#x56FE;&#x540D;&#x79F0;<span class="token punctuation">;</span>
 </pre>
       </div>
       

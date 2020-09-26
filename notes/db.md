@@ -332,11 +332,10 @@ CREATE TABLE 表名 (
     字段2 类型2 [约束2] [COMMENT '注解2'],
     ...
     [ , PRIMARY KEY(字段) ]
-    [ , ADD FOREIGN KEY (字段) REFERENCES `表名`(字段) ]
+    [ , [CONSTRAINT 外键约束名] FOREIGN KEY (字段) REFERENCES `表名`(字段) ]
+    [ , [UNIQUE] INDEX 索引名(字段) ]
 );
 # 约束 = NOT NULL | UNIQUE | CHECK (条件) | DEFAULT 值 | AUTO_INCREMENT[=起始值]
-# 添加主键: PRIMARY KEY (字段)
-# 添加外键: ADD FOREIGN KEY (字段) REFERENCES `表名`(字段)
 
 # 根据已存在的表创建表
 CREATE TABLE `表1` (SELECT * FROM `表2`);
@@ -372,9 +371,24 @@ ALTER TABLE `表名` DROP FOREIGN KEY 外键约束名;
 DROP TABLE `表名`;
 ```
 
-<!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
+### 索引
 
-## 视图
+```SQL
+# 创建索引
+CREATE [UNIQUE] INDEX 索引名称 ON `表名`(字段, ...);
+ALTER TABLE `表名` ADD [UNIQUE] INDEX 索引名称(字段, ...);
+
+# 查看索引
+SHOW INDEX FROM `表名`;
+
+# 删除索引
+DROP INDEX 索引名称 ON `表名`;
+ALTER TABLE `表名` DROP INDEX 索引名称;
+```
+
+### 视图
+
+操作视图就像操作表一样。
 
 ```SQL
 # 创建视图
@@ -383,20 +397,5 @@ CREATE VIEW 视图名称 AS (
 );
 
 # 删除视图
-DROP VIEW [IF EXISTS] 视图名称;
-```
-
-<!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
-
-## 索引
-
-```SQL
-# 创建索引
-CREATE [UNIQUE] INDEX 索引名称 ON `表名`(字段, ...);
-
-# 查看索引
-SHOW INDEX FROM `表名`;
-
-# 删除索引
-DROP INDEX [索引名称] ON `表名`;
+DROP VIEW IF EXISTS 视图名称;
 ```
