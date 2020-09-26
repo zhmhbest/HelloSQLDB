@@ -92,7 +92,7 @@ SELECT * FROM `表` WHERE 字段 > SOME (SELECT 字段 FROM `表`)
 # 子查询: 需要全部满足
 SELECT * FROM `表` WHERE 字段 > ALL (SELECT 字段 FROM `表`)
 
-# 子查询: 查询结果存在
+# 子查询: EXISTS返回 1 | 0 即子查询条件是否满足
 SELECT * FROM `表` WHERE EXISTS (SELECT 字段 FROM `表` WHERE 条件)
 ```
 

@@ -393,7 +393,7 @@ pre[data-line] .line-highlight[data-end]:after {
 <span class="token comment"># &#x5B50;&#x67E5;&#x8BE2;: &#x9700;&#x8981;&#x5168;&#x90E8;&#x6EE1;&#x8DB3;</span>
 <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>&#x8868;<span class="token punctuation">`</span> <span class="token keyword">WHERE</span> &#x5B57;&#x6BB5; <span class="token operator">&gt;</span> <span class="token keyword">ALL</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> &#x5B57;&#x6BB5; <span class="token keyword">FROM</span> <span class="token punctuation">`</span>&#x8868;<span class="token punctuation">`</span><span class="token punctuation">)</span>
 
-<span class="token comment"># &#x5B50;&#x67E5;&#x8BE2;: &#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x5B58;&#x5728;</span>
+<span class="token comment"># &#x5B50;&#x67E5;&#x8BE2;: EXISTS&#x8FD4;&#x56DE; 1 | 0 &#x5373;&#x5B50;&#x67E5;&#x8BE2;&#x6761;&#x4EF6;&#x662F;&#x5426;&#x6EE1;&#x8DB3;</span>
 <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>&#x8868;<span class="token punctuation">`</span> <span class="token keyword">WHERE</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> &#x5B57;&#x6BB5; <span class="token keyword">FROM</span> <span class="token punctuation">`</span>&#x8868;<span class="token punctuation">`</span> <span class="token keyword">WHERE</span> &#x6761;&#x4EF6;<span class="token punctuation">)</span>
 </pre><h4 class="mume-header" id="%E5%A4%9A%E5%80%BC%E7%AD%9B%E9%80%89">&#x591A;&#x503C;&#x7B5B;&#x9009;</h4>
 
@@ -959,46 +959,46 @@ Empty set (0.00 sec)
 
 <p><strong>SC</strong></p>
 <pre data-role="codeBlock" data-info="sql" class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span><span class="token punctuation">;</span> <span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token punctuation">(</span>
-    <span class="token punctuation">`</span>name<span class="token punctuation">`</span>    <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token punctuation">`</span>course<span class="token punctuation">`</span>  <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>name<span class="token punctuation">`</span>    <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>course<span class="token punctuation">`</span>  <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     <span class="token punctuation">`</span>score<span class="token punctuation">`</span>   <span class="token keyword">FLOAT</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x653F;&#x6CBB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;83.1&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5386;&#x53F2;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;61.4&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5730;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;94.9&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x8BED;&#x6587;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;44.6&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x6570;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;87.0&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5916;&#x8BED;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;45.4&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x7269;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;72.8&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5316;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;42.9&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x751F;&#x7269;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;38.6&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x653F;&#x6CBB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;46.7&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5386;&#x53F2;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;94.8&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5730;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;65.8&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x8BED;&#x6587;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;76.3&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x6570;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;34.6&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5916;&#x8BED;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;74.2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x7269;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;44.2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5316;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;98.2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x751F;&#x7269;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;34.1&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x653F;&#x6CBB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;69.0&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5386;&#x53F2;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;53.5&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5730;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;34.0&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x8BED;&#x6587;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;99.6&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x6570;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;88.9&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5916;&#x8BED;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;46.9&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x7269;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;91.6&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5316;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;37.8&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x751F;&#x7269;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;51.7&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x653F;&#x6CBB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;74.4&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5386;&#x53F2;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;43.1&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5730;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;70.8&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x8BED;&#x6587;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;74.4&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x6570;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;37.2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5916;&#x8BED;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;91.0&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x7269;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;46.1&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5316;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;38.5&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x751F;&#x7269;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;90.9&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">)</span> <span class="token keyword">CHARSET</span><span class="token operator">=</span>utf8mb4<span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x653F;&#x6CBB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;72.5&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5386;&#x53F2;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;66.0&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5730;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;86.1&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x8BED;&#x6587;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;44.9&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x6570;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;45.3&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5916;&#x8BED;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;40.2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x7269;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;65.7&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5316;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;70.5&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x751F;&#x7269;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;98.0&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x653F;&#x6CBB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;71.5&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5386;&#x53F2;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;81.6&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5730;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;80.3&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x8BED;&#x6587;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;73.0&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x6570;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;68.8&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5916;&#x8BED;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;58.8&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x7269;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;67.7&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5316;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;62.2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x751F;&#x7269;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;35.8&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x653F;&#x6CBB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;46.9&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5386;&#x53F2;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;62.6&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5730;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;77.6&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x8BED;&#x6587;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;70.4&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x6570;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;55.2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5916;&#x8BED;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;81.2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x7269;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;58.9&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5316;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;85.3&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x751F;&#x7269;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;59.0&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x653F;&#x6CBB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;79.1&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5386;&#x53F2;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;58.6&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5730;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;43.2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x8BED;&#x6587;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;74.2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x6570;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;82.2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5916;&#x8BED;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;59.5&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x7269;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;66.4&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5316;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;99.0&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x751F;&#x7269;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;73.6&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </pre><h4 class="mume-header" id="%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%A6%E7%94%9F%E6%88%90%E7%BB%A9">&#x683C;&#x5F0F;&#x5316;&#x5B66;&#x751F;&#x6210;&#x7EE9;</h4>
 
 <pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span>
@@ -1035,51 +1035,51 @@ Empty set (0.00 sec)
 <tbody>
 <tr>
 <td>&#x5F20;&#x4E09;</td>
-<td>83.10</td>
-<td>61.40</td>
-<td>94.90</td>
-<td>38.60</td>
-<td>44.60</td>
-<td>87.00</td>
-<td>45.40</td>
-<td>72.80</td>
-<td>42.90</td>
+<td>72.50</td>
+<td>66.00</td>
+<td>86.10</td>
+<td>98.00</td>
+<td>44.90</td>
+<td>45.30</td>
+<td>40.20</td>
+<td>65.70</td>
+<td>70.50</td>
 </tr>
 <tr>
 <td>&#x674E;&#x56DB;</td>
-<td>46.70</td>
-<td>94.80</td>
-<td>65.80</td>
-<td>34.10</td>
-<td>76.30</td>
-<td>34.60</td>
-<td>74.20</td>
-<td>44.20</td>
-<td>98.20</td>
+<td>71.50</td>
+<td>81.60</td>
+<td>80.30</td>
+<td>35.80</td>
+<td>73.00</td>
+<td>68.80</td>
+<td>58.80</td>
+<td>67.70</td>
+<td>62.20</td>
 </tr>
 <tr>
 <td>&#x738B;&#x4E94;</td>
-<td>69.00</td>
-<td>53.50</td>
-<td>34.00</td>
-<td>51.70</td>
-<td>99.60</td>
-<td>88.90</td>
 <td>46.90</td>
-<td>91.60</td>
-<td>37.80</td>
+<td>62.60</td>
+<td>77.60</td>
+<td>59.00</td>
+<td>70.40</td>
+<td>55.20</td>
+<td>81.20</td>
+<td>58.90</td>
+<td>85.30</td>
 </tr>
 <tr>
 <td>&#x8D75;&#x516D;</td>
-<td>74.40</td>
-<td>43.10</td>
-<td>70.80</td>
-<td>90.90</td>
-<td>74.40</td>
-<td>37.20</td>
-<td>91.00</td>
-<td>46.10</td>
-<td>38.50</td>
+<td>79.10</td>
+<td>58.60</td>
+<td>43.20</td>
+<td>73.60</td>
+<td>74.20</td>
+<td>82.20</td>
+<td>59.50</td>
+<td>66.40</td>
+<td>99.00</td>
 </tr>
 </tbody>
 </table>
@@ -1110,15 +1110,15 @@ Empty set (0.00 sec)
 <tbody>
 <tr>
 <td>&#x5316;&#x5B66;</td>
-<td>1</td>
+<td>2</td>
 <td>4</td>
-<td>25.00%</td>
+<td>50.00%</td>
 </tr>
 <tr>
 <td>&#x5386;&#x53F2;</td>
-<td>1</td>
+<td>0</td>
 <td>4</td>
-<td>25.00%</td>
+<td>0.00%</td>
 </tr>
 <tr>
 <td>&#x5730;&#x7406;</td>
@@ -1128,9 +1128,9 @@ Empty set (0.00 sec)
 </tr>
 <tr>
 <td>&#x5916;&#x8BED;</td>
-<td>1</td>
+<td>0</td>
 <td>4</td>
-<td>25.00%</td>
+<td>0.00%</td>
 </tr>
 <tr>
 <td>&#x653F;&#x6CBB;</td>
@@ -1140,15 +1140,15 @@ Empty set (0.00 sec)
 </tr>
 <tr>
 <td>&#x6570;&#x5B66;</td>
-<td>2</td>
+<td>0</td>
 <td>4</td>
-<td>50.00%</td>
+<td>0.00%</td>
 </tr>
 <tr>
 <td>&#x7269;&#x7406;</td>
-<td>1</td>
+<td>0</td>
 <td>4</td>
-<td>25.00%</td>
+<td>0.00%</td>
 </tr>
 <tr>
 <td>&#x751F;&#x7269;</td>
@@ -1158,9 +1158,9 @@ Empty set (0.00 sec)
 </tr>
 <tr>
 <td>&#x8BED;&#x6587;</td>
-<td>1</td>
+<td>0</td>
 <td>4</td>
-<td>25.00%</td>
+<td>0.00%</td>
 </tr>
 </tbody>
 </table>
@@ -1188,15 +1188,15 @@ Empty set (0.00 sec)
 <tbody>
 <tr>
 <td>&#x5316;&#x5B66;</td>
-<td>1</td>
+<td>2</td>
+<td>2</td>
 <td>0</td>
-<td>3</td>
 </tr>
 <tr>
 <td>&#x5386;&#x53F2;</td>
+<td>0</td>
+<td>3</td>
 <td>1</td>
-<td>1</td>
-<td>2</td>
 </tr>
 <tr>
 <td>&#x5730;&#x7406;</td>
@@ -1206,9 +1206,9 @@ Empty set (0.00 sec)
 </tr>
 <tr>
 <td>&#x5916;&#x8BED;</td>
+<td>0</td>
 <td>1</td>
-<td>1</td>
-<td>2</td>
+<td>3</td>
 </tr>
 <tr>
 <td>&#x653F;&#x6CBB;</td>
@@ -1218,26 +1218,26 @@ Empty set (0.00 sec)
 </tr>
 <tr>
 <td>&#x6570;&#x5B66;</td>
-<td>2</td>
 <td>0</td>
+<td>2</td>
 <td>2</td>
 </tr>
 <tr>
 <td>&#x7269;&#x7406;</td>
+<td>0</td>
+<td>3</td>
 <td>1</td>
-<td>1</td>
-<td>2</td>
 </tr>
 <tr>
 <td>&#x751F;&#x7269;</td>
 <td>1</td>
-<td>0</td>
-<td>3</td>
+<td>1</td>
+<td>2</td>
 </tr>
 <tr>
 <td>&#x8BED;&#x6587;</td>
-<td>1</td>
-<td>2</td>
+<td>0</td>
+<td>3</td>
 <td>1</td>
 </tr>
 </tbody>
@@ -1271,19 +1271,19 @@ Empty set (0.00 sec)
 <tbody>
 <tr>
 <td>&#x5F20;&#x4E09;</td>
-<td>63.41</td>
+<td>65.47</td>
 </tr>
 <tr>
 <td>&#x674E;&#x56DB;</td>
-<td>63.21</td>
+<td>66.63</td>
 </tr>
 <tr>
 <td>&#x738B;&#x4E94;</td>
-<td>63.67</td>
+<td>66.34</td>
 </tr>
 <tr>
 <td>&#x8D75;&#x516D;</td>
-<td>62.93</td>
+<td>70.64</td>
 </tr>
 </tbody>
 </table>
@@ -1316,63 +1316,63 @@ Empty set (0.00 sec)
 <tbody>
 <tr>
 <td>&#x5F20;&#x4E09;</td>
-<td>63.41</td>
+<td>65.47</td>
 <td>&#x5F20;&#x4E09;</td>
-<td>63.41</td>
-</tr>
-<tr>
-<td>&#x674E;&#x56DB;</td>
-<td>63.21</td>
-<td>&#x5F20;&#x4E09;</td>
-<td>63.41</td>
-</tr>
-<tr>
-<td>&#x8D75;&#x516D;</td>
-<td>62.93</td>
-<td>&#x5F20;&#x4E09;</td>
-<td>63.41</td>
-</tr>
-<tr>
-<td>&#x674E;&#x56DB;</td>
-<td>63.21</td>
-<td>&#x674E;&#x56DB;</td>
-<td>63.21</td>
-</tr>
-<tr>
-<td>&#x8D75;&#x516D;</td>
-<td>62.93</td>
-<td>&#x674E;&#x56DB;</td>
-<td>63.21</td>
+<td>65.47</td>
 </tr>
 <tr>
 <td>&#x5F20;&#x4E09;</td>
-<td>63.41</td>
-<td>&#x738B;&#x4E94;</td>
-<td>63.67</td>
+<td>65.47</td>
+<td>&#x674E;&#x56DB;</td>
+<td>66.63</td>
 </tr>
 <tr>
 <td>&#x674E;&#x56DB;</td>
-<td>63.21</td>
-<td>&#x738B;&#x4E94;</td>
-<td>63.67</td>
+<td>66.63</td>
+<td>&#x674E;&#x56DB;</td>
+<td>66.63</td>
 </tr>
 <tr>
 <td>&#x738B;&#x4E94;</td>
-<td>63.67</td>
+<td>66.34</td>
+<td>&#x674E;&#x56DB;</td>
+<td>66.63</td>
+</tr>
+<tr>
+<td>&#x5F20;&#x4E09;</td>
+<td>65.47</td>
 <td>&#x738B;&#x4E94;</td>
-<td>63.67</td>
+<td>66.34</td>
+</tr>
+<tr>
+<td>&#x738B;&#x4E94;</td>
+<td>66.34</td>
+<td>&#x738B;&#x4E94;</td>
+<td>66.34</td>
+</tr>
+<tr>
+<td>&#x5F20;&#x4E09;</td>
+<td>65.47</td>
+<td>&#x8D75;&#x516D;</td>
+<td>70.64</td>
+</tr>
+<tr>
+<td>&#x674E;&#x56DB;</td>
+<td>66.63</td>
+<td>&#x8D75;&#x516D;</td>
+<td>70.64</td>
+</tr>
+<tr>
+<td>&#x738B;&#x4E94;</td>
+<td>66.34</td>
+<td>&#x8D75;&#x516D;</td>
+<td>70.64</td>
 </tr>
 <tr>
 <td>&#x8D75;&#x516D;</td>
-<td>62.93</td>
-<td>&#x738B;&#x4E94;</td>
-<td>63.67</td>
-</tr>
-<tr>
+<td>70.64</td>
 <td>&#x8D75;&#x516D;</td>
-<td>62.93</td>
-<td>&#x8D75;&#x516D;</td>
-<td>62.93</td>
+<td>70.64</td>
 </tr>
 </tbody>
 </table>
@@ -1403,23 +1403,23 @@ Empty set (0.00 sec)
 </thead>
 <tbody>
 <tr>
-<td>&#x738B;&#x4E94;</td>
-<td>63.67</td>
+<td>&#x8D75;&#x516D;</td>
+<td>70.64</td>
 <td>1</td>
 </tr>
 <tr>
-<td>&#x5F20;&#x4E09;</td>
-<td>63.41</td>
+<td>&#x674E;&#x56DB;</td>
+<td>66.63</td>
 <td>2</td>
 </tr>
 <tr>
-<td>&#x674E;&#x56DB;</td>
-<td>63.21</td>
+<td>&#x738B;&#x4E94;</td>
+<td>66.34</td>
 <td>3</td>
 </tr>
 <tr>
-<td>&#x8D75;&#x516D;</td>
-<td>62.93</td>
+<td>&#x5F20;&#x4E09;</td>
+<td>65.47</td>
 <td>4</td>
 </tr>
 </tbody>
