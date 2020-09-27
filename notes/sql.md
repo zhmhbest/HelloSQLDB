@@ -78,21 +78,26 @@ FROM
 SELECT * FROM `表` WHERE 字段 IS NULL;
 SELECT * FROM `表` WHERE 字段 IS NOT NULL;
 
-# 子查询: 满足条件
 # > < = != <= >=
 SELECT * FROM `表` WHERE 字段=值;
+```
+
+#### 子查询筛选
+
+```SQL
+# 子查询仅返回一个值
 SELECT * FROM `表` WHERE 字段=(SELECT MIN(字段) FROM `表`);
 SELECT * FROM `表` WHERE 字段=(SELECT MAX(字段) FROM `表`);
 SELECT * FROM `表` WHERE 字段>(SELECT AVG(字段) FROM `表`);
 
-# 子查询: 满足一个即可
+# 子查询返回多个值: ANY/SOME 满足一个即可
 SELECT * FROM `表` WHERE 字段 > ANY (SELECT 字段 FROM `表`)
 SELECT * FROM `表` WHERE 字段 > SOME (SELECT 字段 FROM `表`)
 
-# 子查询: 需要全部满足
+# 子查询返回多个值: ALL 需要全部满足
 SELECT * FROM `表` WHERE 字段 > ALL (SELECT 字段 FROM `表`)
 
-# 子查询: EXISTS返回 1 | 0 即子查询条件是否满足
+# 子查询返回多个值: EXISTS 子查询结果是否为Empty，Empty返回0，否则返回1
 SELECT * FROM `表` WHERE EXISTS (SELECT 字段 FROM `表` WHERE 条件)
 ```
 
@@ -204,17 +209,28 @@ SELECT * FROM `R` RIGHT OUTER JOIN `S` ON R.B=S.B;
 ### 分组查询
 
 ``` SQL
-SELECT {字段 | 聚合函数},... FROM `表` [WHERE 条件] GROUP BY 字段 [HAVING 聚合函数];
+SELECT {字段 | 聚合函数},... FROM `表` [WHERE 事前条件] GROUP BY 字段 [HAVING 事后条件];
 ```
 
 **Order**
 
 @import "./data/Order.csv"
 
-#### Count
+#### Default
+
+分组查询用于从组内提取信息进行显示，每组仅能显示一行，默认情况下显示组内第一条数据。
 
 ```SQL
-# 将相同user_id的数据归为一组，统计每组有几条含有字段id的元组。
+SELECT * FROM `Order` GROUP BY user_id;
+```
+
+@import "./data/Order_Default.csv"
+
+#### Count
+
+`Count`用于统计组内某一字段不为`NULL`的元素个数。
+
+```SQL
 SELECT user_name AS 用户, COUNT(id) AS 下单数量 FROM `Order` GROUP BY user_id;
 ```
 
@@ -272,7 +288,7 @@ SELECT id FROM `Order` WHERE id=-1;
 ```
 
 ```txt
-MariaDB [test_sql]> SELECT id FROM `Order` WHERE id=-1;
+MariaDB [...]> SELECT id FROM `Order` WHERE id=-1;
 Empty set (0.00 sec)
 ```
 
@@ -284,7 +300,7 @@ SELECT IFNULL((SELECT id FROM `Order` WHERE id=-1), NULL) AS id;
 ```
 
 ```txt
-MariaDB [test_sql]> SELECT IFNULL((SELECT id FROM `Order` WHERE id=-1), NULL) AS id;
+MariaDB [...]> SELECT IFNULL((SELECT id FROM `Order` WHERE id=-1), NULL) AS id;
 +------+
 | id   |
 +------+
