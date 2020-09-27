@@ -55,7 +55,46 @@ mysql -u${用户名} -p[${用户名}]
 
 <!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
 
+## 版本
+
+```SQL
+SELECT VERSION();
+```
+
+```txt
++-----------------+
+| VERSION()       |
++-----------------+
+| 10.1.38-MariaDB |
++-----------------+
+```
+
+<!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
+
 ## 存储引擎
+
+### 查看提供的存储引擎
+
+```SQL
+SHOW ENGINES;
+```
+
+```txt
++--------------------+---------+---------+--------------+------+------------+
+| Engine             | Support | Comment | Transactions | XA   | Savepoints |
++--------------------+---------+---------+--------------+------+------------+
+| CSV                | YES     | ...     | NO           | NO   | NO         |
+| InnoDB             | DEFAULT | ...     | YES          | YES  | YES        |
+| MEMORY             | YES     | ...     | NO           | NO   | NO         |
+| MyISAM             | YES     | ...     | NO           | NO   | NO         |
+| MRG_MyISAM         | YES     | ...     | NO           | NO   | NO         |
+| Aria               | YES     | ...     | NO           | NO   | NO         |
+| PERFORMANCE_SCHEMA | YES     | ...     | NO           | NO   | NO         |
+| SEQUENCE           | YES     | ...     | YES          | NO   | YES        |
++--------------------+---------+---------+--------------+------+------------+
+```
+
+### 查看当前默认存储引擎
 
 ```SQL
 SHOW VARIABLES LIKE 'storage\_engine%';
@@ -67,6 +106,12 @@ SHOW VARIABLES LIKE 'storage\_engine%';
 +----------------+--------+
 | storage_engine | InnoDB |
 +----------------+--------+
+```
+
+### 临时修改默认存储引擎
+
+```SQL
+SET default_storage_engine=存储引擎名
 ```
 
 <!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
@@ -332,7 +377,7 @@ CREATE TABLE 表名 (
     字段2 类型2 [约束2] [COMMENT '注解2'],
     ...
     [ , PRIMARY KEY(字段) ]
-    [ , [CONSTRAINT 外键约束名] FOREIGN KEY (字段) REFERENCES `表名`(字段) ]
+    [ , [CONSTRAINT 外键约束名] FOREIGN KEY (字段) REFERENCES 表名(字段) ]
     [ , [UNIQUE] INDEX 索引名(字段) ]
 );
 # 约束 = NOT NULL | UNIQUE | CHECK (条件) | DEFAULT 值 | AUTO_INCREMENT[=起始值]

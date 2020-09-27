@@ -280,7 +280,14 @@ pre[data-line] .line-highlight[data-end]:after {
 <li><a href="#centos7">CentOS7</a></li>
 </ul>
 </li>
-<li><a href="#%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E">&#x5B58;&#x50A8;&#x5F15;&#x64CE;</a></li>
+<li><a href="#%E7%89%88%E6%9C%AC">&#x7248;&#x672C;</a></li>
+<li><a href="#%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E">&#x5B58;&#x50A8;&#x5F15;&#x64CE;</a>
+<ul>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BE%9B%E7%9A%84%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E">&#x67E5;&#x770B;&#x63D0;&#x4F9B;&#x7684;&#x5B58;&#x50A8;&#x5F15;&#x64CE;</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E9%BB%98%E8%AE%A4%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E">&#x67E5;&#x770B;&#x5F53;&#x524D;&#x9ED8;&#x8BA4;&#x5B58;&#x50A8;&#x5F15;&#x64CE;</a></li>
+<li><a href="#%E4%B8%B4%E6%97%B6%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E">&#x4E34;&#x65F6;&#x4FEE;&#x6539;&#x9ED8;&#x8BA4;&#x5B58;&#x50A8;&#x5F15;&#x64CE;</a></li>
+</ul>
+</li>
 <li><a href="#%E7%BC%96%E7%A0%81%E8%AE%BE%E7%BD%AE">&#x7F16;&#x7801;&#x8BBE;&#x7F6E;</a>
 <ul>
 <li><a href="#%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86">&#x8BBE;&#x7F6E;&#x5B57;&#x7B26;&#x96C6;</a></li>
@@ -376,7 +383,32 @@ mysqladmin -u<span class="token variable">${&#x7528;&#x6237;&#x540D;}</span> -p<
 
 <span class="token comment"># &#x767B;&#x5F55;&#x7BA1;&#x7406;</span>
 mysql -u<span class="token variable">${&#x7528;&#x6237;&#x540D;}</span> -p<span class="token punctuation">[</span><span class="token variable">${&#x7528;&#x6237;&#x540D;}</span><span class="token punctuation">]</span>
-</pre><h2 class="mume-header" id="%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E">&#x5B58;&#x50A8;&#x5F15;&#x64CE;</h2>
+</pre><h2 class="mume-header" id="%E7%89%88%E6%9C%AC">&#x7248;&#x672C;</h2>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> VERSION<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><pre data-role="codeBlock" data-info="txt" class="language-txt"><code>+-----------------+
+| VERSION()       |
++-----------------+
+| 10.1.38-MariaDB |
++-----------------+
+</code></pre><h2 class="mume-header" id="%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E">&#x5B58;&#x50A8;&#x5F15;&#x64CE;</h2>
+
+<h3 class="mume-header" id="%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BE%9B%E7%9A%84%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E">&#x67E5;&#x770B;&#x63D0;&#x4F9B;&#x7684;&#x5B58;&#x50A8;&#x5F15;&#x64CE;</h3>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SHOW</span> ENGINES<span class="token punctuation">;</span>
+</pre><pre data-role="codeBlock" data-info="txt" class="language-txt"><code>+--------------------+---------+---------+--------------+------+------------+
+| Engine             | Support | Comment | Transactions | XA   | Savepoints |
++--------------------+---------+---------+--------------+------+------------+
+| CSV                | YES     | ...     | NO           | NO   | NO         |
+| InnoDB             | DEFAULT | ...     | YES          | YES  | YES        |
+| MEMORY             | YES     | ...     | NO           | NO   | NO         |
+| MyISAM             | YES     | ...     | NO           | NO   | NO         |
+| MRG_MyISAM         | YES     | ...     | NO           | NO   | NO         |
+| Aria               | YES     | ...     | NO           | NO   | NO         |
+| PERFORMANCE_SCHEMA | YES     | ...     | NO           | NO   | NO         |
+| SEQUENCE           | YES     | ...     | YES          | NO   | YES        |
++--------------------+---------+---------+--------------+------+------------+
+</code></pre><h3 class="mume-header" id="%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E9%BB%98%E8%AE%A4%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E">&#x67E5;&#x770B;&#x5F53;&#x524D;&#x9ED8;&#x8BA4;&#x5B58;&#x50A8;&#x5F15;&#x64CE;</h3>
 
 <pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SHOW</span> VARIABLES <span class="token operator">LIKE</span> <span class="token string">&apos;storage\_engine%&apos;</span><span class="token punctuation">;</span>
 </pre><pre data-role="codeBlock" data-info="txt" class="language-txt"><code>+----------------+--------+
@@ -384,7 +416,10 @@ mysql -u<span class="token variable">${&#x7528;&#x6237;&#x540D;}</span> -p<span 
 +----------------+--------+
 | storage_engine | InnoDB |
 +----------------+--------+
-</code></pre><h2 class="mume-header" id="%E7%BC%96%E7%A0%81%E8%AE%BE%E7%BD%AE">&#x7F16;&#x7801;&#x8BBE;&#x7F6E;</h2>
+</code></pre><h3 class="mume-header" id="%E4%B8%B4%E6%97%B6%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E">&#x4E34;&#x65F6;&#x4FEE;&#x6539;&#x9ED8;&#x8BA4;&#x5B58;&#x50A8;&#x5F15;&#x64CE;</h3>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SET</span> default_storage_engine<span class="token operator">=</span>&#x5B58;&#x50A8;&#x5F15;&#x64CE;&#x540D;
+</pre><h2 class="mume-header" id="%E7%BC%96%E7%A0%81%E8%AE%BE%E7%BD%AE">&#x7F16;&#x7801;&#x8BBE;&#x7F6E;</h2>
 
 <h3 class="mume-header" id="%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86">&#x8BBE;&#x7F6E;&#x5B57;&#x7B26;&#x96C6;</h3>
 
@@ -580,7 +615,7 @@ mysql<span class="token operator">&gt;</span>source <span class="token variable"
     &#x5B57;&#x6BB5;<span class="token number">2</span> &#x7C7B;&#x578B;<span class="token number">2</span> <span class="token punctuation">[</span>&#x7EA6;&#x675F;<span class="token number">2</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token keyword">COMMENT</span> <span class="token string">&apos;&#x6CE8;&#x89E3;2&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
     <span class="token punctuation">[</span> <span class="token punctuation">,</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">(</span>&#x5B57;&#x6BB5;<span class="token punctuation">)</span> <span class="token punctuation">]</span>
-    <span class="token punctuation">[</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token keyword">CONSTRAINT</span> &#x5916;&#x952E;&#x7EA6;&#x675F;&#x540D;<span class="token punctuation">]</span> <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>&#x5B57;&#x6BB5;<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> <span class="token punctuation">`</span>&#x8868;&#x540D;<span class="token punctuation">`</span><span class="token punctuation">(</span>&#x5B57;&#x6BB5;<span class="token punctuation">)</span> <span class="token punctuation">]</span>
+    <span class="token punctuation">[</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token keyword">CONSTRAINT</span> &#x5916;&#x952E;&#x7EA6;&#x675F;&#x540D;<span class="token punctuation">]</span> <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>&#x5B57;&#x6BB5;<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> &#x8868;&#x540D;<span class="token punctuation">(</span>&#x5B57;&#x6BB5;<span class="token punctuation">)</span> <span class="token punctuation">]</span>
     <span class="token punctuation">[</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token keyword">UNIQUE</span><span class="token punctuation">]</span> <span class="token keyword">INDEX</span> &#x7D22;&#x5F15;&#x540D;<span class="token punctuation">(</span>&#x5B57;&#x6BB5;<span class="token punctuation">)</span> <span class="token punctuation">]</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment"># &#x7EA6;&#x675F; = NOT NULL | UNIQUE | CHECK (&#x6761;&#x4EF6;) | DEFAULT &#x503C; | AUTO_INCREMENT[=&#x8D77;&#x59CB;&#x503C;]</span>
