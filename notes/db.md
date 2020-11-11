@@ -13,10 +13,11 @@
 - [MariaDB](https://downloads.mariadb.org/mariadb/)
 - [SQL Server](https://www.microsoft.com/zh-cn/sql-server/sql-server-downloads)
 
-### 数据库管理
+### 数据库管理工具
 
 - [Sqliteman](http://sqliteman.yarpen.cz/)
 - [HeidiSQL](https://www.heidisql.com/download.php)
+- [DBeaver](https://dbeaver.io/download/)
 - [Navicat Premium](https://navicat.com.cn/products#navicat)
 
 <!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
