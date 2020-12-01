@@ -48,10 +48,10 @@ sudo systemctl start  mariadb
 mysql_secure_installation
 
 # 初始化帐号
-mysqladmin -u${用户名} -p[${用户名}]
+mysqladmin -u${用户名} -p[${密码}]
 
 # 登录管理
-mysql -u${用户名} -p[${用户名}]
+mysql -u${用户名} -p[${密码}]
 ```
 
 <!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
