@@ -414,22 +414,22 @@ ALTER TABLE `表名` DROP FOREIGN KEY 外键约束名;
 #### 删除表
 
 ```SQL
-DROP TABLE `表名`;
+DROP TABLE IF EXISTS `表名`;
 ```
 
 ### 索引
 
 ```SQL
 # 创建索引
-CREATE [UNIQUE] INDEX 索引名称 [USING BTREE] ON `表名`(字段 [长度] [ASC | DESC], ...);
-ALTER TABLE `表名` ADD [UNIQUE] INDEX 索引名称(字段, ...) [USING BTREE];
+CREATE [UNIQUE] INDEX `索引名称` [USING BTREE] ON `表名`(字段 [长度] [ASC | DESC], ...);
+ALTER TABLE `表名` ADD [UNIQUE] INDEX `索引名称`(字段, ...) [USING BTREE];
 
 # 查看索引
 SHOW INDEX FROM `表名`;
 
 # 删除索引
-DROP INDEX 索引名称 ON `表名`;
-ALTER TABLE `表名` DROP INDEX 索引名称;
+DROP INDEX `索引名称` ON `表名`;
+ALTER TABLE `表名` DROP INDEX `索引名称`;
 ```
 
 ### 视图
@@ -438,10 +438,10 @@ ALTER TABLE `表名` DROP INDEX 索引名称;
 
 ```SQL
 # 创建视图
-CREATE VIEW 视图名称 AS (
+CREATE VIEW `视图名称` AS (
     SELECT ...
 );
 
 # 删除视图
-DROP VIEW IF EXISTS 视图名称;
+DROP VIEW IF EXISTS `视图名称`;
 ```
