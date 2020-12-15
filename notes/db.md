@@ -421,8 +421,8 @@ DROP TABLE `表名`;
 
 ```SQL
 # 创建索引
-CREATE [UNIQUE] INDEX 索引名称 ON `表名`(字段, ...);
-ALTER TABLE `表名` ADD [UNIQUE] INDEX 索引名称(字段, ...);
+CREATE [UNIQUE] INDEX 索引名称 [USING BTREE] ON `表名`(字段 [长度] [ASC | DESC], ...);
+ALTER TABLE `表名` ADD [UNIQUE] INDEX 索引名称(字段, ...) [USING BTREE];
 
 # 查看索引
 SHOW INDEX FROM `表名`;
