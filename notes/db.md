@@ -29,7 +29,6 @@
 - [Download mariadb-10.1.38-winx64.zip](https://downloads.mariadb.org/mariadb/10.1.38/)
 - [`mariadb-install.bat`](./src/mariadb-install.bat)
 - [`mariadb-uninstall.bat`](./src/mariadb-uninstall.bat)
-
 ```batch
 sc stop mariadb
 sc start mariadb
@@ -51,7 +50,9 @@ mysql_secure_installation
 mysqladmin -u${用户名} -p[${密码}]
 
 # 登录管理
-mysql -u${用户名} -p[${密码}] [-P3306]
+# mysql [-h域名] [-P端口] [-D库名] -u${用户名} -p[${密码}]
+@mysql -hlocalhost -P3306 -uroot -proot
+@mysql -uroot -proot
 ```
 
 <!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
