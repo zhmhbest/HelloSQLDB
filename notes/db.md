@@ -50,7 +50,7 @@ mysql_secure_installation
 mysqladmin -u${用户名} -p[${密码}]
 
 # 登录管理
-# mysql [-h域名] [-P端口] [-D库名] -u${用户名} -p[${密码}]
+# mysql [-h域名] [-P端口] [-D库名] -u用户名 -p[密码]
 @mysql -hlocalhost -P3306 -uroot -proot
 @mysql -uroot -proot
 ```
@@ -175,8 +175,10 @@ SHOW VARIABLES LIKE 'collation%';
 ## 备份
 
 ```bash
-# 备份当前数据库
-mysqldump -u${用户名} -p ${数据库名} > ${备份文件地址}.sql
+# 备份数据库或表
+# mysqldump [-h域名] [-P端口] -u用户名 -p密码 数据库名 [表名]> 备份文件地址.sql
+mysqldump -uroot -proot myDB> myDB.sql
+mysqldump -uroot -proot myDB myTable> myTable.sql
 
 # 恢复（登录后）
 mysql>source ${备份文件地址}.sql;

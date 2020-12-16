@@ -383,7 +383,7 @@ mysql_secure_installation
 mysqladmin -u<span class="token variable">${&#x7528;&#x6237;&#x540D;}</span> -p<span class="token punctuation">[</span><span class="token variable">${&#x5BC6;&#x7801;}</span><span class="token punctuation">]</span>
 
 <span class="token comment"># &#x767B;&#x5F55;&#x7BA1;&#x7406;</span>
-<span class="token comment"># mysql [-h&#x57DF;&#x540D;] [-P&#x7AEF;&#x53E3;] [-D&#x5E93;&#x540D;] -u${&#x7528;&#x6237;&#x540D;} -p[${&#x5BC6;&#x7801;}]</span>
+<span class="token comment"># mysql [-h&#x57DF;&#x540D;] [-P&#x7AEF;&#x53E3;] [-D&#x5E93;&#x540D;] -u&#x7528;&#x6237;&#x540D; -p[&#x5BC6;&#x7801;]</span>
 @mysql -hlocalhost -P3306 -uroot -proot
 @mysql -uroot -proot
 </pre><h2 class="mume-header" id="%E7%89%88%E6%9C%AC">&#x7248;&#x672C;</h2>
@@ -466,8 +466,10 @@ mysqladmin -u<span class="token variable">${&#x7528;&#x6237;&#x540D;}</span> -p<
 +----------------------+--------------------+
 </code></pre><h2 class="mume-header" id="%E5%A4%87%E4%BB%BD">&#x5907;&#x4EFD;</h2>
 
-<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token comment"># &#x5907;&#x4EFD;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;</span>
-mysqldump -u<span class="token variable">${&#x7528;&#x6237;&#x540D;}</span> -p <span class="token variable">${&#x6570;&#x636E;&#x5E93;&#x540D;}</span> <span class="token operator">&gt;</span> <span class="token variable">${&#x5907;&#x4EFD;&#x6587;&#x4EF6;&#x5730;&#x5740;}</span>.sql
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token comment"># &#x5907;&#x4EFD;&#x6570;&#x636E;&#x5E93;&#x6216;&#x8868;</span>
+<span class="token comment"># mysqldump [-h&#x57DF;&#x540D;] [-P&#x7AEF;&#x53E3;] -u&#x7528;&#x6237;&#x540D; -p&#x5BC6;&#x7801; &#x6570;&#x636E;&#x5E93;&#x540D; [&#x8868;&#x540D;]&gt; &#x5907;&#x4EFD;&#x6587;&#x4EF6;&#x5730;&#x5740;.sql</span>
+mysqldump -uroot -proot myDB<span class="token operator">&gt;</span> myDB.sql
+mysqldump -uroot -proot myDB myTable<span class="token operator">&gt;</span> myTable.sql
 
 <span class="token comment"># &#x6062;&#x590D;&#xFF08;&#x767B;&#x5F55;&#x540E;&#xFF09;</span>
 mysql<span class="token operator">&gt;</span>source <span class="token variable">${&#x5907;&#x4EFD;&#x6587;&#x4EF6;&#x5730;&#x5740;}</span>.sql<span class="token punctuation">;</span>
