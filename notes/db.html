@@ -480,8 +480,26 @@ mysql<span class="token operator">&gt;</span>source <span class="token variable"
 <pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment"># &#x663E;&#x793A;&#x6240;&#x6709;&#x6570;&#x636E;&#x5E93;</span>
 <span class="token keyword">SHOW</span> <span class="token keyword">DATABASES</span><span class="token punctuation">;</span>
 
+<span class="token comment"># &#x663E;&#x793A;&#x6240;&#x6709;&#x6570;&#x636E;&#x5E93;</span>
+<span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span><span class="token punctuation">(</span>TABLE_SCHEMA<span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>information_schema<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span><span class="token keyword">TABLES</span><span class="token punctuation">`</span><span class="token punctuation">;</span>
+
 <span class="token comment"># &#x663E;&#x793A;&#x6570;&#x636E;&#x5E93;&#x6784;&#x9020;</span>
 <span class="token keyword">SHOW</span> <span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> <span class="token punctuation">`</span>&#x5E93;&#x540D;<span class="token punctuation">`</span><span class="token punctuation">;</span>
+</pre><pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment"># &#x5404;&#x8868;&#x6570;&#x636E;&#x91CF;</span>
+<span class="token keyword">SELECT</span>
+    TABLE_NAME <span class="token keyword">AS</span> <span class="token string">&apos;name&apos;</span><span class="token punctuation">,</span>
+    INDEX_LENGTH  <span class="token keyword">AS</span> <span class="token string">&apos;index&apos;</span><span class="token punctuation">,</span>
+    TABLE_ROWS <span class="token keyword">AS</span> <span class="token string">&apos;rows&apos;</span><span class="token punctuation">,</span>
+    AVG_ROW_LENGTH <span class="token keyword">AS</span> <span class="token string">&apos;avg&apos;</span><span class="token punctuation">,</span>
+    DATA_LENGTH <span class="token keyword">AS</span> <span class="token string">&apos;length&apos;</span><span class="token punctuation">,</span>
+    TABLE_COMMENT <span class="token keyword">as</span> <span class="token string">&apos;comment&apos;</span>
+<span class="token keyword">FROM</span>
+    <span class="token punctuation">`</span>information_schema<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span><span class="token keyword">TABLES</span><span class="token punctuation">`</span>
+<span class="token keyword">WHERE</span>
+    TABLE_TYPE <span class="token operator">=</span> <span class="token string">&apos;BASE TABLE&apos;</span>
+    <span class="token operator">AND</span> TABLE_SCHEMA <span class="token operator">=</span> <span class="token string">&apos;&#x6570;&#x636E;&#x5E93;&#x540D;&apos;</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span>
+    TABLE_NAME<span class="token punctuation">;</span>
 </pre><h3 class="mume-header" id="%E5%A2%9E%E5%88%A0%E6%94%B9">&#x589E;&#x5220;&#x6539;</h3>
 
 <pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment"># &#x521B;&#x5EFA;&#x65B0;&#x6570;&#x636E;&#x5E93;</span>

@@ -194,8 +194,29 @@ mysql>source ${备份文件地址}.sql;
 # 显示所有数据库
 SHOW DATABASES;
 
+# 显示所有数据库
+SELECT DISTINCT(TABLE_SCHEMA) FROM `information_schema`.`TABLES`;
+
 # 显示数据库构造
 SHOW CREATE DATABASE `库名`;
+```
+
+```SQL
+# 各表数据量
+SELECT
+    TABLE_NAME AS 'name',
+    INDEX_LENGTH  AS 'index',
+    TABLE_ROWS AS 'rows',
+    AVG_ROW_LENGTH AS 'avg',
+    DATA_LENGTH AS 'length',
+    TABLE_COMMENT as 'comment'
+FROM
+    `information_schema`.`TABLES`
+WHERE
+    TABLE_TYPE = 'BASE TABLE'
+    AND TABLE_SCHEMA = '数据库名'
+ORDER BY
+    TABLE_NAME;
 ```
 
 ### 增删改
