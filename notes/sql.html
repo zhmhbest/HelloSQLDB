@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
       
       
       
@@ -359,12 +359,16 @@ pre[data-line] .line-highlight[data-end]:after {
 <span class="token keyword">TRUNCATE</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>&#x8868;&#x540D;<span class="token punctuation">`</span><span class="token punctuation">;</span>
 </pre><h2 class="mume-header" id="%E6%9F%A5%E6%89%BE">&#x67E5;&#x627E;</h2>
 
+<blockquote>
+<p><a href="https://dev.mysql.com/doc/">MySQL&#x6587;&#x6863;</a><br>
+<a href="https://dev.mysql.com/doc/refman/5.7/en/functions.html">MySQL5.7&#x805A;&#x5408;&#x51FD;&#x6570;</a></p>
+</blockquote>
 <pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment"># &#x663E;&#x793A;&#x6240;&#x6709;&#x5B57;&#x6BB5;</span>
 <span class="token keyword">SELECT</span>
-    <span class="token punctuation">[</span><span class="token keyword">DISTINCT</span><span class="token punctuation">]</span>
-    &#x5B57;&#x6BB5; <span class="token punctuation">[</span><span class="token keyword">AS</span> <span class="token string">&apos;&#x522B;&#x540D;&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token punctuation">[</span><span class="token keyword">DISTINCT</span><span class="token punctuation">]</span> &#x5B57;&#x6BB5; <span class="token punctuation">[</span><span class="token keyword">AS</span> <span class="token string">&apos;&#x522B;&#x540D;&apos;</span><span class="token punctuation">]</span> <span class="token operator">|</span> &#x805A;&#x5408;&#x51FD;&#x6570;<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 <span class="token keyword">FROM</span>
-    {<span class="token punctuation">`</span>&#x8868;<span class="token number">1</span><span class="token punctuation">`</span> <span class="token operator">|</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x7ED3;&#x679C;&#x522B;&#x540D;&apos;</span>}
+    <span class="token punctuation">`</span>&#x8868;<span class="token number">1</span><span class="token punctuation">`</span> <span class="token operator">|</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> <span class="token punctuation">[</span><span class="token keyword">AS</span> <span class="token string">&apos;&#x7ED3;&#x679C;&#x522B;&#x540D;&apos;</span><span class="token punctuation">]</span>
     <span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 <span class="token punctuation">[</span><span class="token keyword">WHERE</span> &#x6761;&#x4EF6;<span class="token punctuation">]</span>
 <span class="token punctuation">[</span><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> &#x6392;&#x5E8F;&#x53C2;&#x8003;&#x7684;&#x5B57;&#x6BB5;<span class="token number">1</span> <span class="token punctuation">[</span><span class="token keyword">ASC</span> <span class="token operator">|</span> <span class="token keyword">DESC</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
