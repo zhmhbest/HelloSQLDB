@@ -1,26 +1,33 @@
 
 ### Empty和Null
 
-**Empty**
+`empty_null`
+
+|**id**|
+|-|
+|0|
+
+#### Empty
 
 ```SQL
-SELECT id FROM `Order` WHERE id=-1;
+SELECT id FROM empty_null WHERE id=-1;
 ```
 
 ```txt
-MariaDB [...]> SELECT id FROM `Order` WHERE id=-1;
+MariaDB [...]> ...
 Empty set (0.00 sec)
 ```
 
-**Null**
+#### Null
 
 ```SQL
-SELECT IFNULL((SELECT id FROM `Order` WHERE id=-1), NULL) AS id;
-# SELECT (SELECT id FROM `Order` WHERE id=-1) AS id;
+SELECT IFNULL((SELECT id FROM empty_null WHERE id=-1), NULL) AS id;
+-- Or
+SELECT (SELECT id FROM empty_null WHERE id=-1) AS id;
 ```
 
 ```txt
-MariaDB [...]> SELECT IFNULL((SELECT id FROM `Order` WHERE id=-1), NULL) AS id;
+MariaDB [...]> ...
 +------+
 | id   |
 +------+

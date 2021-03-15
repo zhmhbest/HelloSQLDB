@@ -302,15 +302,22 @@ pre[data-line] .line-highlight[data-end]:after {
 <li><a href="#order-by">Order By</a></li>
 <li><a href="#where">Where</a></li>
 <li><a href="#having">Having</a></li>
-<li><a href="#%E5%B0%8F%E7%BB%93">&#x5C0F;&#x7ED3;</a></li>
+<li><a href="#%E8%A1%8C%E8%BD%AC%E5%88%97">&#x884C;&#x8F6C;&#x5217;</a></li>
 </ul>
 </li>
-<li><a href="#empty%E5%92%8Cnull">Empty&#x548C;Null</a></li>
+<li><a href="#empty%E5%92%8Cnull">Empty&#x548C;Null</a>
+<ul>
+<li><a href="#empty">Empty</a></li>
+<li><a href="#null">Null</a></li>
+</ul>
+</li>
 <li><a href="#%E5%BA%94%E7%94%A8">&#x5E94;&#x7528;</a>
 <ul>
 <li><a href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%A6%E7%94%9F%E6%88%90%E7%BB%A9">&#x683C;&#x5F0F;&#x5316;&#x5B66;&#x751F;&#x6210;&#x7EE9;</a></li>
 <li><a href="#%E7%BB%9F%E8%AE%A1%E5%90%84%E7%A7%91%E5%88%86%E6%95%B0%E5%A4%A7%E4%BA%8E85%E5%88%86%E7%9A%84%E4%BA%BA%E6%95%B0%E5%92%8C%E4%BA%BA%E6%95%B0%E5%8D%A0%E6%AF%94">&#x7EDF;&#x8BA1;&#x5404;&#x79D1;&#x5206;&#x6570;&#x5927;&#x4E8E;85&#x5206;&#x7684;&#x4EBA;&#x6570;&#x548C;&#x4EBA;&#x6570;&#x5360;&#x6BD4;</a></li>
 <li><a href="#%E7%BB%9F%E8%AE%A1%E5%90%84%E5%88%86%E6%AE%B5%E7%9A%84%E4%BA%BA%E6%95%B0">&#x7EDF;&#x8BA1;&#x5404;&#x5206;&#x6BB5;&#x7684;&#x4EBA;&#x6570;</a></li>
+<li><a href="#%E6%AF%8F%E9%97%A8%E8%AF%BE%E7%A8%8B%E5%8D%95%E7%A7%91%E7%8A%B6%E5%85%83%E5%A7%93%E5%90%8D%E5%8F%8A%E5%85%B6%E5%88%86%E6%95%B0">&#x6BCF;&#x95E8;&#x8BFE;&#x7A0B;&#x5355;&#x79D1;&#x72B6;&#x5143;&#x59D3;&#x540D;&#x53CA;&#x5176;&#x5206;&#x6570;</a></li>
+<li><a href="#%E7%8F%AD%E7%BA%A7%E7%AC%AC%E4%B8%89%E5%90%8D%E7%9A%84%E6%88%90%E7%BB%A9">&#x73ED;&#x7EA7;&#x7B2C;&#x4E09;&#x540D;&#x7684;&#x6210;&#x7EE9;</a></li>
 <li><a href="#%E6%8C%89%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%90%8D%E5%B9%B6%E6%B7%BB%E5%8A%A0%E4%B8%80%E5%88%97%E6%98%BE%E7%A4%BA%E5%90%8D%E6%AC%A1">&#x6309;&#x5E73;&#x5747;&#x6210;&#x7EE9;&#x8FDB;&#x884C;&#x6392;&#x540D;&#xFF0C;&#x5E76;&#x6DFB;&#x52A0;&#x4E00;&#x5217;&#x663E;&#x793A;&#x540D;&#x6B21;</a></li>
 </ul>
 </li>
@@ -449,9 +456,8 @@ pre[data-line] .line-highlight[data-end]:after {
     <span class="token punctuation">`</span>&#x8868;<span class="token number">2</span><span class="token punctuation">`</span> <span class="token punctuation">[</span><span class="token string">&apos;&#x522B;&#x540D;2&apos;</span><span class="token punctuation">]</span>
 <span class="token keyword">ON</span>
     &#x8FDE;&#x63A5;&#x6761;&#x4EF6;
-<span class="token punctuation">[</span><span class="token keyword">WHERE</span> &#x9009;&#x62E9;&#x6761;&#x4EF6;<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token comment">-- Mysql&#x4E0D;&#x652F;&#x6301; FULL OUTER JOIN</span>
-</pre><p><strong>R</strong></p>
+</pre><p><code>R</code></p>
 <table>
 <thead>
 <tr>
@@ -483,7 +489,7 @@ pre[data-line] .line-highlight[data-end]:after {
 </tr>
 </tbody>
 </table>
-<p><strong>S</strong></p>
+<p><code>S</code></p>
 <table>
 <thead>
 <tr>
@@ -726,169 +732,185 @@ pre[data-line] .line-highlight[data-end]:after {
 </table>
 <h3 class="mume-header" id="%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2">&#x5206;&#x7EC4;&#x67E5;&#x8BE2;</h3>
 
-<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> {&#x5B57;&#x6BB5; <span class="token operator">|</span> &#x805A;&#x5408;&#x51FD;&#x6570;}<span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>&#x8868;<span class="token punctuation">`</span> <span class="token punctuation">[</span><span class="token keyword">WHERE</span> &#x4E8B;&#x524D;&#x6761;&#x4EF6;<span class="token punctuation">]</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> &#x5B57;&#x6BB5; <span class="token punctuation">[</span><span class="token keyword">HAVING</span> &#x4E8B;&#x540E;&#x6761;&#x4EF6;<span class="token punctuation">]</span><span class="token punctuation">;</span>
-</pre><p><strong>Order</strong></p>
-<table>
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span>
+    {&#x5B57;&#x6BB5; <span class="token operator">|</span> &#x805A;&#x5408;&#x51FD;&#x6570;}<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">FROM</span>
+    <span class="token punctuation">`</span>&#x8868;<span class="token punctuation">`</span>
+<span class="token punctuation">[</span><span class="token keyword">WHERE</span> &#x7B5B;&#x9009;&#x5206;&#x7EC4;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#x6570;&#x636E;<span class="token punctuation">]</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
+    &#x5B57;&#x6BB5;
+<span class="token punctuation">[</span><span class="token keyword">HAVING</span> &#x7B5B;&#x9009;&#x5206;&#x7EC4;<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</pre><p><code>tbl_order</code></p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql"><span class="token comment">-- USE test;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>tbl_salary<span class="token punctuation">`</span><span class="token punctuation">;</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> tbl_salary <span class="token punctuation">(</span>
+    <span class="token punctuation">`</span>id<span class="token punctuation">`</span>        <span class="token keyword">INTEGER</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>name<span class="token punctuation">`</span>      <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>salary<span class="token punctuation">`</span>    <span class="token keyword">FLOAT</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>monthId<span class="token punctuation">`</span>   <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token keyword">COMMENT</span> <span class="token string">&apos;yyyyMM&apos;</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">InnoDB</span>
+<span class="token keyword">DEFAULT</span> <span class="token keyword">CHARSET</span><span class="token operator">=</span>utf8mb4
+<span class="token keyword">COLLATE</span><span class="token operator">=</span>utf8mb4_general_ci<span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> test<span class="token punctuation">.</span>tbl_salary
+<span class="token punctuation">(</span>id<span class="token punctuation">,</span>name<span class="token punctuation">,</span>salary<span class="token punctuation">,</span>monthId<span class="token punctuation">)</span> <span class="token keyword">VALUES</span>
+    <span class="token punctuation">(</span><span class="token number">1001</span><span class="token punctuation">,</span><span class="token string">&apos;Olivia&apos;</span><span class="token punctuation">,</span><span class="token number">870.0</span><span class="token punctuation">,</span><span class="token string">&apos;201906&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token number">1001</span><span class="token punctuation">,</span><span class="token string">&apos;Olivia&apos;</span><span class="token punctuation">,</span><span class="token number">860.0</span><span class="token punctuation">,</span><span class="token string">&apos;201907&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token number">1001</span><span class="token punctuation">,</span><span class="token string">&apos;Olivia&apos;</span><span class="token punctuation">,</span><span class="token number">820.0</span><span class="token punctuation">,</span><span class="token string">&apos;201908&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token number">1002</span><span class="token punctuation">,</span><span class="token string">&apos;Mark&apos;</span><span class="token punctuation">,</span><span class="token number">1010.0</span><span class="token punctuation">,</span><span class="token string">&apos;201906&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token number">1002</span><span class="token punctuation">,</span><span class="token string">&apos;Mark&apos;</span><span class="token punctuation">,</span><span class="token number">1050.0</span><span class="token punctuation">,</span><span class="token string">&apos;201907&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token number">1002</span><span class="token punctuation">,</span><span class="token string">&apos;Mark&apos;</span><span class="token punctuation">,</span><span class="token number">1020.0</span><span class="token punctuation">,</span><span class="token string">&apos;201908&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token number">1002</span><span class="token punctuation">,</span><span class="token string">&apos;Mark&apos;</span><span class="token punctuation">,</span><span class="token number">1100.0</span><span class="token punctuation">,</span><span class="token string">&apos;201909&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token number">1003</span><span class="token punctuation">,</span><span class="token string">&apos;Lucy&apos;</span><span class="token punctuation">,</span><span class="token number">500.0</span><span class="token punctuation">,</span><span class="token string">&apos;201906&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token number">1003</span><span class="token punctuation">,</span><span class="token string">&apos;Lucy&apos;</span><span class="token punctuation">,</span><span class="token number">502.0</span><span class="token punctuation">,</span><span class="token string">&apos;201907&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</pre><table>
 <thead>
 <tr>
 <th>id</th>
-<th>user_id</th>
-<th>user_name</th>
-<th>price</th>
-<th>year</th>
+<th>name</th>
+<th>salary</th>
+<th>monthId</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
 <td>1001</td>
-<td>&#x5468;&#x6770;&#x4F26;</td>
-<td>11.11</td>
-<td>2017</td>
+<td>Olivia</td>
+<td>870.0</td>
+<td>201906</td>
 </tr>
 <tr>
-<td>2</td>
 <td>1001</td>
-<td>&#x5468;&#x6770;&#x4F26;</td>
-<td>22.22</td>
-<td>2018</td>
+<td>Olivia</td>
+<td>860.0</td>
+<td>201907</td>
 </tr>
 <tr>
-<td>3</td>
 <td>1001</td>
-<td>&#x5468;&#x6770;&#x4F26;</td>
-<td>88.88</td>
-<td>2018</td>
+<td>Olivia</td>
+<td>820.0</td>
+<td>201908</td>
 </tr>
 <tr>
-<td>4</td>
 <td>1002</td>
-<td>&#x5218;&#x5FB7;&#x534E;</td>
-<td>33.33</td>
-<td>2018</td>
+<td>Mark</td>
+<td>1010.0</td>
+<td>201906</td>
 </tr>
 <tr>
-<td>5</td>
 <td>1002</td>
-<td>&#x5218;&#x5FB7;&#x534E;</td>
-<td>12.22</td>
-<td>2018</td>
+<td>Mark</td>
+<td>1050.0</td>
+<td>201907</td>
 </tr>
 <tr>
-<td>6</td>
 <td>1002</td>
-<td>&#x5218;&#x5FB7;&#x534E;</td>
-<td>16.66</td>
-<td>2018</td>
+<td>Mark</td>
+<td>1020.0</td>
+<td>201908</td>
 </tr>
 <tr>
-<td>7</td>
 <td>1002</td>
-<td>&#x5218;&#x5FB7;&#x534E;</td>
-<td>44.44</td>
-<td>2019</td>
+<td>Mark</td>
+<td>1100.0</td>
+<td>201909</td>
 </tr>
 <tr>
-<td>8</td>
 <td>1003</td>
-<td>&#x5F20;&#x5B66;&#x53CB;</td>
-<td>55.55</td>
-<td>2018</td>
+<td>Lucy</td>
+<td>500.0</td>
+<td>201906</td>
 </tr>
 <tr>
-<td>9</td>
 <td>1003</td>
-<td>&#x5F20;&#x5B66;&#x53CB;</td>
-<td>66.66</td>
-<td>2019</td>
+<td>Lucy</td>
+<td>502.0</td>
+<td>201907</td>
 </tr>
 </tbody>
 </table>
 <h4 class="mume-header" id="default">Default</h4>
 
 <p>&#x5206;&#x7EC4;&#x67E5;&#x8BE2;&#x7528;&#x4E8E;&#x4ECE;&#x7EC4;&#x5185;&#x63D0;&#x53D6;&#x4FE1;&#x606F;&#x8FDB;&#x884C;&#x663E;&#x793A;&#xFF0C;&#x6BCF;&#x7EC4;&#x4EC5;&#x80FD;&#x663E;&#x793A;&#x4E00;&#x884C;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x663E;&#x793A;&#x7EC4;&#x5185;&#x7B2C;&#x4E00;&#x6761;&#x6570;&#x636E;&#x3002;</p>
-<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span><span class="token keyword">Order</span><span class="token punctuation">`</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id<span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> tbl_salary <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token punctuation">`</span>id<span class="token punctuation">`</span><span class="token punctuation">;</span>
 </pre><table>
 <thead>
 <tr>
 <th>id</th>
-<th>user_id</th>
-<th>user_name</th>
-<th>price</th>
-<th>year</th>
+<th>name</th>
+<th>salary</th>
+<th>monthId</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
 <td>1001</td>
-<td>&#x5468;&#x6770;&#x4F26;</td>
-<td>11.11</td>
-<td>2017</td>
+<td>Olivia</td>
+<td>870.0</td>
+<td>201906</td>
 </tr>
 <tr>
-<td>4</td>
 <td>1002</td>
-<td>&#x5218;&#x5FB7;&#x534E;</td>
-<td>33.33</td>
-<td>2018</td>
+<td>Mark</td>
+<td>1010.0</td>
+<td>201906</td>
 </tr>
 <tr>
-<td>8</td>
 <td>1003</td>
-<td>&#x5F20;&#x5B66;&#x53CB;</td>
-<td>55.55</td>
-<td>2018</td>
+<td>Lucy</td>
+<td>500.0</td>
+<td>201906</td>
 </tr>
 </tbody>
 </table>
 <h4 class="mume-header" id="count">Count</h4>
 
 <p><code>Count</code>&#x7528;&#x4E8E;&#x7EDF;&#x8BA1;&#x7EC4;&#x5185;&#x67D0;&#x4E00;&#x5B57;&#x6BB5;&#x4E0D;&#x4E3A;<code>NULL</code>&#x7684;&#x5143;&#x7D20;&#x4E2A;&#x6570;&#x3002;</p>
-<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> user_name <span class="token keyword">AS</span> &#x7528;&#x6237;<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">AS</span> &#x4E0B;&#x5355;&#x6570;&#x91CF; <span class="token keyword">FROM</span> <span class="token punctuation">`</span><span class="token keyword">Order</span><span class="token punctuation">`</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id<span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> name<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">AS</span> count <span class="token keyword">FROM</span> tbl_salary <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token punctuation">`</span>id<span class="token punctuation">`</span><span class="token punctuation">;</span>
 </pre><table>
 <thead>
 <tr>
-<th>&#x7528;&#x6237;</th>
-<th>&#x4E0B;&#x5355;&#x6570;&#x91CF;</th>
+<th>name</th>
+<th>count</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x5468;&#x6770;&#x4F26;</td>
+<td>Olivia</td>
 <td>3</td>
 </tr>
 <tr>
-<td>&#x5218;&#x5FB7;&#x534E;</td>
+<td>Mark</td>
 <td>4</td>
 </tr>
 <tr>
-<td>&#x5F20;&#x5B66;&#x53CB;</td>
+<td>Lucy</td>
 <td>2</td>
 </tr>
 </tbody>
 </table>
 <h4 class="mume-header" id="order-by">Order By</h4>
 
-<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> user_name <span class="token keyword">AS</span> &#x7528;&#x6237;<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">AS</span> &#x4E0B;&#x5355;&#x6570;&#x91CF; <span class="token keyword">FROM</span> <span class="token punctuation">`</span><span class="token keyword">Order</span><span class="token punctuation">`</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">DESC</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> name<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">AS</span> count <span class="token keyword">FROM</span> tbl_salary <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token punctuation">`</span>id<span class="token punctuation">`</span> <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> count <span class="token keyword">DESC</span><span class="token punctuation">;</span>
 </pre><table>
 <thead>
 <tr>
-<th>&#x7528;&#x6237;</th>
-<th>&#x4E0B;&#x5355;&#x6570;&#x91CF;</th>
+<th>name</th>
+<th>count</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x5218;&#x5FB7;&#x534E;</td>
+<td>Mark</td>
 <td>4</td>
 </tr>
 <tr>
-<td>&#x5468;&#x6770;&#x4F26;</td>
+<td>Olivia</td>
 <td>3</td>
 </tr>
 <tr>
-<td>&#x5F20;&#x5B66;&#x53CB;</td>
+<td>Lucy</td>
 <td>2</td>
 </tr>
 </tbody>
@@ -896,25 +918,25 @@ pre[data-line] .line-highlight[data-end]:after {
 <h4 class="mume-header" id="where">Where</h4>
 
 <p><code>WHERE</code>&#x7528;&#x4E8E;&#x7B5B;&#x9009;&#x51FA;&#x7528;&#x4E8E;&#x5206;&#x7EC4;&#x7684;&#x6570;&#x636E;&#x3002;</p>
-<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> user_name <span class="token keyword">AS</span> &#x7528;&#x6237;<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">AS</span> &#x4E0B;&#x5355;&#x6570;&#x91CF; <span class="token keyword">FROM</span> <span class="token punctuation">`</span><span class="token keyword">Order</span><span class="token punctuation">`</span> <span class="token keyword">WHERE</span> <span class="token keyword">Order</span><span class="token punctuation">.</span><span class="token keyword">year</span><span class="token operator">=</span><span class="token number">2018</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id<span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> name<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">AS</span> count <span class="token keyword">FROM</span> tbl_salary <span class="token keyword">WHERE</span> monthId<span class="token operator">&gt;=</span><span class="token string">&apos;201907&apos;</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token punctuation">`</span>id<span class="token punctuation">`</span><span class="token punctuation">;</span>
 </pre><table>
 <thead>
 <tr>
-<th>&#x7528;&#x6237;</th>
-<th>&#x4E0B;&#x5355;&#x6570;&#x91CF;</th>
+<th>name</th>
+<th>count</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x5468;&#x6770;&#x4F26;</td>
+<td>Olivia</td>
 <td>2</td>
 </tr>
 <tr>
-<td>&#x5218;&#x5FB7;&#x534E;</td>
+<td>Mark</td>
 <td>3</td>
 </tr>
 <tr>
-<td>&#x5F20;&#x5B66;&#x53CB;</td>
+<td>Lucy</td>
 <td>1</td>
 </tr>
 </tbody>
@@ -922,83 +944,103 @@ pre[data-line] .line-highlight[data-end]:after {
 <h4 class="mume-header" id="having">Having</h4>
 
 <p><code>HAVING</code>&#x7528;&#x4E8E;&#x5728;&#x5206;&#x7EC4;&#x540E;&#x7EE7;&#x7EED;&#x7B5B;&#x9009;&#x6570;&#x636E;&#x3002;</p>
-<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> user_name <span class="token keyword">AS</span> &#x7528;&#x6237;<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">AS</span> &#x4E0B;&#x5355;&#x6570;&#x91CF; <span class="token keyword">FROM</span> <span class="token punctuation">`</span><span class="token keyword">Order</span><span class="token punctuation">`</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id <span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token operator">&gt;</span><span class="token number">2</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> name<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">AS</span> count <span class="token keyword">FROM</span> tbl_salary <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token punctuation">`</span>id<span class="token punctuation">`</span> <span class="token keyword">HAVING</span> count<span class="token operator">&gt;</span><span class="token number">2</span><span class="token punctuation">;</span>
 </pre><table>
 <thead>
 <tr>
-<th>&#x7528;&#x6237;</th>
-<th>&#x4E0B;&#x5355;&#x6570;&#x91CF;</th>
+<th>name</th>
+<th>count</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x5468;&#x6770;&#x4F26;</td>
+<td>Olivia</td>
 <td>3</td>
 </tr>
 <tr>
-<td>&#x5218;&#x5FB7;&#x534E;</td>
+<td>Mark</td>
 <td>4</td>
 </tr>
 </tbody>
 </table>
-<h4 class="mume-header" id="%E5%B0%8F%E7%BB%93">&#x5C0F;&#x7ED3;</h4>
+<h4 class="mume-header" id="%E8%A1%8C%E8%BD%AC%E5%88%97">&#x884C;&#x8F6C;&#x5217;</h4>
 
-<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span>
-    user_name <span class="token keyword">AS</span> &#x7528;&#x6237;<span class="token punctuation">,</span>
-    <span class="token function">COUNT</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">AS</span> &#x6D88;&#x8D39;&#x6B21;&#x6570;<span class="token punctuation">,</span>
-    <span class="token function">MAX</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span> <span class="token keyword">AS</span> &#x6700;&#x5927;&#x6D88;&#x8D39;<span class="token punctuation">,</span>
-    <span class="token function">MIN</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span> <span class="token keyword">AS</span> &#x6700;&#x4F4E;&#x6D88;&#x8D39;<span class="token punctuation">,</span>
-    <span class="token function">SUM</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span> <span class="token keyword">AS</span> &#x603B;&#x6D88;&#x8D39;<span class="token punctuation">,</span>
-    <span class="token function">AVG</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span> <span class="token keyword">AS</span> &#x5E73;&#x5747;&#x6D88;&#x8D39;
-<span class="token keyword">FROM</span> <span class="token punctuation">`</span><span class="token keyword">Order</span><span class="token punctuation">`</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id<span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token comment">-- &#x9759;&#x6001;</span>
+<span class="token keyword">SELECT</span>
+    <span class="token punctuation">`</span>id<span class="token punctuation">`</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>name<span class="token punctuation">`</span><span class="token punctuation">,</span>
+    <span class="token function">MAX</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> monthId <span class="token keyword">WHEN</span> <span class="token string">&apos;201906&apos;</span> <span class="token keyword">THEN</span> salary <span class="token keyword">ELSE</span> <span class="token number">0</span> <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;201906&apos;</span><span class="token punctuation">,</span>
+    <span class="token function">MAX</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> monthId <span class="token keyword">WHEN</span> <span class="token string">&apos;201907&apos;</span> <span class="token keyword">THEN</span> salary <span class="token keyword">ELSE</span> <span class="token number">0</span> <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;201907&apos;</span><span class="token punctuation">,</span>
+    <span class="token function">MAX</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> monthId <span class="token keyword">WHEN</span> <span class="token string">&apos;201908&apos;</span> <span class="token keyword">THEN</span> salary <span class="token keyword">ELSE</span> <span class="token number">0</span> <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;201908&apos;</span><span class="token punctuation">,</span>
+    <span class="token function">MAX</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> monthId <span class="token keyword">WHEN</span> <span class="token string">&apos;201909&apos;</span> <span class="token keyword">THEN</span> salary <span class="token keyword">ELSE</span> <span class="token number">0</span> <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;201909&apos;</span>
+<span class="token keyword">FROM</span>
+    <span class="token punctuation">`</span>tbl_salary<span class="token punctuation">`</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
+    <span class="token punctuation">`</span>id<span class="token punctuation">`</span><span class="token punctuation">;</span>
 </pre><table>
 <thead>
 <tr>
-<th>&#x7528;&#x6237;</th>
-<th>&#x6D88;&#x8D39;&#x6B21;&#x6570;</th>
-<th>&#x6700;&#x5927;&#x6D88;&#x8D39;</th>
-<th>&#x6700;&#x4F4E;&#x6D88;&#x8D39;</th>
-<th>&#x603B;&#x6D88;&#x8D39;</th>
-<th>&#x5E73;&#x5747;&#x6D88;&#x8D39;</th>
+<th>id</th>
+<th>name</th>
+<th>201906</th>
+<th>201907</th>
+<th>201908</th>
+<th>201909</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x5468;&#x6770;&#x4F26;</td>
-<td>3</td>
-<td>88.88</td>
-<td>11.11</td>
-<td>122.21</td>
-<td>40.736667</td>
+<td>1001</td>
+<td>Olivia</td>
+<td>870.0</td>
+<td>860.0</td>
+<td>820.0</td>
+<td>0.0</td>
 </tr>
 <tr>
-<td>&#x5218;&#x5FB7;&#x534E;</td>
-<td>4</td>
-<td>44.44</td>
-<td>12.22</td>
-<td>106.65</td>
-<td>26.662500</td>
+<td>1002</td>
+<td>Mark</td>
+<td>1010.0</td>
+<td>1050.0</td>
+<td>1020.0</td>
+<td>1100.0</td>
 </tr>
 <tr>
-<td>&#x5F20;&#x5B66;&#x53CB;</td>
-<td>2</td>
-<td>66.66</td>
-<td>55.55</td>
-<td>122.21</td>
-<td>61.105000</td>
+<td>1003</td>
+<td>Lucy</td>
+<td>500.0</td>
+<td>502.0</td>
+<td>0.0</td>
+<td>0.0</td>
 </tr>
 </tbody>
 </table>
 <h3 class="mume-header" id="empty%E5%92%8Cnull">Empty&#x548C;Null</h3>
 
-<p><strong>Empty</strong></p>
-<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> <span class="token punctuation">`</span><span class="token keyword">Order</span><span class="token punctuation">`</span> <span class="token keyword">WHERE</span> id<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-</pre><pre data-role="codeBlock" data-info="txt" class="language-txt"><code>MariaDB [...]&gt; SELECT id FROM `Order` WHERE id=-1;
+<p><code>empty_null</code></p>
+<table>
+<thead>
+<tr>
+<th><strong>id</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h4 class="mume-header" id="empty">Empty</h4>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> empty_null <span class="token keyword">WHERE</span> id<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+</pre><pre data-role="codeBlock" data-info="txt" class="language-txt"><code>MariaDB [...]&gt; ...
 Empty set (0.00 sec)
-</code></pre><p><strong>Null</strong></p>
-<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> IFNULL<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> <span class="token punctuation">`</span><span class="token keyword">Order</span><span class="token punctuation">`</span> <span class="token keyword">WHERE</span> id<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">NULL</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> id<span class="token punctuation">;</span>
-<span class="token comment"># SELECT (SELECT id FROM `Order` WHERE id=-1) AS id;</span>
-</pre><pre data-role="codeBlock" data-info="txt" class="language-txt"><code>MariaDB [...]&gt; SELECT IFNULL((SELECT id FROM `Order` WHERE id=-1), NULL) AS id;
+</code></pre><h4 class="mume-header" id="null">Null</h4>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> IFNULL<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> empty_null <span class="token keyword">WHERE</span> id<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">NULL</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> id<span class="token punctuation">;</span>
+<span class="token comment">-- Or</span>
+<span class="token keyword">SELECT</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> empty_null <span class="token keyword">WHERE</span> id<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> id<span class="token punctuation">;</span>
+</pre><pre data-role="codeBlock" data-info="txt" class="language-txt"><code>MariaDB [...]&gt; ...
 +------+
 | id   |
 +------+
@@ -1008,48 +1050,55 @@ Empty set (0.00 sec)
 </code></pre><p>&#x5982;&#x679C;&#x4F7F;&#x7528;Navicat Premium&#x7B49;&#x8F6F;&#x4EF6;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x5FFD;&#x89C6;&#x6B64;&#x95EE;&#x9898;&#x7684;&#x5B58;&#x5728;&#x3002;</p>
 <h3 class="mume-header" id="%E5%BA%94%E7%94%A8">&#x5E94;&#x7528;</h3>
 
-<p><strong>SC</strong></p>
-<pre data-role="codeBlock" data-info="sql" class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span><span class="token punctuation">;</span> <span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token punctuation">(</span>
+<p><code>tbl_sc</code></p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql"><span class="token comment">-- USE test;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>tbl_sc<span class="token punctuation">`</span><span class="token punctuation">;</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>tbl_sc<span class="token punctuation">`</span> <span class="token punctuation">(</span>
     <span class="token punctuation">`</span>name<span class="token punctuation">`</span>    <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     <span class="token punctuation">`</span>course<span class="token punctuation">`</span>  <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     <span class="token punctuation">`</span>score<span class="token punctuation">`</span>   <span class="token keyword">FLOAT</span>
 <span class="token punctuation">)</span> <span class="token keyword">CHARSET</span><span class="token operator">=</span>utf8mb4<span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x653F;&#x6CBB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;72.5&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5386;&#x53F2;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;66.0&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5730;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;86.1&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x8BED;&#x6587;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;44.9&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x6570;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;45.3&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5916;&#x8BED;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;40.2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x7269;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;65.7&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5316;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;70.5&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x751F;&#x7269;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;98.0&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x653F;&#x6CBB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;71.5&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5386;&#x53F2;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;81.6&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5730;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;80.3&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x8BED;&#x6587;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;73.0&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x6570;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;68.8&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5916;&#x8BED;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;58.8&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x7269;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;67.7&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5316;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;62.2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x751F;&#x7269;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;35.8&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x653F;&#x6CBB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;46.9&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5386;&#x53F2;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;62.6&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5730;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;77.6&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x8BED;&#x6587;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;70.4&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x6570;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;55.2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5916;&#x8BED;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;81.2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x7269;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;58.9&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5316;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;85.3&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x751F;&#x7269;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;59.0&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x653F;&#x6CBB;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;79.1&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5386;&#x53F2;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;58.6&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5730;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;43.2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x8BED;&#x6587;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;74.2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x6570;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;82.2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5916;&#x8BED;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;59.5&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x7269;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;66.4&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x5316;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;99.0&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;&#x751F;&#x7269;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;73.6&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>tbl_sc<span class="token punctuation">`</span> <span class="token punctuation">(</span><span class="token punctuation">`</span>name<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token punctuation">`</span>course<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token punctuation">)</span> <span class="token keyword">VALUES</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x653F;&#x6CBB;&apos;</span><span class="token punctuation">,</span><span class="token number">72.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x5386;&#x53F2;&apos;</span><span class="token punctuation">,</span><span class="token number">66.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x5730;&#x7406;&apos;</span><span class="token punctuation">,</span><span class="token number">86.1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x8BED;&#x6587;&apos;</span><span class="token punctuation">,</span><span class="token number">44.9</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x6570;&#x5B66;&apos;</span><span class="token punctuation">,</span><span class="token number">45.3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x5916;&#x8BED;&apos;</span><span class="token punctuation">,</span><span class="token number">40.2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x7269;&#x7406;&apos;</span><span class="token punctuation">,</span><span class="token number">65.7</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x5316;&#x5B66;&apos;</span><span class="token punctuation">,</span><span class="token number">70.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x5F20;&#x4E09;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x751F;&#x7269;&apos;</span><span class="token punctuation">,</span><span class="token number">98.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>tbl_sc<span class="token punctuation">`</span> <span class="token punctuation">(</span><span class="token punctuation">`</span>name<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token punctuation">`</span>course<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token punctuation">)</span> <span class="token keyword">VALUES</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x653F;&#x6CBB;&apos;</span><span class="token punctuation">,</span><span class="token number">71.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x5386;&#x53F2;&apos;</span><span class="token punctuation">,</span><span class="token number">81.6</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x5730;&#x7406;&apos;</span><span class="token punctuation">,</span><span class="token number">80.3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x8BED;&#x6587;&apos;</span><span class="token punctuation">,</span><span class="token number">73.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x6570;&#x5B66;&apos;</span><span class="token punctuation">,</span><span class="token number">68.8</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x5916;&#x8BED;&apos;</span><span class="token punctuation">,</span><span class="token number">58.8</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x7269;&#x7406;&apos;</span><span class="token punctuation">,</span><span class="token number">67.7</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x5316;&#x5B66;&apos;</span><span class="token punctuation">,</span><span class="token number">62.2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x674E;&#x56DB;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x751F;&#x7269;&apos;</span><span class="token punctuation">,</span><span class="token number">35.8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>tbl_sc<span class="token punctuation">`</span> <span class="token punctuation">(</span><span class="token punctuation">`</span>name<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token punctuation">`</span>course<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token punctuation">)</span> <span class="token keyword">VALUES</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x653F;&#x6CBB;&apos;</span><span class="token punctuation">,</span><span class="token number">46.9</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x5386;&#x53F2;&apos;</span><span class="token punctuation">,</span><span class="token number">62.6</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x5730;&#x7406;&apos;</span><span class="token punctuation">,</span><span class="token number">77.6</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x8BED;&#x6587;&apos;</span><span class="token punctuation">,</span><span class="token number">70.4</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x6570;&#x5B66;&apos;</span><span class="token punctuation">,</span><span class="token number">55.2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x5916;&#x8BED;&apos;</span><span class="token punctuation">,</span><span class="token number">81.2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x7269;&#x7406;&apos;</span><span class="token punctuation">,</span><span class="token number">58.9</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x5316;&#x5B66;&apos;</span><span class="token punctuation">,</span><span class="token number">85.3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x738B;&#x4E94;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x751F;&#x7269;&apos;</span><span class="token punctuation">,</span><span class="token number">59.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>tbl_sc<span class="token punctuation">`</span> <span class="token punctuation">(</span><span class="token punctuation">`</span>name<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token punctuation">`</span>course<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token punctuation">)</span> <span class="token keyword">VALUES</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x653F;&#x6CBB;&apos;</span><span class="token punctuation">,</span><span class="token number">79.1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x5386;&#x53F2;&apos;</span><span class="token punctuation">,</span><span class="token number">58.6</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x5730;&#x7406;&apos;</span><span class="token punctuation">,</span><span class="token number">43.2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x8BED;&#x6587;&apos;</span><span class="token punctuation">,</span><span class="token number">74.2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x6570;&#x5B66;&apos;</span><span class="token punctuation">,</span><span class="token number">82.2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x5916;&#x8BED;&apos;</span><span class="token punctuation">,</span><span class="token number">59.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x7269;&#x7406;&apos;</span><span class="token punctuation">,</span><span class="token number">66.4</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x5316;&#x5B66;&apos;</span><span class="token punctuation">,</span><span class="token number">99.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">&apos;&#x8D75;&#x516D;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x751F;&#x7269;&apos;</span><span class="token punctuation">,</span><span class="token number">73.6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
 </pre><h4 class="mume-header" id="%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%A6%E7%94%9F%E6%88%90%E7%BB%A9">&#x683C;&#x5F0F;&#x5316;&#x5B66;&#x751F;&#x6210;&#x7EE9;</h4>
 
 <pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span>
@@ -1064,7 +1113,7 @@ Empty set (0.00 sec)
     <span class="token function">MAX</span><span class="token punctuation">(</span><span class="token keyword">IF</span><span class="token punctuation">(</span><span class="token punctuation">`</span>course<span class="token punctuation">`</span> <span class="token operator">=</span> <span class="token string">&apos;&#x7269;&#x7406;&apos;</span><span class="token punctuation">,</span> <span class="token function">ROUND</span><span class="token punctuation">(</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">NULL</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x7269;&#x7406;&apos;</span><span class="token punctuation">,</span>
     <span class="token function">MAX</span><span class="token punctuation">(</span><span class="token keyword">IF</span><span class="token punctuation">(</span><span class="token punctuation">`</span>course<span class="token punctuation">`</span> <span class="token operator">=</span> <span class="token string">&apos;&#x5316;&#x5B66;&apos;</span><span class="token punctuation">,</span> <span class="token function">ROUND</span><span class="token punctuation">(</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">NULL</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x5316;&#x5B66;&apos;</span>
 <span class="token keyword">FROM</span>
-    <span class="token punctuation">`</span>SC<span class="token punctuation">`</span>
+    <span class="token punctuation">`</span>tbl_sc<span class="token punctuation">`</span>
 <span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
     <span class="token punctuation">`</span>name<span class="token punctuation">`</span>
 <span class="token punctuation">;</span>
@@ -1136,16 +1185,21 @@ Empty set (0.00 sec)
 </table>
 <h4 class="mume-header" id="%E7%BB%9F%E8%AE%A1%E5%90%84%E7%A7%91%E5%88%86%E6%95%B0%E5%A4%A7%E4%BA%8E85%E5%88%86%E7%9A%84%E4%BA%BA%E6%95%B0%E5%92%8C%E4%BA%BA%E6%95%B0%E5%8D%A0%E6%AF%94">&#x7EDF;&#x8BA1;&#x5404;&#x79D1;&#x5206;&#x6570;&#x5927;&#x4E8E;85&#x5206;&#x7684;&#x4EBA;&#x6570;&#x548C;&#x4EBA;&#x6570;&#x5360;&#x6BD4;</h4>
 
-<blockquote>
-<p>&#x4F7F;&#x7528;<code>SC</code>&#x8868;</p>
-</blockquote>
 <pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span>
     <span class="token punctuation">`</span>course<span class="token punctuation">`</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x8BFE;&#x7A0B;&apos;</span><span class="token punctuation">,</span>
-    <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">IF</span><span class="token punctuation">(</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token operator">&gt;</span><span class="token number">85</span><span class="token punctuation">,</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token boolean">NULL</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x6EE1;&#x8DB3;&#x4EBA;&#x6570;&apos;</span><span class="token punctuation">,</span>
+    <span class="token function">COUNT</span><span class="token punctuation">(</span>
+        <span class="token keyword">IF</span><span class="token punctuation">(</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token operator">&gt;</span><span class="token number">85</span><span class="token punctuation">,</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token boolean">NULL</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x6EE1;&#x8DB3;&#x4EBA;&#x6570;&apos;</span><span class="token punctuation">,</span>
     <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x603B;&#x4EBA;&#x6570;&apos;</span><span class="token punctuation">,</span>
-    CONCAT<span class="token punctuation">(</span><span class="token function">ROUND</span><span class="token punctuation">(</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">IF</span><span class="token punctuation">(</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token operator">&gt;</span><span class="token number">85</span><span class="token punctuation">,</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token boolean">NULL</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">&apos;%&apos;</span><span class="token punctuation">)</span>  <span class="token keyword">AS</span> <span class="token string">&apos;&#x5360;&#x6BD4;&apos;</span>
+    CONCAT<span class="token punctuation">(</span>
+        <span class="token function">ROUND</span><span class="token punctuation">(</span>
+            <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">IF</span><span class="token punctuation">(</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token operator">&gt;</span><span class="token number">85</span><span class="token punctuation">,</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token boolean">NULL</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token operator">/</span>
+            <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">2</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">&apos;%&apos;</span>
+    <span class="token punctuation">)</span>  <span class="token keyword">AS</span> <span class="token string">&apos;&#x5360;&#x6BD4;&apos;</span>
 <span class="token keyword">FROM</span>
-    <span class="token punctuation">`</span>SC<span class="token punctuation">`</span>
+    <span class="token punctuation">`</span>tbl_sc<span class="token punctuation">`</span>
 <span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
     <span class="token punctuation">`</span>course<span class="token punctuation">`</span>
 <span class="token punctuation">;</span>
@@ -1223,7 +1277,7 @@ Empty set (0.00 sec)
     <span class="token function">SUM</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> <span class="token punctuation">`</span>score<span class="token punctuation">`</span> <span class="token operator">BETWEEN</span> <span class="token number">60</span> <span class="token operator">AND</span> <span class="token number">84</span> <span class="token keyword">THEN</span> <span class="token number">1</span> <span class="token keyword">ELSE</span> <span class="token number">0</span> <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x53CA;&#x683C;&#x4EBA;&#x6570;&apos;</span><span class="token punctuation">,</span>
     <span class="token function">SUM</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> <span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token operator">&lt;</span><span class="token number">60</span> <span class="token keyword">THEN</span> <span class="token number">1</span> <span class="token keyword">ELSE</span> <span class="token number">0</span> <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x4E0D;&#x53CA;&#x683C;&#x4EBA;&#x6570;&apos;</span>
 <span class="token keyword">FROM</span>
-    <span class="token punctuation">`</span>SC<span class="token punctuation">`</span>
+    <span class="token punctuation">`</span>tbl_sc<span class="token punctuation">`</span>
 <span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
     <span class="token punctuation">`</span>course<span class="token punctuation">`</span>
 <span class="token punctuation">;</span>
@@ -1293,25 +1347,165 @@ Empty set (0.00 sec)
 </tr>
 </tbody>
 </table>
+<h4 class="mume-header" id="%E6%AF%8F%E9%97%A8%E8%AF%BE%E7%A8%8B%E5%8D%95%E7%A7%91%E7%8A%B6%E5%85%83%E5%A7%93%E5%90%8D%E5%8F%8A%E5%85%B6%E5%88%86%E6%95%B0">&#x6BCF;&#x95E8;&#x8BFE;&#x7A0B;&#x5355;&#x79D1;&#x72B6;&#x5143;&#x59D3;&#x540D;&#x53CA;&#x5176;&#x5206;&#x6570;</h4>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span>
+    t<span class="token punctuation">.</span><span class="token operator">*</span>
+<span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span>
+        course<span class="token punctuation">,</span>
+        <span class="token function">MAX</span><span class="token punctuation">(</span>score<span class="token punctuation">)</span> <span class="token keyword">AS</span> score
+    <span class="token keyword">FROM</span>
+        tbl_sc
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
+        course
+<span class="token punctuation">)</span> <span class="token keyword">AS</span> m
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span>
+    <span class="token punctuation">`</span>tbl_sc<span class="token punctuation">`</span> <span class="token keyword">AS</span> t
+<span class="token keyword">ON</span>
+    m<span class="token punctuation">.</span>score <span class="token operator">=</span> t<span class="token punctuation">.</span>score
+<span class="token punctuation">;</span>
+</pre><table>
+<thead>
+<tr>
+<th>name</th>
+<th>course</th>
+<th>score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x5F20;&#x4E09;</td>
+<td>&#x5730;&#x7406;</td>
+<td>86.1</td>
+</tr>
+<tr>
+<td>&#x5F20;&#x4E09;</td>
+<td>&#x751F;&#x7269;</td>
+<td>98.0</td>
+</tr>
+<tr>
+<td>&#x674E;&#x56DB;</td>
+<td>&#x5386;&#x53F2;</td>
+<td>81.6</td>
+</tr>
+<tr>
+<td>&#x674E;&#x56DB;</td>
+<td>&#x7269;&#x7406;</td>
+<td>67.7</td>
+</tr>
+<tr>
+<td>&#x738B;&#x4E94;</td>
+<td>&#x5916;&#x8BED;</td>
+<td>81.2</td>
+</tr>
+<tr>
+<td>&#x8D75;&#x516D;</td>
+<td>&#x653F;&#x6CBB;</td>
+<td>79.1</td>
+</tr>
+<tr>
+<td>&#x8D75;&#x516D;</td>
+<td>&#x8BED;&#x6587;</td>
+<td>74.2</td>
+</tr>
+<tr>
+<td>&#x8D75;&#x516D;</td>
+<td>&#x6570;&#x5B66;</td>
+<td>82.2</td>
+</tr>
+<tr>
+<td>&#x8D75;&#x516D;</td>
+<td>&#x5316;&#x5B66;</td>
+<td>99.0</td>
+</tr>
+</tbody>
+</table>
+<h4 class="mume-header" id="%E7%8F%AD%E7%BA%A7%E7%AC%AC%E4%B8%89%E5%90%8D%E7%9A%84%E6%88%90%E7%BB%A9">&#x73ED;&#x7EA7;&#x7B2C;&#x4E09;&#x540D;&#x7684;&#x6210;&#x7EE9;</h4>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> tbl_sc <span class="token keyword">WHERE</span> <span class="token punctuation">`</span>name<span class="token punctuation">`</span> <span class="token operator">=</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span>
+        <span class="token punctuation">`</span>name<span class="token punctuation">`</span>
+    <span class="token keyword">FROM</span>
+        <span class="token punctuation">`</span>tbl_sc<span class="token punctuation">`</span>
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
+        name
+    <span class="token keyword">ORDER</span> <span class="token keyword">BY</span>
+        <span class="token function">AVG</span><span class="token punctuation">(</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token punctuation">)</span>
+    <span class="token keyword">LIMIT</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span>  <span class="token comment">-- 1st=(0, 1)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><table>
+<thead>
+<tr>
+<th>name</th>
+<th>course</th>
+<th>score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x674E;&#x56DB;</td>
+<td>&#x653F;&#x6CBB;</td>
+<td>71.5</td>
+</tr>
+<tr>
+<td>&#x674E;&#x56DB;</td>
+<td>&#x5386;&#x53F2;</td>
+<td>81.6</td>
+</tr>
+<tr>
+<td>&#x674E;&#x56DB;</td>
+<td>&#x5730;&#x7406;</td>
+<td>80.3</td>
+</tr>
+<tr>
+<td>&#x674E;&#x56DB;</td>
+<td>&#x8BED;&#x6587;</td>
+<td>73.0</td>
+</tr>
+<tr>
+<td>&#x674E;&#x56DB;</td>
+<td>&#x6570;&#x5B66;</td>
+<td>68.8</td>
+</tr>
+<tr>
+<td>&#x674E;&#x56DB;</td>
+<td>&#x5916;&#x8BED;</td>
+<td>58.8</td>
+</tr>
+<tr>
+<td>&#x674E;&#x56DB;</td>
+<td>&#x7269;&#x7406;</td>
+<td>67.7</td>
+</tr>
+<tr>
+<td>&#x674E;&#x56DB;</td>
+<td>&#x5316;&#x5B66;</td>
+<td>62.2</td>
+</tr>
+<tr>
+<td>&#x674E;&#x56DB;</td>
+<td>&#x751F;&#x7269;</td>
+<td>35.8</td>
+</tr>
+</tbody>
+</table>
 <h4 class="mume-header" id="%E6%8C%89%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%90%8D%E5%B9%B6%E6%B7%BB%E5%8A%A0%E4%B8%80%E5%88%97%E6%98%BE%E7%A4%BA%E5%90%8D%E6%AC%A1">&#x6309;&#x5E73;&#x5747;&#x6210;&#x7EE9;&#x8FDB;&#x884C;&#x6392;&#x540D;&#xFF0C;&#x5E76;&#x6DFB;&#x52A0;&#x4E00;&#x5217;&#x663E;&#x793A;&#x540D;&#x6B21;</h4>
 
-<blockquote>
-<p>&#x4F7F;&#x7528;<code>SC</code>&#x8868;</p>
-</blockquote>
 <ul>
-<li><strong><em>Step1</em>&#xFF1A;&#x663E;&#x793A;&#x5E73;&#x5747;&#x6210;&#x7EE9;</strong></li>
+<li><strong><em>Step1</em>&#xFF1A;&#x8BA1;&#x7B97;&#x6BCF;&#x4EBA;&#x5E73;&#x5747;&#x6210;&#x7EE9;</strong></li>
 </ul>
-<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">VIEW</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>SC_AVG<span class="token punctuation">`</span><span class="token punctuation">;</span>
-<span class="token keyword">CREATE</span> <span class="token keyword">VIEW</span> <span class="token punctuation">`</span>SC_AVG<span class="token punctuation">`</span> <span class="token keyword">AS</span> <span class="token punctuation">(</span>
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">VIEW</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>sc_avg<span class="token punctuation">`</span><span class="token punctuation">;</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">VIEW</span> <span class="token punctuation">`</span>sc_avg<span class="token punctuation">`</span> <span class="token keyword">AS</span> <span class="token punctuation">(</span>
     <span class="token keyword">SELECT</span>
         <span class="token punctuation">`</span>name<span class="token punctuation">`</span><span class="token punctuation">,</span>
         <span class="token function">ROUND</span><span class="token punctuation">(</span><span class="token function">AVG</span><span class="token punctuation">(</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;score&apos;</span>
     <span class="token keyword">FROM</span>
-        <span class="token punctuation">`</span>SC<span class="token punctuation">`</span>
+        <span class="token punctuation">`</span>tbl_sc<span class="token punctuation">`</span>
     <span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
         <span class="token punctuation">`</span>name<span class="token punctuation">`</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>SC_AVG<span class="token punctuation">`</span><span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>sc_avg<span class="token punctuation">`</span><span class="token punctuation">;</span>
 </pre><table>
 <thead>
 <tr>
@@ -1341,20 +1535,20 @@ Empty set (0.00 sec)
 <ul>
 <li><strong><em>Step2</em>&#xFF1A;&#x8FDE;&#x63A5;&#x5E76;&#x8868;</strong></li>
 </ul>
-<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">VIEW</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>SC_JOIN<span class="token punctuation">`</span><span class="token punctuation">;</span>
-<span class="token keyword">CREATE</span> <span class="token keyword">VIEW</span> <span class="token punctuation">`</span>SC_JOIN<span class="token punctuation">`</span> <span class="token keyword">AS</span> <span class="token punctuation">(</span>
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">VIEW</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>sc_join<span class="token punctuation">`</span><span class="token punctuation">;</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">VIEW</span> <span class="token punctuation">`</span>sc_join<span class="token punctuation">`</span> <span class="token keyword">AS</span> <span class="token punctuation">(</span>
     <span class="token keyword">SELECT</span>
-        <span class="token punctuation">`</span>A<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>name<span class="token punctuation">`</span>  <span class="token keyword">AS</span> <span class="token string">&apos;nameA&apos;</span><span class="token punctuation">,</span>
-        <span class="token punctuation">`</span>A<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span> <span class="token keyword">AS</span> <span class="token string">&apos;scoreA&apos;</span><span class="token punctuation">,</span>
-        <span class="token punctuation">`</span>B<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>name<span class="token punctuation">`</span>  <span class="token keyword">AS</span> <span class="token string">&apos;nameB&apos;</span><span class="token punctuation">,</span>
-        <span class="token punctuation">`</span>B<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span> <span class="token keyword">AS</span> <span class="token string">&apos;scoreB&apos;</span>
+        <span class="token punctuation">`</span>A<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>name<span class="token punctuation">`</span>  <span class="token keyword">AS</span> <span class="token string">&apos;name&apos;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">`</span>A<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span> <span class="token keyword">AS</span> <span class="token string">&apos;score&apos;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">`</span>B<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>name<span class="token punctuation">`</span>  <span class="token keyword">AS</span> <span class="token string">&apos;b_name&apos;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">`</span>B<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span> <span class="token keyword">AS</span> <span class="token string">&apos;b_score&apos;</span>
     <span class="token keyword">FROM</span>
-        <span class="token punctuation">`</span>SC_AVG<span class="token punctuation">`</span> <span class="token keyword">AS</span> <span class="token punctuation">`</span>A<span class="token punctuation">`</span><span class="token punctuation">,</span>
-        <span class="token punctuation">`</span>SC_AVG<span class="token punctuation">`</span> <span class="token keyword">AS</span> <span class="token punctuation">`</span>B<span class="token punctuation">`</span>
+        <span class="token punctuation">`</span>sc_avg<span class="token punctuation">`</span> <span class="token keyword">AS</span> A<span class="token punctuation">,</span>
+        <span class="token punctuation">`</span>sc_avg<span class="token punctuation">`</span> <span class="token keyword">AS</span> B
     <span class="token keyword">WHERE</span>
-        <span class="token punctuation">`</span>A<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span> <span class="token operator">&lt;=</span> <span class="token punctuation">`</span>B<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span>
+        A<span class="token punctuation">.</span>score <span class="token operator">&lt;=</span> B<span class="token punctuation">.</span>score
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>SC_JOIN<span class="token punctuation">`</span><span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>sc_join<span class="token punctuation">`</span><span class="token punctuation">;</span>
 </pre><table>
 <thead>
 <tr>
@@ -1431,19 +1625,19 @@ Empty set (0.00 sec)
 <li><strong><em>Step3</em>&#xFF1A;&#x7EDF;&#x8BA1;&#x6392;&#x540D;</strong></li>
 </ul>
 <pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span>
-    <span class="token punctuation">`</span>nameA<span class="token punctuation">`</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x59D3;&#x540D;&apos;</span><span class="token punctuation">,</span>
-    <span class="token punctuation">`</span>scoreA<span class="token punctuation">`</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x5E73;&#x5747;&#x5206;&apos;</span><span class="token punctuation">,</span>
-    <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span><span class="token punctuation">(</span><span class="token punctuation">`</span>scoreB<span class="token punctuation">`</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x6392;&#x540D;&apos;</span>
+    <span class="token punctuation">`</span>name<span class="token punctuation">`</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x59D3;&#x540D;&apos;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>score<span class="token punctuation">`</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x5E73;&#x5747;&#x5206;&apos;</span><span class="token punctuation">,</span>
+    <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span><span class="token punctuation">(</span><span class="token punctuation">`</span>b_score<span class="token punctuation">`</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x6392;&#x540D;&apos;</span>
 <span class="token keyword">FROM</span>
-    <span class="token punctuation">`</span>SC_JOIN<span class="token punctuation">`</span>
+    <span class="token punctuation">`</span>sc_join<span class="token punctuation">`</span>
 <span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
-    <span class="token punctuation">`</span>nameA<span class="token punctuation">`</span>
+    <span class="token punctuation">`</span>name<span class="token punctuation">`</span>
 <span class="token keyword">ORDER</span> <span class="token keyword">BY</span>
-    <span class="token punctuation">`</span>scoreA<span class="token punctuation">`</span> <span class="token keyword">DESC</span>
+    <span class="token punctuation">`</span>score<span class="token punctuation">`</span> <span class="token keyword">DESC</span>
 <span class="token punctuation">;</span>
 
-<span class="token keyword">DROP</span> <span class="token keyword">VIEW</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>SC_AVG<span class="token punctuation">`</span><span class="token punctuation">;</span>
-<span class="token keyword">DROP</span> <span class="token keyword">VIEW</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>SC_JOIN<span class="token punctuation">`</span><span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">VIEW</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>sc_avg<span class="token punctuation">`</span><span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">VIEW</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>sc_join<span class="token punctuation">`</span><span class="token punctuation">;</span>
 </pre><table>
 <thead>
 <tr>
@@ -1479,84 +1673,19 @@ Empty set (0.00 sec)
 <li><strong><em>Step4</em>&#xFF1A;&#x5C0F;&#x7ED3;</strong></li>
 </ul>
 <pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span>
-    <span class="token punctuation">`</span>A<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>name<span class="token punctuation">`</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x59D3;&#x540D;&apos;</span><span class="token punctuation">,</span>
-    <span class="token punctuation">`</span>A<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x5E73;&#x5747;&#x5206;&apos;</span><span class="token punctuation">,</span>
-    <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span><span class="token punctuation">(</span><span class="token punctuation">`</span>B<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x6392;&#x540D;&apos;</span>
+    A<span class="token punctuation">.</span><span class="token punctuation">`</span>name<span class="token punctuation">`</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x59D3;&#x540D;&apos;</span><span class="token punctuation">,</span>
+    <span class="token function">ROUND</span><span class="token punctuation">(</span>A<span class="token punctuation">.</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x5E73;&#x5747;&#x5206;&apos;</span><span class="token punctuation">,</span>
+    <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span><span class="token punctuation">(</span>B<span class="token punctuation">.</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;&#x6392;&#x540D;&apos;</span>
 <span class="token keyword">FROM</span>
-    <span class="token punctuation">(</span> <span class="token keyword">SELECT</span> <span class="token punctuation">`</span>name<span class="token punctuation">`</span><span class="token punctuation">,</span> <span class="token function">AVG</span><span class="token punctuation">(</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;score&apos;</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token punctuation">`</span>name<span class="token punctuation">`</span> <span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token punctuation">`</span>A<span class="token punctuation">`</span><span class="token punctuation">,</span>
-    <span class="token punctuation">(</span> <span class="token keyword">SELECT</span> <span class="token punctuation">`</span>name<span class="token punctuation">`</span><span class="token punctuation">,</span> <span class="token function">AVG</span><span class="token punctuation">(</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;score&apos;</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>SC<span class="token punctuation">`</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token punctuation">`</span>name<span class="token punctuation">`</span> <span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token punctuation">`</span>B<span class="token punctuation">`</span>
+    <span class="token punctuation">(</span> <span class="token keyword">SELECT</span> <span class="token punctuation">`</span>name<span class="token punctuation">`</span><span class="token punctuation">,</span> <span class="token function">AVG</span><span class="token punctuation">(</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;score&apos;</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>tbl_sc<span class="token punctuation">`</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token punctuation">`</span>name<span class="token punctuation">`</span> <span class="token punctuation">)</span> <span class="token keyword">AS</span> A<span class="token punctuation">,</span>
+    <span class="token punctuation">(</span> <span class="token keyword">SELECT</span> <span class="token punctuation">`</span>name<span class="token punctuation">`</span><span class="token punctuation">,</span> <span class="token function">AVG</span><span class="token punctuation">(</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">&apos;score&apos;</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>tbl_sc<span class="token punctuation">`</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token punctuation">`</span>name<span class="token punctuation">`</span> <span class="token punctuation">)</span> <span class="token keyword">AS</span> B
 <span class="token keyword">WHERE</span>
-    <span class="token punctuation">`</span>A<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span> <span class="token operator">&lt;=</span> <span class="token punctuation">`</span>B<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span>
+    A<span class="token punctuation">.</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span> <span class="token operator">&lt;=</span> B<span class="token punctuation">.</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span>
 <span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
-    <span class="token punctuation">`</span>A<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>name<span class="token punctuation">`</span>
+    A<span class="token punctuation">.</span><span class="token punctuation">`</span>name<span class="token punctuation">`</span>
 <span class="token keyword">ORDER</span> <span class="token keyword">BY</span>
-    <span class="token punctuation">`</span>A<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span> <span class="token keyword">DESC</span>
+    A<span class="token punctuation">.</span><span class="token punctuation">`</span>score<span class="token punctuation">`</span> <span class="token keyword">DESC</span>
 <span class="token punctuation">;</span>
-</pre><ul>
-<li><strong>&#x8865;&#x5145;&#xFF1A;Python&#x751F;&#x6210;&#x6392;&#x540D;&#x6A21;&#x677F;</strong></li>
-</ul>
-<pre data-role="codeBlock" data-info="py" class="language-python"><span class="token keyword">def</span> <span class="token function">get_sql_rank</span><span class="token punctuation">(</span>
-        to_be_sorted_view<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span>
-        to_be_sorted_field<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span>
-        to_be_classified_field<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span>
-        to_be_sorted_name<span class="token operator">=</span><span class="token string">&apos;&#x5F97;&#x5206;&apos;</span><span class="token punctuation">,</span>
-        to_be_classified_name<span class="token operator">=</span><span class="token string">&apos;&#x7C7B;&#x522B;&apos;</span><span class="token punctuation">,</span>
-        rank_name<span class="token operator">=</span><span class="token string">&apos;&#x6392;&#x540D;&apos;</span><span class="token punctuation">,</span>
-        part_name_l<span class="token operator">=</span><span class="token string">&apos;A&apos;</span><span class="token punctuation">,</span>
-        part_name_r<span class="token operator">=</span><span class="token string">&apos;B&apos;</span><span class="token punctuation">,</span>
-        how_to_order<span class="token operator">=</span><span class="token string">&apos;DESC&apos;</span>
-<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">&quot;&quot;&quot;
-    &#x751F;&#x6210;&#x6392;&#x5E8F;&#x6A21;&#x677F;
-    :param to_be_sorted_view: &#x5F85;&#x6392;&#x5E8F;&#x89C6;&#x56FE;
-    :param to_be_sorted_field: &#x5F85;&#x6392;&#x5E8F;&#x5B57;&#x6BB5;
-    :param to_be_classified_field: &#x5F85;&#x5206;&#x7C7B;&#x5B57;&#x6BB5;
-    :param to_be_sorted_name:
-    :param to_be_classified_name:
-    :param rank_name:
-    :param part_name_l: &#x5DE6;&#x8868;&#x4E34;&#x65F6;&#x540D;
-    :param part_name_r: &#x53F3;&#x8868;&#x4E34;&#x65F6;&#x540D;
-    :param how_to_order: DESC:&#x7B2C;&#x4E00;&#x540D;&#x5728;&#x6700;&#x524D; | ASC:&#x7B2C;&#x4E00;&#x540D;&#x5728;&#x6700;&#x540E;
-    :return: sql
-    &quot;&quot;&quot;</span>
-    to_be_sorted_view <span class="token operator">=</span> to_be_sorted_view<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> <span class="token string">&apos;(&apos;</span> <span class="token operator">==</span> to_be_sorted_view<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">and</span> <span class="token string">&apos;)&apos;</span> <span class="token operator">==</span> to_be_sorted_view<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-        to_be_sorted_view <span class="token operator">=</span> <span class="token string">&apos; &apos;</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span>line<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> line <span class="token keyword">in</span> to_be_sorted_view<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">&apos;\n&apos;</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        to_be_sorted_view <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f&quot;`</span><span class="token interpolation"><span class="token punctuation">{</span>to_be_sorted_view<span class="token punctuation">}</span></span><span class="token string">`&quot;</span></span>
-
-    sql_template <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f&quot;&quot;&quot;
-    SELECT
-        `</span><span class="token interpolation"><span class="token punctuation">{</span>part_name_l<span class="token punctuation">}</span></span><span class="token string">`.`</span><span class="token interpolation"><span class="token punctuation">{</span>to_be_classified_field<span class="token punctuation">}</span></span><span class="token string">` AS </span><span class="token interpolation"><span class="token punctuation">{</span>to_be_classified_name<span class="token punctuation">}</span></span><span class="token string">,
-        `</span><span class="token interpolation"><span class="token punctuation">{</span>part_name_l<span class="token punctuation">}</span></span><span class="token string">`.`</span><span class="token interpolation"><span class="token punctuation">{</span>to_be_sorted_field<span class="token punctuation">}</span></span><span class="token string">` AS </span><span class="token interpolation"><span class="token punctuation">{</span>to_be_sorted_name<span class="token punctuation">}</span></span><span class="token string">,
-        COUNT(DISTINCT(`</span><span class="token interpolation"><span class="token punctuation">{</span>part_name_r<span class="token punctuation">}</span></span><span class="token string">`.`</span><span class="token interpolation"><span class="token punctuation">{</span>to_be_sorted_field<span class="token punctuation">}</span></span><span class="token string">`)) AS </span><span class="token interpolation"><span class="token punctuation">{</span>rank_name<span class="token punctuation">}</span></span><span class="token string">
-    FROM
-        </span><span class="token interpolation"><span class="token punctuation">{</span>to_be_sorted_view<span class="token punctuation">}</span></span><span class="token string"> AS `</span><span class="token interpolation"><span class="token punctuation">{</span>part_name_l<span class="token punctuation">}</span></span><span class="token string">`,
-        </span><span class="token interpolation"><span class="token punctuation">{</span>to_be_sorted_view<span class="token punctuation">}</span></span><span class="token string"> AS `</span><span class="token interpolation"><span class="token punctuation">{</span>part_name_r<span class="token punctuation">}</span></span><span class="token string">`
-    WHERE
-        `</span><span class="token interpolation"><span class="token punctuation">{</span>part_name_l<span class="token punctuation">}</span></span><span class="token string">`.`</span><span class="token interpolation"><span class="token punctuation">{</span>to_be_sorted_field<span class="token punctuation">}</span></span><span class="token string">` &lt;= `</span><span class="token interpolation"><span class="token punctuation">{</span>part_name_r<span class="token punctuation">}</span></span><span class="token string">`.`</span><span class="token interpolation"><span class="token punctuation">{</span>to_be_sorted_field<span class="token punctuation">}</span></span><span class="token string">`
-    GROUP BY
-        `</span><span class="token interpolation"><span class="token punctuation">{</span>part_name_l<span class="token punctuation">}</span></span><span class="token string">`.`</span><span class="token interpolation"><span class="token punctuation">{</span>to_be_classified_field<span class="token punctuation">}</span></span><span class="token string">`
-    ORDER BY
-        `</span><span class="token interpolation"><span class="token punctuation">{</span>part_name_l<span class="token punctuation">}</span></span><span class="token string">`.`</span><span class="token interpolation"><span class="token punctuation">{</span>to_be_sorted_field<span class="token punctuation">}</span></span><span class="token string">` </span><span class="token interpolation"><span class="token punctuation">{</span>how_to_order<span class="token punctuation">}</span></span><span class="token string">
-    ;
-    &quot;&quot;&quot;</span></span>
-    <span class="token keyword">return</span> sql_template
-
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">&apos;__main__&apos;</span><span class="token punctuation">:</span>
-    sql <span class="token operator">=</span> get_sql_rank<span class="token punctuation">(</span><span class="token triple-quoted-string string">&apos;&apos;&apos;
-    (
-        SELECT
-            `name`,
-            AVG(`score`) AS &apos;score&apos;
-        FROM
-            `SC`
-        GROUP BY
-            `name`
-    )
-    &apos;&apos;&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;score&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;name&apos;</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
 </pre><h2 class="mume-header" id="%E4%BA%8B%E5%8A%A1">&#x4E8B;&#x52A1;</h2>
 
 <h3 class="mume-header" id="%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB">&#x9694;&#x79BB;&#x7EA7;&#x522B;</h3>

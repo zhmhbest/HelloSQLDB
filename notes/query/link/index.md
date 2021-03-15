@@ -9,15 +9,14 @@ FROM
     `表2` ['别名2']
 ON
     连接条件
-[WHERE 选择条件];
 -- Mysql不支持 FULL OUTER JOIN
 ```
 
-**R**
+`R`
 
 @import "./R.csv"
 
-**S**
+`S`
 
 @import "./S.csv"
 

@@ -2,72 +2,85 @@
 ### 分组查询
 
 ``` SQL
-SELECT {字段 | 聚合函数},... FROM `表` [WHERE 事前条件] GROUP BY 字段 [HAVING 事后条件];
+SELECT
+    {字段 | 聚合函数}, ...
+FROM
+    `表`
+[WHERE 筛选分组时使用的数据]
+GROUP BY
+    字段
+[HAVING 筛选分组];
 ```
 
-**Order**
+`tbl_order`
 
-@import "./Order.csv"
+@import "./tbl_order.sql"
+
+@import "./tbl_order.csv"
 
 #### Default
 
 分组查询用于从组内提取信息进行显示，每组仅能显示一行，默认情况下显示组内第一条数据。
 
 ```SQL
-SELECT * FROM `Order` GROUP BY user_id;
+SELECT * FROM tbl_salary GROUP BY `id`;
 ```
 
-@import "./Order_Default.csv"
+@import "./result_default.csv"
 
 #### Count
 
 `Count`用于统计组内某一字段不为`NULL`的元素个数。
 
 ```SQL
-SELECT user_name AS 用户, COUNT(id) AS 下单数量 FROM `Order` GROUP BY user_id;
+SELECT name, COUNT(id) AS count FROM tbl_salary GROUP BY `id`;
 ```
 
-@import "./Order_Count.csv"
+@import "./result_count.csv"
 
 #### Order By
 
 ```SQL
-SELECT user_name AS 用户, COUNT(id) AS 下单数量 FROM `Order` GROUP BY user_id ORDER BY COUNT(id) DESC;
+SELECT name, COUNT(id) AS count FROM tbl_salary GROUP BY `id` ORDER BY count DESC;
 ```
 
-@import "./Order_Count_OrderBy.csv"
+@import "./result_count_order.csv"
 
 #### Where
 
 `WHERE`用于筛选出用于分组的数据。
 
 ```SQL
-SELECT user_name AS 用户, COUNT(id) AS 下单数量 FROM `Order` WHERE Order.year=2018 GROUP BY user_id;
+SELECT name, COUNT(id) AS count FROM tbl_salary WHERE monthId>='201907' GROUP BY `id`;
 ```
 
-@import "./Order_Count_Where.csv"
+@import "./result_count_where.csv"
 
 #### Having
 
 `HAVING`用于在分组后继续筛选数据。
 
 ```SQL
-SELECT user_name AS 用户, COUNT(id) AS 下单数量 FROM `Order` GROUP BY user_id HAVING COUNT(id)>2;
+SELECT name, COUNT(id) AS count FROM tbl_salary GROUP BY `id` HAVING count>2;
 ```
 
-@import "./Order_Count_Having.csv"
+@import "./result_ount_having.csv"
 
-#### 小结
+#### 行转列
 
 ```SQL
+-- 静态
 SELECT
-    user_name AS 用户,
-    COUNT(id) AS 消费次数,
-    MAX(price) AS 最大消费,
-    MIN(price) AS 最低消费,
-    SUM(price) AS 总消费,
-    AVG(price) AS 平均消费
-FROM `Order` GROUP BY user_id;
+    `id`,
+    `name`,
+    MAX(CASE monthId WHEN '201906' THEN salary ELSE 0 END) AS '201906',
+    MAX(CASE monthId WHEN '201907' THEN salary ELSE 0 END) AS '201907',
+    MAX(CASE monthId WHEN '201908' THEN salary ELSE 0 END) AS '201908',
+    MAX(CASE monthId WHEN '201909' THEN salary ELSE 0 END) AS '201909'
+FROM
+    `tbl_salary`
+GROUP BY
+    `id`;
 ```
 
-@import "./Order_Summary.csv"
+@import "./result_row_col.csv"
