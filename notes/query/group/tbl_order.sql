@@ -9,7 +9,7 @@ CREATE TABLE tbl_salary (
 ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_general_ci;
-INSERT INTO test.tbl_salary
+INSERT INTO tbl_salary
 (id,name,salary,monthId) VALUES
     (1001,'Olivia',870.0,'201906'),
     (1001,'Olivia',860.0,'201907'),

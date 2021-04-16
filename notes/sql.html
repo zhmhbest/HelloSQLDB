@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css">
       
       
       
@@ -752,7 +752,7 @@ pre[data-line] .line-highlight[data-end]:after {
 <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">InnoDB</span>
 <span class="token keyword">DEFAULT</span> <span class="token keyword">CHARSET</span><span class="token operator">=</span>utf8mb4
 <span class="token keyword">COLLATE</span><span class="token operator">=</span>utf8mb4_general_ci<span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> test<span class="token punctuation">.</span>tbl_salary
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> tbl_salary
 <span class="token punctuation">(</span>id<span class="token punctuation">,</span>name<span class="token punctuation">,</span>salary<span class="token punctuation">,</span>monthId<span class="token punctuation">)</span> <span class="token keyword">VALUES</span>
     <span class="token punctuation">(</span><span class="token number">1001</span><span class="token punctuation">,</span><span class="token string">&apos;Olivia&apos;</span><span class="token punctuation">,</span><span class="token number">870.0</span><span class="token punctuation">,</span><span class="token string">&apos;201906&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     <span class="token punctuation">(</span><span class="token number">1001</span><span class="token punctuation">,</span><span class="token string">&apos;Olivia&apos;</span><span class="token punctuation">,</span><span class="token number">860.0</span><span class="token punctuation">,</span><span class="token string">&apos;201907&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
@@ -1033,21 +1033,21 @@ pre[data-line] .line-highlight[data-end]:after {
 <h4 class="mume-header" id="empty">Empty</h4>
 
 <pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> empty_null <span class="token keyword">WHERE</span> id<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-</pre><pre data-role="codeBlock" data-info="txt" class="language-txt"><code>MariaDB [...]&gt; ...
+</pre><pre data-role="codeBlock" data-info="txt" class="language-txt">MariaDB [...]&gt; ...
 Empty set (0.00 sec)
-</code></pre><h4 class="mume-header" id="null">Null</h4>
+</pre><h4 class="mume-header" id="null">Null</h4>
 
 <pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SELECT</span> IFNULL<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> empty_null <span class="token keyword">WHERE</span> id<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">NULL</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> id<span class="token punctuation">;</span>
 <span class="token comment">-- Or</span>
 <span class="token keyword">SELECT</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> empty_null <span class="token keyword">WHERE</span> id<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> id<span class="token punctuation">;</span>
-</pre><pre data-role="codeBlock" data-info="txt" class="language-txt"><code>MariaDB [...]&gt; ...
+</pre><pre data-role="codeBlock" data-info="txt" class="language-txt">MariaDB [...]&gt; ...
 +------+
 | id   |
 +------+
 | NULL |
 +------+
 1 row in set (0.00 sec)
-</code></pre><p>&#x5982;&#x679C;&#x4F7F;&#x7528;Navicat Premium&#x7B49;&#x8F6F;&#x4EF6;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x5FFD;&#x89C6;&#x6B64;&#x95EE;&#x9898;&#x7684;&#x5B58;&#x5728;&#x3002;</p>
+</pre><p>&#x5982;&#x679C;&#x4F7F;&#x7528;Navicat Premium&#x7B49;&#x8F6F;&#x4EF6;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x5FFD;&#x89C6;&#x6B64;&#x95EE;&#x9898;&#x7684;&#x5B58;&#x5728;&#x3002;</p>
 <h3 class="mume-header" id="%E5%BA%94%E7%94%A8">&#x5E94;&#x7528;</h3>
 
 <p><code>tbl_sc</code></p>
