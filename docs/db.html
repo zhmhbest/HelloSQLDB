@@ -286,6 +286,7 @@ pre[data-line] .line-highlight[data-end]:after {
 <li><a href="#%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BE%9B%E7%9A%84%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E">&#x67E5;&#x770B;&#x63D0;&#x4F9B;&#x7684;&#x5B58;&#x50A8;&#x5F15;&#x64CE;</a></li>
 <li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E9%BB%98%E8%AE%A4%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E">&#x67E5;&#x770B;&#x5F53;&#x524D;&#x9ED8;&#x8BA4;&#x5B58;&#x50A8;&#x5F15;&#x64CE;</a></li>
 <li><a href="#%E4%B8%B4%E6%97%B6%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E">&#x4E34;&#x65F6;&#x4FEE;&#x6539;&#x9ED8;&#x8BA4;&#x5B58;&#x50A8;&#x5F15;&#x64CE;</a></li>
+<li><a href="#innodb%E8%A1%A8%E7%A9%BA%E9%97%B4">InnoDB&#x8868;&#x7A7A;&#x95F4;</a></li>
 </ul>
 </li>
 <li><a href="#%E7%BC%96%E7%A0%81%E8%AE%BE%E7%BD%AE">&#x7F16;&#x7801;&#x8BBE;&#x7F6E;</a>
@@ -482,6 +483,22 @@ mysqladmin -u<span class="token variable">${&#x7528;&#x6237;&#x540D;}</span> -p<
 </pre><h3 class="mume-header" id="%E4%B8%B4%E6%97%B6%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E">&#x4E34;&#x65F6;&#x4FEE;&#x6539;&#x9ED8;&#x8BA4;&#x5B58;&#x50A8;&#x5F15;&#x64CE;</h3>
 
 <pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">SET</span> default_storage_engine<span class="token operator">=</span>&#x5B58;&#x50A8;&#x5F15;&#x64CE;&#x540D;
+</pre><h3 class="mume-header" id="innodb%E8%A1%A8%E7%A9%BA%E9%97%B4">InnoDB&#x8868;&#x7A7A;&#x95F4;</h3>
+
+<pre data-role="codeBlock" data-info="sql" class="language-sql"><span class="token comment">-- &#x662F;&#x5426;&#x7981;&#x7528;&#x5171;&#x4EAB;&#x8868;&#x7A7A;&#x95F4;</span>
+<span class="token keyword">SHOW</span> VARIABLES <span class="token operator">LIKE</span> <span class="token string">&apos;%innodb_file_per_table%&apos;</span><span class="token punctuation">;</span>
+</pre><pre data-role="codeBlock" data-info="txt" class="language-txt">+-----------------------+-------+
+| Variable_name         | Value |
++-----------------------+-------+
+| innodb_file_per_table | ON    |
++-----------------------+-------+
+</pre><pre data-role="codeBlock" data-info="sql" class="language-sql"><span class="token comment">-- &#x5220;&#x9664;&#x8868;&#x7A7A;&#x95F4;</span>
+<span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> db_name<span class="token punctuation">.</span>table_name <span class="token keyword">DISCARD</span> <span class="token keyword">TABLESPACE</span><span class="token punctuation">;</span>
+<span class="token comment">-- &#x6B64;&#x65F6;`${DB_HOME}/data/db_name`&#x4E0B;&#x5BF9;&#x5E94;&#x8868;&#x7684;ibd&#x6587;&#x4EF6;&#x5DF2;&#x7ECF;&#x88AB;&#x81EA;&#x52A8;&#x5220;&#x9664;</span>
+
+<span class="token comment">-- &#x624B;&#x52A8;&#x6062;&#x590D;`${DB_HOME}/data/db_name`&#x4E0B;&#x5BF9;&#x5E94;&#x8868;&#x7684;ibd&#x6587;&#x4EF6;&#x540E;</span>
+<span class="token comment">-- &#x5BFC;&#x5165;&#x8868;&#x7A7A;&#x95F4;</span>
+<span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> db_name<span class="token punctuation">.</span>table_name <span class="token keyword">IMPORT</span> <span class="token keyword">TABLESPACE</span><span class="token punctuation">;</span>
 </pre><h2 class="mume-header" id="%E7%BC%96%E7%A0%81%E8%AE%BE%E7%BD%AE">&#x7F16;&#x7801;&#x8BBE;&#x7F6E;</h2>
 
 <h3 class="mume-header" id="%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86">&#x8BBE;&#x7F6E;&#x5B57;&#x7B26;&#x96C6;</h3>

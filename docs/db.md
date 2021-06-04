@@ -127,6 +127,31 @@ SHOW VARIABLES LIKE 'storage\_engine%';
 SET default_storage_engine=存储引擎名
 ```
 
+### InnoDB表空间
+
+```sql
+-- 是否禁用共享表空间
+SHOW VARIABLES LIKE '%innodb_file_per_table%';
+```
+
+```txt
++-----------------------+-------+
+| Variable_name         | Value |
++-----------------------+-------+
+| innodb_file_per_table | ON    |
++-----------------------+-------+
+```
+
+```sql
+-- 删除表空间
+ALTER TABLE db_name.table_name DISCARD TABLESPACE;
+-- 此时`${DB_HOME}/data/db_name`下对应表的ibd文件已经被自动删除
+
+-- 手动恢复`${DB_HOME}/data/db_name`下对应表的ibd文件后
+-- 导入表空间
+ALTER TABLE db_name.table_name IMPORT TABLESPACE;
+```
+
 <!-- ■■■■■■■■ ■■■■■■■■ ■■■■■■■■ ■■■■■■■■-->
 
 ## 编码设置
