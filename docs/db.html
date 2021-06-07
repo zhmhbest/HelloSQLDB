@@ -486,7 +486,9 @@ mysqladmin -u<span class="token variable">${&#x7528;&#x6237;&#x540D;}</span> -p<
 </pre><h3 class="mume-header" id="innodb%E8%A1%A8%E7%A9%BA%E9%97%B4">InnoDB&#x8868;&#x7A7A;&#x95F4;</h3>
 
 <pre data-role="codeBlock" data-info="sql" class="language-sql"><span class="token comment">-- &#x662F;&#x5426;&#x7981;&#x7528;&#x5171;&#x4EAB;&#x8868;&#x7A7A;&#x95F4;</span>
-<span class="token keyword">SHOW</span> VARIABLES <span class="token operator">LIKE</span> <span class="token string">&apos;%innodb_file_per_table%&apos;</span><span class="token punctuation">;</span>
+<span class="token comment">-- ON  &#x6BCF;&#x4E2A; &#x8868; &#x6709;&#x4E00;&#x7EC4;&#xFF08;frm&#x3001;ibd&#xFF09;</span>
+<span class="token comment">-- OFF &#x6BCF;&#x4E2A; &#x5E93; &#x6709;&#x4E00;&#x7EC4;&#xFF08;frm&#x3001;ibd&#xFF09;</span>
+<span class="token keyword">SHOW</span> VARIABLES <span class="token operator">LIKE</span> <span class="token string">&apos;innodb_file_per_table&apos;</span><span class="token punctuation">;</span>
 </pre><pre data-role="codeBlock" data-info="txt" class="language-txt">+-----------------------+-------+
 | Variable_name         | Value |
 +-----------------------+-------+

@@ -130,8 +130,9 @@ SET default_storage_engine=存储引擎名
 ### InnoDB表空间
 
 ```sql
--- 是否禁用共享表空间
-SHOW VARIABLES LIKE '%innodb_file_per_table%';
+-- ON  每个 表 有一组（frm、ibd）
+-- OFF 每个 库 有一组（frm、ibd）
+SHOW VARIABLES LIKE 'innodb_file_per_table';
 ```
 
 ```txt
